@@ -5,7 +5,6 @@ import img3 from "../../../assets/slider/img3.png";
 import img4 from "../../../assets/slider/img4.png";
 import img5 from "../../../assets/slider/img5.png";
 import img6 from "../../../assets/slider/img6.png";
-import img7 from "../../../assets/assets/image1.png";
 
 const Banner = () => {
   return (
@@ -37,6 +36,16 @@ const Banner = () => {
         <a href="#item4" className="btn btn-md bg-slate-300 rounded-full">
           4
         </a>
+      </div>
+      <div className="text-lg bg-white">
+        <marquee behavior="" direction="">
+          Shoe is an item of footwear intended to protect and comfort the human
+          foot. Though the human foot can adapt to varied terrains and climate
+          conditions, it is vulnerable, and shoes provide protection. Form was
+          originally tied to function but over time shoes also became fashion
+          items. Some shoes are worn as safety equipment, such as steel-toe
+          boots, which are required footwear at industrial worksites.
+        </marquee>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import logo from ".../../../../assets/shoesLogo.png";
 
 const Navbar = () => {
   const navOption = (
@@ -51,7 +51,12 @@ const Navbar = () => {
             {navOption}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Shoe-House</a>
+        <div className="flex justify-center">
+          <button className="btn btn-ghost normal-case text-xl">
+            Shoe-House
+          </button>
+          <img className="h-10 w-10 mt-1 rounded-xl" src={logo} alt="" />
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navOption}</ul>

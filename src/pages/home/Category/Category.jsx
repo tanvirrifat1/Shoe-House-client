@@ -7,15 +7,15 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper/modules";
 
-import img1 from "../../../assets/assets/shoe1.png";
-import img2 from "../../../assets/assets/shoe2.png";
-import img3 from "../../../assets/assets/shoe3.png";
-import img4 from "../../../assets/assets/shoe4.png";
-import img5 from "../../../assets/assets/shoe5.png";
-import img6 from "../../../assets/assets/shoe6.png";
-import img7 from "../../../assets/assets/shoe11.png";
-import img8 from "../../../assets/assets/shoes10.png";
-import img9 from "../../../assets/assets/shoe9.png";
+import img1 from "../../../assets/assets/category/watch1.png";
+import img2 from "../../../assets/assets/category/watch16.png";
+import img3 from "../../../assets/assets/category/watch19.png";
+import img4 from "../../../assets/assets/category/watch16.png";
+import img5 from "../../../assets/assets/category/watch14.png";
+import img6 from "../../../assets/assets/category/watch6.png";
+import img7 from "../../../assets/assets/category/watch10.png";
+import img8 from "../../../assets/assets/category/watch15.png";
+
 import SectionTitle from "../../../components/sectionTitle/SectionTitle";
 
 const Category = () => {
@@ -83,9 +83,6 @@ const Category = () => {
           <SwiperSlide>
             {" "}
             <img src={img8} alt="" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={img9} alt="" />
           </SwiperSlide>
         </Swiper>
       </section>

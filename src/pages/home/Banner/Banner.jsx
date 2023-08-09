@@ -1,10 +1,9 @@
 import "./carousel.css";
-import img1 from "../../../assets/slider/img1.png";
-import img2 from "../../../assets/slider/img2.png";
-import img3 from "../../../assets/slider/img3.png";
-import img4 from "../../../assets/slider/img4.png";
-import img5 from "../../../assets/slider/img5.png";
-import img6 from "../../../assets/slider/img6.png";
+
+import img2 from "../../../assets/assets/watch5.png";
+import img3 from "../../../assets/assets/watch7.png";
+import img5 from "../../../assets/assets/watch3.png";
+import img6 from "../../../assets/assets/watch2.png";
 
 const Banner = () => {
   return (

@@ -1,7 +1,7 @@
-import React from "react";
 import Banner from "../Banner/Banner";
 import Category from "../Category/Category";
 import PopularShoes from "../popularShoes/PopularShoes";
+import Featured from "../Featured/Featured";
 
 const Home = () => {
   return (
@@ -9,6 +9,7 @@ const Home = () => {
       <Banner />
       <Category />
       <PopularShoes />
+      <Featured />
     </div>
   );
 };

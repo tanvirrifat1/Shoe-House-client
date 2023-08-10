@@ -22,7 +22,7 @@ const Banner = () => {
           <img src={img6} className="w-full h-[700px]" />
         </div>
       </div>
-      <div className="flex justify-center w-full py-2 gap-2">
+      <div className="flex justify-center w-full py-2 gap-2 ">
         <a href="#item1" className="btn btn-md bg-slate-300 rounded-full ">
           1
         </a>
@@ -36,7 +36,7 @@ const Banner = () => {
           4
         </a>
       </div>
-      <div className="text-lg bg-white">
+      <div className="text-lg bg-slate-100 rounded-2xl py-1">
         <marquee behavior="" direction="">
           Shoe is an item of footwear intended to protect and comfort the human
           foot. Though the human foot can adapt to varied terrains and climate

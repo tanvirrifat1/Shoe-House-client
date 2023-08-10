@@ -1,6 +1,6 @@
 const FindSection = () => {
   return (
-    <div className="bg-slate-100 my-30 py-32 mb-10 pt-20">
+    <div className="bg-slate-100 my-30 py-32 ">
       <div>
         <h1 className="text-4xl text-center my-4">Be the first to know</h1>
         <p className="text-[16px] text-center font-semibold  my-6">
@@ -15,7 +15,9 @@ const FindSection = () => {
           />
         </div>
         <div className="flex justify-center">
-          <button className="btn text-green-500 ">sing in</button>
+          <button className="btn text-white hover:text-black bg-green-500 mt-8 w-[180px]">
+            sing in
+          </button>
         </div>
       </div>
     </div>

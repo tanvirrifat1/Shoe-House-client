@@ -1,31 +1,35 @@
 import logo from ".../../../../assets/shoesLogo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navOption = (
     <>
-      <li>
-        <a>Item 1</a>
-      </li>
-      <li tabIndex={0}>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li>
-              <a>Submenu 1</a>
-            </li>
-            <li>
-              <a>Submenu 2</a>
-            </li>
-          </ul>
-        </details>
-      </li>
-      <li>
-        <a>Item 3</a>
-      </li>
+      <ul className="lg:flex  space-x-6">
+        <li>
+          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
+            <Link to="/menu">Watch-Category </Link>
+          </button>
+        </li>
+        <li>
+          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
+            Shop
+          </button>
+        </li>
+        <li>
+          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
+            About
+          </button>
+        </li>
+        <li>
+          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
+            Contact
+          </button>
+        </li>
+      </ul>
     </>
   );
   return (
-    <div className="navbar fixed x-10 bg-opacity-25 bg-black text-white">
+    <div className="navbar fixed x-10  bg-gray-900 text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -52,10 +56,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex justify-center">
-          <button className="btn btn-ghost normal-case text-xl">
-            Time-Square
-          </button>
-          <img className="h-10 w-10 mt-1 rounded-xl" src={logo} alt="" />
+          <Link to="/">
+            <button className="btn btn-ghost normal-case text-xl">
+              Time-Square
+            </button>
+          </Link>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">

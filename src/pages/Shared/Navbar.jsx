@@ -12,7 +12,7 @@ const Navbar = () => {
         </li>
         <li>
           <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            Shop
+            <Link to="/order"> Order Watch</Link>
           </button>
         </li>
         <li>

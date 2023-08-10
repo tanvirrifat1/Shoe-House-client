@@ -30,15 +30,40 @@ const Menu = () => {
       {/* offer */}
       <MenuCategory items={Fitbit} />
       {/* rolex */}
-      <MenuCategory items={Rolex} title="Rolex" img={RolexCover} />
+      <MenuCategory
+        items={Rolex}
+        paragraph="Rolex SA is a Swiss watch designer and manufacturer based in Geneva, Switzerland. Founded in 1905 as Wilsdorf and Davis by Hans Wilsdorf and Alfred Davis in London, the company registered Rolex as the brand name of its watches in 1908 and became Rolex Watch Co. Ltd. in 1915."
+        title="Rolex"
+        img={RolexCover}
+      />
       {/* Omega */}
-      <MenuCategory items={Omega} title="Omega" img={OmegaCover} />
+      <MenuCategory
+        items={Omega}
+        title="Omega"
+        img={OmegaCover}
+        paragraph="Omega is a Swiss luxury watchmaker that has gained worldwide recognition for its high-quality and prestigious timepieces. Founded in 1848 by Louis Brandt in La Chaux-de-Fonds, Switzerland, Omega has a rich history of innovation and excellence in watchmaking."
+      />
       {/* Garmin */}
-      <MenuCategory items={Garmin} title="Garmin" img={GarminCover} />
+      <MenuCategory
+        items={Garmin}
+        title="Garmin"
+        img={GarminCover}
+        paragraph="Garmin is a renowned company that specializes in the development of GPS technology and navigation devices. In addition to its navigation solutions, Garmin has also gained significant recognition for its line of wearable fitness and outdoor smartwatches. Garmin watches are designed to cater to a wide range of activities, from fitness tracking and running to outdoor adventures and exploration."
+      />
       {/* Breitling */}
-      <MenuCategory items={Breitling} title="Breitling" img={BreitlingCover} />
+      <MenuCategory
+        items={Breitling}
+        title="Breitling"
+        img={BreitlingCover}
+        paragraph="Breitling is a Swiss luxury watchmaker known for its high-quality and precision-crafted timepieces, particularly aviation and pilot watches. Founded in 1884 by Léon Breitling in Saint-Imier, Switzerland, the brand has a strong heritage in aviation and has become synonymous with ruggedness, reliability, and precision."
+      />
       {/* TAG_Heuer */}
-      <MenuCategory items={TAG_Heuer} title="TAG_Heuer" img={TAG_HeuerCover} />
+      <MenuCategory
+        items={TAG_Heuer}
+        title="TAG_Heuer"
+        img={TAG_HeuerCover}
+        paragraph="TAG Heuer is a prestigious Swiss watchmaker known for its luxury timepieces that combine advanced technology, precision craftsmanship, and sporty aesthetics. Founded in 1860 by Edouard Heuer in St-Imier, Switzerland, the brand has a rich history of innovation and has established itself as a prominent player in the world of haute horlogerie."
+      />
     </div>
   );
 };

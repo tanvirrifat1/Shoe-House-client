@@ -7,7 +7,7 @@ const Navbar = () => {
       <ul className="lg:flex  space-x-6">
         <li>
           <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            <Link to="/menu">Watch-Category </Link>
+            <Link to="/menu">Watch Category </Link>
           </button>
         </li>
         <li>

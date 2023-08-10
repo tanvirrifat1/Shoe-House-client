@@ -1,7 +1,7 @@
 import { Parallax } from "react-parallax";
 import Navbar from "../Navbar";
 
-const Cover = ({ img, title }) => {
+const Cover = ({ img, title, paragraph }) => {
   return (
     <div>
       <Parallax
@@ -16,12 +16,7 @@ const Cover = ({ img, title }) => {
           <div className="hero-content text-center text-neutral-content">
             <div className="max-w-md">
               <h1 className="mb-5 text-3xl font-bold uppercase">{title}</h1>
-              <p className="mb-5">
-                If you love watches, then no doubt you would like a Rolex - who
-                wouldn’t? However, not only are they out of many people’s
-                budget, they are also extremely difficult to purchase new from
-                an authorised dealer.
-              </p>
+              <p className="mb-5">{paragraph}</p>
             </div>
           </div>
         </div>

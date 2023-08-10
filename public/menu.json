@@ -9,10 +9,10 @@
     },
     {
         "_id": "642c155b2c4774f05c36eeb9",
-        "name": "TAG Heuer",
+        "name": "TAG_Heuer",
         "details": "TAG Heuer is based in La Chaux-de-Fonds, Switzerland, and is led by CEO Frédéric Arnault. Jack Heuer, great-grandson of the founder, is the honorary chairman.",
         "image": "https://i.ibb.co/7vzvWxQ/images-1.jpg",
-        "category": "TAG Heuer",
+        "category": "TAG_Heuer",
         "price": "320"
     },
     {
@@ -91,10 +91,10 @@
     },
     {
         "_id": "642c155b2c4774f05c36eeba",
-        "name": "TAG Heuer",
+        "name": "TAG_Heuer",
         "details": "TAG Heuer is based in La Chaux-de-Fonds, Switzerland, and is led by CEO Frédéric Arnault. Jack Heuer, great-grandson of the founder, is the honorary chairman.",
         "image": "https://i.ibb.co/j30dssJ/images.jpg",
-        "category": "TAG Heuer",
+        "category": "TAG_Heuer",
         "price": "320"
     },
     {
@@ -122,7 +122,7 @@
     },
     {
         "_id": "642c155b2c4774f05c36ee7e",
-        "name": "TAG Heuer",
+        "name": "TAG_Heuer",
         "details": "TAG Heuer is a Swiss luxury watch brand known for its prestigious timepieces that blend precision engineering, innovation, and sporty elegance. ",
         "image": "https://i.ibb.co/j30dssJ/images.jpg",
         "category": "popular",

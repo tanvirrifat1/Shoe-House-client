@@ -11,7 +11,7 @@ const Cover = ({ img, title }) => {
         strength={-200}
       >
         <Navbar />
-        <div className="hero h-[900px]">
+        <div className="hero h-[700px]">
           <div className="hero-overlay bg-opacity-60"></div>
           <div className="hero-content text-center text-neutral-content">
             <div className="max-w-md">

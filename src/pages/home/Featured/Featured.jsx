@@ -14,11 +14,11 @@ const Featured = () => {
   });
 
   return (
-    <div className="featured-item text-white m-10">
+    <div className="featured-item bg-fixed text-white my-20 pt-2 rounded-xl">
       <SectionTitle subHeading="check it out" heading="from our shop" />
-      <div className="md:flex justify-center items-center py-8 px-16">
-        <div>
-          <img className="rounded-2xl" src={image} alt="" />
+      <div className="flex flex-col md:flex-row justify-center items-center pb-10 md:pb-20 px-6 md:px-10 lg:px-20">
+        <div className="mb-4 md:mb-0 md:mr-6 md:w-1/2">
+          <img className="rounded-2xl w-72 md:ml-40 " src={image} alt="" />
         </div>
         <div className="md:ml-10">
           <p className="font-semibold">{formattedDate}</p>
@@ -27,9 +27,9 @@ const Featured = () => {
             Unveiling our Spectacular Summer Sale at Time Square 🌞 Indulge in
             Luxury: Up to 50% OFF on Select Watches! 🔥 Limited-Time Offer:{" "}
             <br />
-            August 10th - August 20th 🔥 🌟 Discover a World of Elegance: <br />{" "}
-            Dive into a stunning collection of renowned brands Choose from an
-            array of mesmerizing styles Elevate your wrist game with exquisite
+            {formattedDate} 🔥 🌟 Discover a World of Elegance: <br /> Dive into
+            a stunning collection of renowned brands Choose from an array of
+            mesmerizing styles Elevate your wrist game with exquisite
             craftsmanship 💎 Why Choose Time Square Unbeatable Discounts: <br />{" "}
             Grab your dream watch at unbeatable prices Expert Guidance: <br />{" "}
             Our watch enthusiasts are here to assist you Quality Assurance:{" "}
@@ -43,7 +43,9 @@ const Featured = () => {
             Website URL or step into our store at Manikganj Sadar. Elevate your
             style with the watch of your dreams. See you there! 🛍️
           </p>
-          <button className="btn btn-outline text-white my-2">Order now</button>
+          <button className="btn btn-outline border-0 border-b-4 text-white my-2">
+            Order now
+          </button>
         </div>
       </div>
     </div>

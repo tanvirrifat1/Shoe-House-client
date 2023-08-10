@@ -2,6 +2,7 @@ import Banner from "../Banner/Banner";
 import Category from "../Category/Category";
 import PopularShoes from "../popularShoes/PopularShoes";
 import Featured from "../Featured/Featured";
+import FindSection from "../Featured/FindSection/FindSection";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <Category />
       <PopularShoes />
       <Featured />
+      <FindSection />
     </div>
   );
 };

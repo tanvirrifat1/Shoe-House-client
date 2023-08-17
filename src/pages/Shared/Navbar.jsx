@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const navOption = (
     <>
-      <ul className="lg:flex  space-x-6">
+      <ul className="lg:flex space-x-6">
         <li>
           <button href="#" className="text-gray-300 lg:hover:text-slate-400">
             <Link to="/menu">Watch Category </Link>
@@ -12,12 +12,12 @@ const Navbar = () => {
         </li>
         <li>
           <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            <Link to="/order"> Order Watch</Link>
+            <Link to="/order/Rolex">Order Watch</Link>
           </button>
         </li>
         <li>
           <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            About
+            <Link to={"/login"}>Login</Link>
           </button>
         </li>
         <li>

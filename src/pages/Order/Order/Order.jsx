@@ -8,9 +8,21 @@ import WatchCard from "../../../components/sectionTitle/watchCard/WatchCard";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import OrderTab from "./OrderTab";
+import { useParams } from "react-router-dom";
 
 const Order = () => {
-  const [tabIndex, setTabIndex] = useState(0);
+  const categories = [
+    "Rolex",
+    "Omega",
+    "TAG_Heuer",
+    "Fitbit",
+    "Garmin",
+    "Breitling",
+  ];
+
+  const { category } = useParams();
+  const initialIndex = categories.indexOf(category);
+  const [tabIndex, setTabIndex] = useState(initialIndex);
 
   // fetch data
   const [menu] = useMenu();

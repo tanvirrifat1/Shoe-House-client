@@ -10,7 +10,7 @@ const WatchCard = ({ item }) => {
           <p className="text-2xl hover:text-green-700">{name}</p>
           <h2 className="text-2xl hover:text-green-700">${price}</h2>
         </div>
-        <p>{details}</p>
+        <p>{details.slice(0, 100)}...</p>
 
         <div className="card-actions justify-center">
           <button className="btn w-full rounded-3xl text-black  border-black hover:border-gray-900 px-4 py-2 ">

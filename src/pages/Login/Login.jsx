@@ -1,12 +1,34 @@
+import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import {
+  loadCaptchaEnginge,
+  LoadCanvasTemplate,
+  LoadCanvasTemplateNoReload,
+  validateCaptcha,
+} from "react-simple-captcha";
 
 const Login = () => {
+  const captchaRef = useRef(null);
+  const [disable, setDisabled] = useState(true);
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, []);
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+  };
+
+  const handleValidationCaptcha = () => {
+    const value = captchaRef.current.value;
+    if (validateCaptcha(value)) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
   };
 
   return (
@@ -53,10 +75,29 @@ const Login = () => {
                   </a>
                 </label>
               </div>
+              <div className="form-control">
+                <label className="label">
+                  <LoadCanvasTemplate />
+                </label>
+                <input
+                  type="text"
+                  ref={captchaRef}
+                  name="captcha"
+                  placeholder="text the captcha"
+                  className="input input-bordered input-success"
+                />
+                <button
+                  onClick={handleValidationCaptcha}
+                  className="btn btn-outline btn-xs btn-success mt-2"
+                >
+                  Validation
+                </button>
+              </div>
               <div className="form-control mt-6">
                 <input
-                  className="btn btn-primary"
+                  className="btn hover:btn-outline text-white hover:text-black bg-green-400"
                   type="submit"
+                  disabled={disable}
                   value="Login"
                 />
               </div>

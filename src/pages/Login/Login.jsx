@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
+
+import img from "../../assets/others/authentication.gif";
+
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
@@ -40,11 +43,9 @@ const Login = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center md:w-1/2 lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
+            <figure className="py-6">
+              <img src={img} alt="" />
+            </figure>
           </div>
           <div className="card  md:w-1/2 max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleLogin} className="card-body">
@@ -56,7 +57,7 @@ const Login = () => {
                   type="email"
                   name="email"
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input input-success"
                 />
               </div>
               <div className="form-control">
@@ -67,7 +68,7 @@ const Login = () => {
                   type="password"
                   name="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-success"
                 />
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">

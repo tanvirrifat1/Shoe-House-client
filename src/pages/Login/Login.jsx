@@ -11,6 +11,7 @@ import {
 } from "react-simple-captcha";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const captchaRef = useRef(null);
@@ -66,7 +67,7 @@ const Login = () => {
                     type="email"
                     name="email"
                     placeholder="email"
-                    className="input input-success"
+                    className="input input-bordered"
                   />
                 </div>
                 <div className="form-control">
@@ -77,7 +78,7 @@ const Login = () => {
                     type="password"
                     name="password"
                     placeholder="password"
-                    className="input input-success"
+                    className="input input-bordered"
                   />
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">
@@ -94,7 +95,7 @@ const Login = () => {
                     ref={captchaRef}
                     name="captcha"
                     placeholder="text the captcha"
-                    className="input input-bordered input-success"
+                    className="input input-bordered"
                   />
                   <button
                     onClick={handleValidationCaptcha}
@@ -105,19 +106,22 @@ const Login = () => {
                 </div>
                 <div className="form-control mt-6">
                   <input
-                    className="btn hover:btn-outline text-white hover:text-black bg-green-400"
+                    className="btn btn-outline btn-success"
                     type="submit"
                     disabled={disable}
                     value="Login"
                   />
                 </div>
+                <div className="btn btn-outline btn-accent">
+                  <FcGoogle className="text-3xl" />
+                </div>
+                <p className="my-2">
+                  New Here?
+                  <Link to="/signup">
+                    <a className="link link-primary"> Create an account</a>
+                  </Link>
+                </p>
               </form>
-              <p>
-                New Here?
-                <Link to="/signup">
-                  <a className="link link-primary">Create an account</a>
-                </Link>
-              </p>
             </div>
           </div>
         </div>

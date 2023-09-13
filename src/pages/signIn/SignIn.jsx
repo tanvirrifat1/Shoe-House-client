@@ -1,6 +1,15 @@
-import React from "react";
+import { useForm } from "react-hook-form";
 
 const SignUp = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => console.log(data);
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -13,7 +22,7 @@ const SignUp = () => {
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -23,7 +32,11 @@ const SignUp = () => {
                 placeholder="name"
                 className="input input-bordered"
                 name="name"
-              />
+                {...register("name", { required: true })}
+              />{" "}
+              {errors.name && (
+                <span className="text-red-500">Name is required</span>
+              )}
             </div>
             <div className="form-control">
               <label className="label">
@@ -34,17 +47,26 @@ const SignUp = () => {
                 placeholder="email"
                 className="input input-bordered"
                 name="email"
+                {...register("email", { required: true })}
               />
+              {errors.email && (
+                <span className="text-red-500">Email is required</span>
+              )}
             </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
                 placeholder="password"
                 className="input input-bordered"
-              />
+                name="password"
+                {...register("password", { required: true })}
+              />{" "}
+              {errors.password && (
+                <span className="text-red-500">Password is required</span>
+              )}
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?
@@ -54,7 +76,7 @@ const SignUp = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

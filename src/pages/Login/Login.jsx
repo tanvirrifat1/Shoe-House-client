@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 import img from "../../assets/others/authentication.gif";
@@ -6,18 +6,21 @@ import img from "../../assets/others/authentication.gif";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
-  LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
 import { AuthContext } from "../../Providers/AuthProviders";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const captchaRef = useRef(null);
   const [disable, setDisabled] = useState(true);
+  const { signIn, googleSignIn } = useContext(AuthContext);
 
-  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -31,16 +34,36 @@ const Login = () => {
     signIn(email, password).then((result) => {
       const user = result.user;
       console.log(user);
+      Swal.fire({
+        title: "User Login Successfully!",
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      });
+      navigate(from, { replcae: true });
     });
   };
 
-  const handleValidationCaptcha = () => {
-    const value = captchaRef.current.value;
+  const handleValidationCaptcha = (e) => {
+    const value = e.target.value;
     if (validateCaptcha(value)) {
       setDisabled(false);
     } else {
       setDisabled(true);
     }
+  };
+
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replcae: true });
+      })
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -50,11 +73,10 @@ const Login = () => {
       </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div>
-          <h1 className="text-3xl text-center ">Login Here</h1>
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center md:w-1/2 lg:text-left">
               <figure className="">
-                <img className="h-[520px]" src={img} alt="" />
+                <img className="h-[600px] rounded-md" src={img} alt="" />
               </figure>
             </div>
             <div className="card  md:w-1/2 max-w-sm shadow-2xl bg-base-100">
@@ -91,16 +113,13 @@ const Login = () => {
                     <LoadCanvasTemplate />
                   </label>
                   <input
+                    onBlur={handleValidationCaptcha}
                     type="text"
-                    ref={captchaRef}
                     name="captcha"
                     placeholder="text the captcha"
                     className="input input-bordered"
                   />
-                  <button
-                    onClick={handleValidationCaptcha}
-                    className="btn btn-outline btn-xs btn-success mt-2"
-                  >
+                  <button className="btn btn-outline btn-xs btn-success mt-2">
                     Validation
                   </button>
                 </div>
@@ -112,7 +131,10 @@ const Login = () => {
                     value="Login"
                   />
                 </div>
-                <div className="btn btn-outline btn-accent">
+                <div
+                  onClick={handleGoogleLogin}
+                  className="btn btn-outline btn-accent"
+                >
                   <FcGoogle className="text-3xl" />
                 </div>
                 <p className="my-2">

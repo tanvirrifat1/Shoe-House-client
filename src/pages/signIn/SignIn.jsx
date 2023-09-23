@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import img from "../../assets/others/signup.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
@@ -14,12 +14,28 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleSignIn } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replcae: true });
+      })
+      .catch((err) => console.error(err));
+  };
 
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((result) => {
       const users = result.user;
       console.log(users);
+      reset();
     });
   };
 
@@ -32,7 +48,7 @@ const SignUp = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <figure className="">
-              <img className="h-[400px]" src={img} alt="" />
+              <img className="h-[480px]" src={img} alt="" />
             </figure>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -98,7 +114,10 @@ const SignUp = () => {
                 <button className="btn btn-outline btn-accent">SignUp</button>
               </div>
 
-              <button className="btn btn-outline btn-accent">
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-outline btn-accent"
+              >
                 <FcGoogle className="text-3xl" />
               </button>
 

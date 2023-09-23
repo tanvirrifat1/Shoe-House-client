@@ -1,7 +1,17 @@
 import logo from ".../../../../assets/shoesLogo.png";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
+
   const navOption = (
     <>
       <ul className="lg:flex space-x-6">
@@ -15,9 +25,33 @@ const Navbar = () => {
             <Link to="/order/Rolex">Order Watch</Link>
           </button>
         </li>
+        {user ? (
+          <>
+            <li>
+              <button
+                onClick={handleLogOut}
+                href="#"
+                className="text-gray-300 lg:hover:text-slate-400"
+              >
+                LoginOut
+              </button>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <button
+                href="#"
+                className="text-gray-300 lg:hover:text-slate-400"
+              >
+                <Link to={"/login"}>Login</Link>
+              </button>
+            </li>
+          </>
+        )}
         <li>
           <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            <Link to={"/login"}>Login</Link>
+            <Link to="/secret">secret</Link>
           </button>
         </li>
         <li>

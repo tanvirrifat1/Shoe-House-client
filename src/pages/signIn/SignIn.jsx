@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const {
@@ -14,7 +16,8 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const { createUser, googleSignIn } = useContext(AuthContext);
+  const { createUser, googleSignIn, updateUserProfile } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,16 +29,34 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+
         navigate(from, { replcae: true });
       })
       .catch((err) => console.error(err));
   };
 
   const onSubmit = (data) => {
+    console.log(data);
     createUser(data.email, data.password).then((result) => {
-      const users = result.user;
-      console.log(users);
-      reset();
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      updateUserProfile(data.name, data.PhotoURL)
+        .then(() => {
+          console.log("User profile updated");
+          reset();
+          toast("user created successfully", {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          navigate("/");
+        })
+        .catch((err) => console.log(err));
     });
   };
 
@@ -66,6 +87,20 @@ const SignUp = () => {
                 />{" "}
                 {errors.name && (
                   <span className="text-red-500">Name is required</span>
+                )}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">PhotoURL</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="PhotoURL"
+                  className="input input-bordered"
+                  {...register("PhotoURL", { required: true })}
+                />
+                {errors.PhotoURL && (
+                  <span className="text-red-500">PhotoURL is required</span>
                 )}
               </div>
               <div className="form-control">

@@ -25,6 +25,16 @@ const Navbar = () => {
             <Link to="/order/Rolex">Order Watch</Link>
           </button>
         </li>
+        <li>
+          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
+            <Link to="/secret">secret</Link>
+          </button>
+        </li>
+        <li>
+          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
+            Contact
+          </button>
+        </li>
         {user ? (
           <>
             <li>
@@ -49,16 +59,6 @@ const Navbar = () => {
             </li>
           </>
         )}
-        <li>
-          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            <Link to="/secret">secret</Link>
-          </button>
-        </li>
-        <li>
-          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            Contact
-          </button>
-        </li>
       </ul>
     </>
   );
@@ -101,7 +101,18 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navOption}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {user?.photoURL ? (
+          <img
+            className=" w-12 h-12 rounded-full dark:bg-gray-500"
+            src={user?.photoURL}
+            alt=""
+          ></img>
+        ) : (
+          <></>
+        )}
+        <div className="ml-2">
+          {user?.displayName ? <h1>{user?.displayName}</h1> : <></>}
+        </div>
       </div>
     </div>
   );

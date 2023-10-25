@@ -3,10 +3,12 @@ import { FcGoogle } from "react-icons/fc";
 import img from "../../assets/others/signup.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import LoadingButton from "../Shared/LodingButton";
+import SmallSpinner from "../Shared/SmallSpinner";
 
 const SignUp = () => {
   const {
@@ -18,6 +20,14 @@ const SignUp = () => {
 
   const { createUser, googleSignIn, updateUserProfile } =
     useContext(AuthContext);
+
+  const [isLoading, SetIsLoading] = useState(false);
+
+  if (isLoading) {
+    <div className="flex justify-center items-center">
+      <span className="loading loading-spinner text-secondary"></span>
+    </div>;
+  }
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,6 +46,7 @@ const SignUp = () => {
   };
 
   const onSubmit = (data) => {
+    SetIsLoading(true);
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -66,6 +77,7 @@ const SignUp = () => {
                   theme: "light",
                 });
                 navigate("/");
+                SetIsLoading(false);
               })
               .catch((err) => console.log(err));
           });
@@ -158,8 +170,14 @@ const SignUp = () => {
                   </a>
                 </label>
               </div>
-              <div className="form-control mt-6">
-                <button className="btn btn-outline btn-accent">SignUp</button>
+              <div className="mt-4">
+                <LoadingButton
+                  type="submit"
+                  className="btn btn-accent mt-3 w-full"
+                  value="Login"
+                >
+                  {isLoading ? <SmallSpinner /> : "signUp"}
+                </LoadingButton>
               </div>
 
               <button

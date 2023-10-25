@@ -36,28 +36,41 @@ const SignUp = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
-    createUser(data.email, data.password).then((result) => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
-      updateUserProfile(data.name, data.PhotoURL)
-        .then(() => {
-          console.log("User profile updated");
-          reset();
-          toast("user created successfully", {
-            position: "top-center",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+
+    const url = `https://api.imgbb.com/1/upload?key=c71fd21009b2244466212ed88a7ea531`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgData) => {
+        if (imgData.data.display_url) {
+          createUser(data.email, data.password).then((result) => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            updateUserProfile(data.name, imgData.data.display_url)
+              .then(() => {
+                console.log("User profile updated");
+                reset();
+                toast("user created successfully", {
+                  position: "top-center",
+                  autoClose: 1000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                });
+                navigate("/");
+              })
+              .catch((err) => console.log(err));
           });
-          navigate("/");
-        })
-        .catch((err) => console.log(err));
-    });
+        }
+      });
   };
 
   return (
@@ -94,12 +107,12 @@ const SignUp = () => {
                   <span className="label-text">PhotoURL</span>
                 </label>
                 <input
-                  type="text"
-                  placeholder="PhotoURL"
+                  type="file"
+                  placeholder="image"
                   className="input input-bordered"
-                  {...register("PhotoURL", { required: true })}
+                  {...register("image", { required: true })}
                 />
-                {errors.PhotoURL && (
+                {errors.image && (
                   <span className="text-red-500">PhotoURL is required</span>
                 )}
               </div>

@@ -9,7 +9,6 @@ import {
 } from "swiper/modules";
 import "swiper/css";
 
-import { FaQuoteLeft, FaQuoteRight, FaStar } from "react-icons/fa";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 import img1 from "../../../assets/assets/category/watch1.png";
@@ -21,55 +20,70 @@ import img6 from "../../../assets/assets/category/watch6.png";
 import img7 from "../../../assets/assets/category/watch10.png";
 import img8 from "../../../assets/assets/category/watch15.png";
 
-import SectionTitle from "../../../components/sectionTitle/SectionTitle";
-
 const Category = () => {
   const SERVICE = [
     {
       id: 1,
-      title: " Plumbing Service",
+      title: "The Legendary Omega Speedmaster: A Timeless Classic",
       subTitle1: "We Provide World Class",
       subTitle2: "House shifting services in Dhaka",
       descripttion:
         "Welcome to PACK & SHIFT Removal group, Professional House Shifting Service to anywhere in Bangladesh from Dhaka City. AlsoInternational movers and packers Any country of the world",
-      image:
-        "https://i.ibb.co/SmK7wt7/29709195-rs27rwix6gc44dgjnwisuy5m-Extra-Large.webp",
+      image: img6,
     },
     {
       id: 2,
-      title: "Expert Plumbing Service You Can Trust.",
+      title: "Exploring the Elegance of Omega Seamaster Watches",
       subTitle1: "We Provide World Class",
       subTitle2: "House shifting services in Dhaka",
       descripttion:
         "Welcome to PACK & SHIFT Removal group, Professional House Shifting Service to anywhere in Bangladesh from Dhaka City. AlsoInternational movers and packers Any country of the world",
-      image: "https://i.ibb.co/qprYHxR/s-l1200.webp",
+      image: img7,
     },
     {
       id: 3,
-      title: "Expert Plumbing Service You Can Trust.",
+      title: "Omega Constellation: A Symbol of Luxury and Precision",
       subTitle1: "We Provide World Class",
       subTitle2: "House shifting services in Dhaka",
       descripttion:
         "Welcome to PACK & SHIFT Removal group, Professional House Shifting Service to anywhere in Bangladesh from Dhaka City. AlsoInternational movers and packers Any country of the world",
-      image: "https://i.ibb.co/syrSgf5/84-37-731.webp",
+      image: img8,
     },
     {
       id: 4,
-      title: "Expert Plumbing Service You Can Trust.",
+      title: "Fitbit Versa:Your Ultimate Health and Fitness Companion",
       subTitle1: "We Provide World Class",
       subTitle2: "House shifting services in Dhaka",
       descripttion:
         "Welcome to PACK & SHIFT Removal group, Professional House Shifting Service to anywhere in Bangladesh from Dhaka City. AlsoInternational movers and packers Any country of the world",
-      image: "https://i.ibb.co/syrSgf5/84-37-731.webp",
+      image: img5,
     },
     {
       id: 5,
+      title: "Fitbit Sense: Beyond a Smartwatch, It's Your Wellness Coach",
+      subTitle1: "We Provide World Class",
+      subTitle2: "House shifting services in Dhaka",
+      descripttion:
+        "Welcome to PACK & SHIFT Removal group, Professional House Shifting Service to anywhere in Bangladesh from Dhaka City. AlsoInternational movers and packers Any country of the world",
+      image: img6,
+    },
+    {
+      id: 6,
+      title: "Fitbit Luxe: Elevating Style and Wellness in One Watch",
+      subTitle1: "We Provide World Class",
+      subTitle2: "House shifting services in Dhaka",
+      descripttion:
+        "Welcome to PACK & SHIFT Removal group, Professional House Shifting Service to anywhere in Bangladesh from Dhaka City. AlsoInternational movers and packers Any country of the world",
+      image: img2,
+    },
+    {
+      id: 7,
       title: "Expert Plumbing Service You Can Trust.",
       subTitle1: "We Provide World Class",
       subTitle2: "House shifting services in Dhaka",
       descripttion:
         "Welcome to PACK & SHIFT Removal group, Professional House Shifting Service to anywhere in Bangladesh from Dhaka City. AlsoInternational movers and packers Any country of the world",
-      image: "https://i.ibb.co/syrSgf5/84-37-731.webp",
+      image: img3,
     },
   ];
 

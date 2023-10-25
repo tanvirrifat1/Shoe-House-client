@@ -5,7 +5,7 @@ import { AuthContext } from "../../Providers/AuthProviders";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  console.log(user);
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -17,6 +17,11 @@ const Navbar = () => {
       <ul className="lg:flex space-x-6">
         <li>
           <button href="#" className="text-gray-300 lg:hover:text-slate-400">
+            <Link to="/">Home</Link>
+          </button>
+        </li>
+        <li>
+          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
             <Link to="/menu">Watch Category </Link>
           </button>
         </li>
@@ -25,11 +30,11 @@ const Navbar = () => {
             <Link to="/order/Rolex">Order Watch</Link>
           </button>
         </li>
-        <li>
+        {/* <li>
           <button href="#" className="text-gray-300 lg:hover:text-slate-400">
             <Link to="/secret">secret</Link>
           </button>
-        </li>
+        </li> */}
         <li>
           <button href="#" className="text-gray-300 lg:hover:text-slate-400">
             Contact

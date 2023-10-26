@@ -1,12 +1,13 @@
-import logo from ".../../../../assets/shoesLogo.png";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
-import { FaBeer, FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
+import useCart from "../../hooks/useCart";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  const [cart] = useCart();
+  console.log(cart.data);
   const handleLogOut = () => {
     logOut()
       .then(() => {})
@@ -31,11 +32,7 @@ const Navbar = () => {
             <Link to="/order/Rolex">Order Watch</Link>
           </button>
         </li>
-        {/* <li>
-          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            <Link to="/secret">secret</Link>
-          </button>
-        </li> */}
+
         <li>
           <button href="#" className="text-gray-300 lg:hover:text-slate-400">
             <Link to="/contact">Contact</Link>
@@ -69,7 +66,9 @@ const Navbar = () => {
         <li>
           <button className="text-gray-300 lg:hover:text-slate-400 mt-1">
             <FaShoppingCart className="text-xl " />
-            <p className="badge badge-secondary -mt-6 ">+0</p>
+            <div className="badge badge-secondary text-white -mt-6 ">
+              +{cart?.data?.length || 0}
+            </div>
           </button>
         </li>
       </ul>

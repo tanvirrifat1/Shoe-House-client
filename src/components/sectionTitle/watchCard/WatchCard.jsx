@@ -3,10 +3,12 @@ import { AuthContext } from "../../../Providers/AuthProviders";
 import { getBaseUrl } from "../../../hooks/BaseURL";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useCart from "../../../hooks/useCart";
 
 const WatchCard = ({ item }) => {
   const { image, price, name, details, _id } = item;
   const router = useNavigate();
+  const [refetch] = useCart();
 
   const location = useLocation();
   const { user } = useContext(AuthContext);
@@ -27,6 +29,7 @@ const WatchCard = ({ item }) => {
         .then((data) => {
           if (data.data) {
             Swal.fire("added to cart");
+            refetch();
           }
         });
     } else {

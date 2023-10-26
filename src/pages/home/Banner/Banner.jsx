@@ -8,7 +8,7 @@ import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 
 const Banner = () => {
-  const bannars = [
+  const banner = [
     {
       id: 1,
       title: " Plumbing Service",
@@ -16,8 +16,7 @@ const Banner = () => {
       subTitle2: "House shifting services in Dhaka",
       descripttion:
         "Welcome to PACK & SHIFT Removal group, Professional House Shifting Service to anywhere in Bangladesh from Dhaka City. AlsoInternational movers and packers Any country of the world",
-      image:
-        "https://i.ibb.co/SmK7wt7/29709195-rs27rwix6gc44dgjnwisuy5m-Extra-Large.webp",
+      image: "https://i.ibb.co/qprYHxR/s-l1200.webp",
     },
     {
       id: 2,
@@ -26,7 +25,8 @@ const Banner = () => {
       subTitle2: "House shifting services in Dhaka",
       descripttion:
         "Welcome to PACK & SHIFT Removal group, Professional House Shifting Service to anywhere in Bangladesh from Dhaka City. AlsoInternational movers and packers Any country of the world",
-      image: "https://i.ibb.co/qprYHxR/s-l1200.webp",
+      image:
+        "https://i.ibb.co/SmK7wt7/29709195-rs27rwix6gc44dgjnwisuy5m-Extra-Large.webp",
     },
     {
       id: 3,
@@ -46,10 +46,10 @@ const Banner = () => {
         animation="foldOutAnimation"
         className="h-[270px] md:h-[70vh] lg:h-[80vh] w-[100vw]"
       >
-        {bannars?.map((banner) => (
+        {banner?.map((banner) => (
           <>
             <div
-              key={bannars?.id}
+              key={banner?.id}
               className="hero min-w-[100vw] min-h-[100vh] object-fill"
               style={{
                 backgroundImage: `url(${banner?.image})`,

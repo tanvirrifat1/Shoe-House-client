@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import LoadingButton from "../Shared/LodingButton";
 import SmallSpinner from "../Shared/SmallSpinner";
+import { BiArrowBack } from "react-icons/bi";
 
 const SignUp = () => {
   const {
@@ -90,7 +91,12 @@ const SignUp = () => {
       <Helmet>
         <title>Time-Square | SignUp</title>
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
+      <div>
+        <Link to={"/"}>
+          <BiArrowBack className="text-3xl ml-6 mt-9" />
+        </Link>
+      </div>
+      <div className="hero min-h-screen ">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <figure className="">
@@ -106,7 +112,7 @@ const SignUp = () => {
                 <input
                   type="text"
                   placeholder="name"
-                  className="input input-bordered"
+                  className="input input-primary"
                   name="name"
                   {...register("name", { required: true })}
                 />{" "}
@@ -121,7 +127,7 @@ const SignUp = () => {
                 <input
                   type="file"
                   placeholder="image"
-                  className="input input-bordered"
+                  className="input input-primary"
                   {...register("image", { required: true })}
                 />
                 {errors.image && (
@@ -135,7 +141,7 @@ const SignUp = () => {
                 <input
                   type="email"
                   placeholder="email"
-                  className="input input-bordered"
+                  className="input input-primary"
                   name="email"
                   {...register("email", { required: true })}
                 />
@@ -150,7 +156,7 @@ const SignUp = () => {
                 <input
                   type="password"
                   placeholder="password"
-                  className="input input-bordered"
+                  className="input input-primary"
                   name="password"
                   {...register("password", {
                     required: true,
@@ -182,7 +188,7 @@ const SignUp = () => {
 
               <button
                 onClick={handleGoogleLogin}
-                className="btn btn-outline btn-accent"
+                className="btn btn-outline btn-primary"
               >
                 <FcGoogle className="text-3xl" />
               </button>

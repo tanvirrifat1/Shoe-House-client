@@ -11,6 +11,6 @@ export const useMenu = () => {
         setLoading(false);
       });
   }, []);
-  console.log(menu);
+
   return [menu, loading];
 };

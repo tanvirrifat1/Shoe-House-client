@@ -2,6 +2,7 @@ import logo from ".../../../../assets/shoesLogo.png";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
+import { FaBeer, FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -14,7 +15,7 @@ const Navbar = () => {
 
   const navOption = (
     <>
-      <ul className="lg:flex space-x-6">
+      <ul className="lg:flex space-x-6 text-lg">
         <li>
           <button href="#" className="text-gray-300 lg:hover:text-slate-400">
             <Link to="/">Home</Link>
@@ -64,11 +65,18 @@ const Navbar = () => {
             </li>
           </>
         )}
+
+        <li>
+          <button className="text-gray-300 lg:hover:text-slate-400 mt-1">
+            <FaShoppingCart className="text-xl " />
+            <p className="badge badge-secondary -mt-6 ">+0</p>
+          </button>
+        </li>
       </ul>
     </>
   );
   return (
-    <div className="navbar sticky top-0 z-50 bg-gray-900 text-white">
+    <div className="navbar sticky top-0 z-50 bg-[#455a64] text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

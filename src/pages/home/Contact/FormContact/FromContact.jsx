@@ -1,6 +1,7 @@
 import { useRef } from "react";
 
 import emailjs from "@emailjs/browser";
+import img from "../../../../assets/assets/cover/contact.png";
 import Swal from "sweetalert2";
 const FormContact = () => {
   const form = useRef();
@@ -50,8 +51,8 @@ const FormContact = () => {
               Vivamus in nisl metus? Phasellus.
             </div>
           </div>
-          <image
-            src={"img"}
+          <img
+            src={img}
             alt=""
             className="w-[400px] h-[380px]"
             width={500}

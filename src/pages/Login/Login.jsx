@@ -12,6 +12,7 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
+import { BiArrowBack } from "react-icons/bi";
 
 const Login = () => {
   const [disable, setDisabled] = useState(true);
@@ -71,7 +72,12 @@ const Login = () => {
       <Helmet>
         <title>Time-Square | Login</title>
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
+      <div>
+        <Link to={"/"}>
+          <BiArrowBack className="text-3xl ml-6 mt-9" />
+        </Link>
+      </div>
+      <div className="hero min-h-screen ">
         <div>
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center md:w-1/2 lg:text-left">
@@ -89,7 +95,7 @@ const Login = () => {
                     type="email"
                     name="email"
                     placeholder="email"
-                    className="input input-bordered"
+                    className="input input-success"
                   />
                 </div>
                 <div className="form-control">
@@ -100,7 +106,7 @@ const Login = () => {
                     type="password"
                     name="password"
                     placeholder="password"
-                    className="input input-bordered"
+                    className="input input-success"
                   />
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">
@@ -117,7 +123,7 @@ const Login = () => {
                     type="text"
                     name="captcha"
                     placeholder="text the captcha"
-                    className="input input-bordered"
+                    className="input input-success"
                   />
                   <button className="btn btn-outline btn-xs btn-success mt-2">
                     Validation

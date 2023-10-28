@@ -71,6 +71,11 @@ const Navbar = () => {
             </div>
           </button>
         </li>
+        <li>
+          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
+            <Link to="/dashBoard/mycart">DashBoard</Link>
+          </button>
+        </li>
       </ul>
     </>
   );

@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
-import { getBaseUrl } from "../../../hooks/BaseURL";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
@@ -8,7 +7,8 @@ import useCart from "../../../hooks/useCart";
 const WatchCard = ({ item }) => {
   const { image, price, name, details, _id } = item;
   const router = useNavigate();
-  const [refetch] = useCart();
+  const [cart, refetch] = useCart();
+  console.log(refetch);
 
   const location = useLocation();
   const { user } = useContext(AuthContext);
@@ -16,8 +16,8 @@ const WatchCard = ({ item }) => {
   const handleAddToCart = (item) => {
     console.log(item);
 
-    if (user && user.email) {
-      const orderItem = { _id, name, image, price, details, email: user.email };
+    if (user && user?.email) {
+      const orderItem = { name, image, price, details, email: user.email };
       fetch("http://localhost:5000/api/v1/cart/create-cart", {
         method: "POST",
         headers: {

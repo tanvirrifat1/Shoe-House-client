@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
+import Drawer from "./Drawer/Page";
+import logo from "../../assets/assets/watchMenu2.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -64,12 +66,15 @@ const Navbar = () => {
         )}
 
         <li>
-          <button className="text-gray-300 lg:hover:text-slate-400 mt-1">
+          <label
+            htmlFor="my-drawer-4"
+            className="text-gray-300 lg:hover:text-slate-400 mt-1"
+          >
             <FaShoppingCart className="text-xl " />
             <div className="badge badge-secondary text-white -mt-6 ">
               +{cart?.data?.length || 0}
             </div>
-          </button>
+          </label>
         </li>
         <li>
           <button href="#" className="text-gray-300 lg:hover:text-slate-400">
@@ -106,17 +111,21 @@ const Navbar = () => {
             {navOption}
           </ul>
         </div>
+
         <div className="flex justify-center">
-          <Link to="/">
-            <button className="btn btn-ghost normal-case text-xl">
+          <Link className="w-12 h-12 " to="/">
+            {/* <button className="btn btn-ghost normal-case text-xl">
               Time-Square
-            </button>
+            </button> */}
+            <img className="rounded-full" src={logo} alt="" />
           </Link>
         </div>
+        <Drawer />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navOption}</ul>
       </div>
+
       <div className="navbar-end">
         {user?.photoURL ? (
           <img
@@ -127,6 +136,7 @@ const Navbar = () => {
         ) : (
           <></>
         )}
+
         <div className="ml-2">
           {user?.displayName ? <h1>{user?.displayName}</h1> : <></>}
         </div>

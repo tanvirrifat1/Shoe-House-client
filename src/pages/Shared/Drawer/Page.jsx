@@ -1,4 +1,42 @@
+import { useContext } from "react";
+import useCart from "../../../hooks/useCart";
+import { AuthContext } from "../../../Providers/AuthProviders";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
 const Drawer = () => {
+  const [cart, refetch] = useCart();
+  const { user } = useContext(AuthContext);
+  const router = useNavigate();
+
+  const handleDelete = (id) => {
+    if (user && user?.email) {
+      fetch(`http://localhost:5000/api/v1/cart/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.data) {
+            Swal.fire("Deleted successfully");
+            refetch();
+          }
+        });
+    } else {
+      Swal.fire({
+        title: "Please Login First?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          router("/login", { state: { from: location } });
+        }
+      });
+    }
+  };
+
   return (
     <div className="drawer drawer-end">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -16,12 +54,31 @@ const Drawer = () => {
         ></label>
         <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
           {/* Sidebar content here */}
-          <li>
-            <a>Sidebar Item 1</a>
-          </li>
-          <li>
-            <a>Sidebar Item 2</a>
-          </li>
+          <div>
+            {cart?.data?.map((cart) => (
+              <div
+                key={cart?.id}
+                className="flex justify-between items-center mt-2 rounded-lg bg-slate-400 px-4 py-4"
+              >
+                <div>
+                  <div className="avatar">
+                    <div className="w-24 rounded-xl">
+                      <img src={cart?.image} alt="" width={100} height={100} />
+                    </div>
+                  </div>
+                  <h1 className="text-xl text-black">{cart?.name}</h1>
+                </div>
+                <div className="space-x-2">
+                  <button
+                    onClick={() => handleDelete(cart?.id)}
+                    className="rounded-xl hover:text-blue-400 bg-red-500 text-white btn-xs"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </ul>
       </div>
     </div>

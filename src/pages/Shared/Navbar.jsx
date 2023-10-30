@@ -9,7 +9,7 @@ import logo from "../../assets/assets/watchMenu2.png";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [cart] = useCart();
-  console.log(cart.data);
+
   const handleLogOut = () => {
     logOut()
       .then(() => {})

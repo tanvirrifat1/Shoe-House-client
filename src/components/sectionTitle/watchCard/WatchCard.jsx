@@ -8,14 +8,11 @@ const WatchCard = ({ item }) => {
   const { image, price, name, details, _id } = item;
   const router = useNavigate();
   const [cart, refetch] = useCart();
-  console.log(refetch);
 
   const location = useLocation();
   const { user } = useContext(AuthContext);
 
   const handleAddToCart = (item) => {
-    console.log(item);
-
     if (user && user?.email) {
       const orderItem = { name, image, price, details, email: user.email };
       fetch("http://localhost:5000/api/v1/cart/create-cart", {

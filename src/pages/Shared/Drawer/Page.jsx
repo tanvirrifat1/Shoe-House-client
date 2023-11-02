@@ -9,33 +9,82 @@ const Drawer = () => {
   const { user } = useContext(AuthContext);
   const router = useNavigate();
 
-  const handleDelete = (id) => {
-    if (user && user?.email) {
-      fetch(`http://localhost:5000/api/v1/cart/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.data) {
-            Swal.fire("Deleted successfully");
-            refetch();
-          }
-        });
-    } else {
-      Swal.fire({
-        title: "Please Login First?",
+  const handleDelete = async (id) => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, Login",
-      }).then((result) => {
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
         if (result.isConfirmed) {
-          router("/login", { state: { from: location } });
+          fetch(`http://localhost:5000/api/v1/cart/${id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.data) {
+                Swal.fire("Deleted successfully");
+                refetch();
+              }
+            });
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Your file has been deleted.",
+            "success"
+          );
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your imaginary file is safe :)",
+            "error"
+          );
         }
       });
-    }
   };
+
+  // const handleDelete = (id) => {
+  //   if (user && user?.email) {
+  //     fetch(`http://localhost:5000/api/v1/cart/${id}`, {
+  //       method: "DELETE",
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         if (data.data) {
+  //           Swal.fire("Deleted successfully");
+  //           refetch();
+  //         }
+  //       });
+  //   } else {
+  //     Swal.fire({
+  //       title: "Please Login First?",
+  //       icon: "warning",
+  //       showCancelButton: true,
+  //       confirmButtonColor: "#3085d6",
+  //       cancelButtonColor: "#d33",
+  //       confirmButtonText: "Yes, Login",
+  //     }).then((result) => {
+  //       if (result.isConfirmed) {
+  //         router("/login", { state: { from: location } });
+  //       }
+  //     });
+  //   }
+  // };
 
   return (
     <div className="drawer drawer-end">

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import Swal from "sweetalert2";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../../hooks/useCart";
 
 const WatchCard = ({ item }) => {
@@ -58,12 +58,12 @@ const WatchCard = ({ item }) => {
         <p>{details.slice(0, 100)}...</p>
 
         <div className="card-actions justify-center">
-          <button
-            onClick={() => handleAddToCart(item)}
+          <Link
+            to={`/detailsPage/${_id}`}
             className="btn w-full rounded-3xl text-black  border-black hover:border-gray-900 px-4 py-2 "
           >
             add to cart
-          </button>
+          </Link>
         </div>
       </div>
     </div>

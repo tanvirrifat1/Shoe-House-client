@@ -40,6 +40,22 @@ const Navbar = () => {
             <Link to="/contact">Contact</Link>
           </button>
         </li>
+
+        {user ? (
+          <>
+            <li>
+              <button
+                href="#"
+                className="text-gray-300 lg:hover:text-slate-400"
+              >
+                <Link to="/dashBoard/mycart">DashBoard</Link>
+              </button>
+            </li>
+          </>
+        ) : (
+          <></>
+        )}
+
         {user ? (
           <>
             <li>
@@ -75,11 +91,6 @@ const Navbar = () => {
               +{cart?.data?.length || 0}
             </div>
           </label>
-        </li>
-        <li>
-          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            <Link to="/dashBoard/mycart">DashBoard</Link>
-          </button>
         </li>
       </ul>
     </>

@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import MainContact from "../components/contact/MainContact";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../pages/DashBoard/MyCart/MyCart";
+import WatchCardID from "../components/sectionTitle/watchCard/WatchCardID";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "/contact",
         element: <MainContact />,
+      },
+      {
+        path: "/detailsPage/:id",
+        element: <WatchCardID />,
       },
       {
         path: "/secret",

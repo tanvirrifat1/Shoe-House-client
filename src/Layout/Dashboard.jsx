@@ -1,21 +1,23 @@
 import { FaCalendarAlt, FaCartPlus, FaHome, FaWallet } from "react-icons/fa";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BiSolidCategory } from "react-icons/bi";
-
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+import useCart from "../hooks/useCart";
 
 const Dashboard = () => {
+  const [cart] = useCart();
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col items-center justify-center">
         <Outlet />
-        <label
+        {/* <label
           htmlFor="my-drawer-2"
           className="btn btn-primary drawer-button lg:hidden"
         >
           Open drawer
-        </label>
+        </label> */}
       </div>
       <div className="drawer-side">
         <label
@@ -23,50 +25,53 @@ const Dashboard = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+        <ul className="menu p-4 w-80 min-h-full bg-blue-gray-800 text-white ">
           {/* Sidebar content here */}
           <li>
-            <Link>
+            <NavLink to="/dashBoard/home">
               <FaHome />
               User Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link>
+            <NavLink to="/dashBoard/reservations">
               <FaCalendarAlt />
               Reservations
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link>
+            <NavLink to="/dashBoard/history">
               <FaWallet />
               Payment History
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/dashBoard/mycart">
+            <NavLink to="/dashBoard/mycart">
               <FaCartPlus />
               cart
-            </Link>
+              <span className="badge bg-secondary text-white">
+                {cart?.data?.length || 0}
+              </span>
+            </NavLink>
           </li>
           <div className="divider"></div>
           <li>
-            <Link to="/">
+            <NavLink to="/">
               <FaHome />
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/menu">
+            <NavLink to="/menu">
               <AiOutlineMenu />
               Watch Category
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/order/Rolex">
+            <NavLink to="/order/Rolex">
               <BiSolidCategory />
               Order Watch
-            </Link>
+            </NavLink>
           </li>
           <li></li>
         </ul>

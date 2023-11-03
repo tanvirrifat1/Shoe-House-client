@@ -41,8 +41,10 @@ const WatchCardID = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.data) {
-            Swal.fire("added to cart");
+            Swal.fire("Booking successfully!");
             refetch();
+          } else {
+            Swal.fire("Already Booked");
           }
         });
     } else {

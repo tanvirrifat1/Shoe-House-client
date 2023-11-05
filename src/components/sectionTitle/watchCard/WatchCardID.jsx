@@ -81,12 +81,13 @@ const WatchCardID = () => {
           <Typography variant="h6" color="gray" className="mb-4 uppercase">
             {data?.data?.name}
           </Typography>
-          {/* <Typography variant="h4" color="blue-gray" className="mb-2">
-            Lyft launching cross-platform service this week
-          </Typography> */}
-          <Typography color="gray" className="mb-8 font-normal">
+          <Typography variant="h8" color="blue-gray" className="mb-2">
             {data?.data?.details}
           </Typography>
+          <Typography color="black" className="mb-8 font-normal">
+            Price: {data?.data?.price} $
+          </Typography>
+
           <div href="#" className="inline-block">
             <Button
               variant="text"

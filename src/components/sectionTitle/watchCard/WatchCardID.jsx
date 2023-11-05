@@ -12,6 +12,7 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import Magnifier from "react-magnifier";
 
 const WatchCardID = () => {
   const { id } = useParams();
@@ -64,16 +65,20 @@ const WatchCardID = () => {
   };
 
   return (
-    <div className="flex justify-center my-4 hero min-h-screen">
+    <div className="flex justify-center my-4 hero min-h-[65vh]">
       <Card className="w-full max-w-[56rem] hero-content flex-row">
         <CardHeader
           shadow={false}
           floated={false}
           className="m-0 w-2/5 shrink-0 rounded-r-none"
         >
-          <img
+          {/* <img
             src={data?.data?.image}
             alt="card-image"
+            className="h-full w-full object-cover"
+          /> */}
+          <Magnifier
+            src={data?.data?.image}
             className="h-full w-full object-cover"
           />
         </CardHeader>

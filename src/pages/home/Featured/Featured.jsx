@@ -18,7 +18,7 @@ const Featured = () => {
       <SectionTitle subHeading="check it out" heading="from our shop" />
       <div className="flex flex-col md:flex-row justify-center items-center pb-10 md:pb-20 px-6 md:px-10 lg:px-20">
         <div className="mb-4 md:mb-0 md:mr-6 md:w-1/2">
-          <img className="rounded-2xl w-72 md:ml-40 " src={image} alt="" />
+          <img className="rounded-2xl w-72 md:ml-32 h-72" src={image} alt="" />
         </div>
         <div className="md:ml-10">
           <p className="font-semibold">{formattedDate}</p>
@@ -28,13 +28,10 @@ const Featured = () => {
             Luxury: Up to 50% OFF on Select Watches! 🔥 Limited-Time Offer:{" "}
             <br />
             {formattedDate} 🔥 🌟 Discover a World of Elegance: <br /> Dive into
-            a stunning collection of renowned brands Choose from an array of
-            mesmerizing styles Elevate your wrist game with exquisite
-            craftsmanship 💎 Why Choose Time Square Unbeatable Discounts: <br />{" "}
-            Grab your dream watch at unbeatable prices Expert Guidance: <br />{" "}
-            Our watch enthusiasts are here to assist you Quality Assurance:{" "}
-            <br /> Guaranteed authenticity and durability Hassle-Free Shopping:{" "}
-            <br /> Online and in-store options available 🎁 BONUS Perks: <br />{" "}
+            a stunning collection of renowned brands Choose from an array of Our
+            watch enthusiasts are here to assist you Quality Assurance: <br />{" "}
+            Guaranteed authenticity and durability Hassle-Free Shopping: <br />{" "}
+            Online and in-store options available 🎁 BONUS Perks: <br />{" "}
             Complimentary watch sizing for the perfect fit Free shipping on
             orders over $100 Gift with purchase on select models 🔔 Don't Miss
             Out! Whether its a gift for a loved one or a treat for yourself, our

@@ -77,45 +77,61 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((imgData) => {
         if (imgData.data.display_url) {
-          createUser(data.email, data.password).then((result) => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            updateUserProfile(data.name, imgData.data.display_url)
-              .then(() => {
-                const saveUser = {
-                  name: data.name,
-                  email: data.email,
-                  image: imgData.data.display_url,
-                };
-                fetch("http://localhost:5000/api/v1/user", {
-                  method: "POST",
-                  headers: {
-                    "content-type": "application/json",
-                  },
-                  body: JSON.stringify(saveUser),
-                })
-                  .then((res) => res.json())
-                  .then((data) => {
-                    if (data) {
-                      console.log("User profile updated");
-                      reset();
-                      toast("user created successfully", {
-                        position: "top-center",
-                        autoClose: 1000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                        theme: "light",
-                      });
-                      navigate("/");
-                      SetIsLoading(false);
-                    }
-                  });
-              })
-              .catch((err) => console.log(err));
-          });
+          createUser(data.email, data.password)
+            .then((result) => {
+              const loggedUser = result.user;
+              console.log(loggedUser);
+              updateUserProfile(data.name, imgData.data.display_url).then(
+                () => {
+                  const saveUser = {
+                    name: data.name,
+                    email: data.email,
+                    image: imgData.data.display_url,
+                    password: data.password,
+                  };
+                  fetch("http://localhost:5000/api/v1/user", {
+                    method: "POST",
+                    headers: {
+                      "content-type": "application/json",
+                    },
+                    body: JSON.stringify(saveUser),
+                  })
+                    .then((res) => res.json())
+                    .then((data) => {
+                      if (data) {
+                        console.log("User profile updated");
+                        reset();
+                        toast("user created successfully", {
+                          position: "top-center",
+                          autoClose: 1000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: true,
+                          progress: undefined,
+                          theme: "light",
+                        });
+                        navigate("/");
+                        SetIsLoading(false);
+                      }
+                    });
+                }
+              );
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              toast(errorCode, errorMessage, {
+                position: "top-center",
+                autoClose: 500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              });
+            });
         }
       });
   };
@@ -233,6 +249,9 @@ const SignUp = () => {
                   <a className="link link-primary"> Login</a>
                 </Link>
               </p>
+              {errors.err && (
+                <span className="text-red-500">user already exist</span>
+              )}
             </form>
           </div>
         </div>

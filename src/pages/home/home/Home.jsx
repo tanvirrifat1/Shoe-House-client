@@ -3,6 +3,7 @@ import Category from "../Category/Category";
 import PopularShoes from "../popularShoes/PopularShoes";
 import Featured from "../Featured/Featured";
 import FindSection from "../Featured/FindSection/FindSection";
+import Reviews from "../Category/Review";
 
 const Home = () => {
   return (
@@ -11,7 +12,8 @@ const Home = () => {
       <Category />
       <PopularShoes />
       <Featured />
-      <FindSection />
+      <Reviews />
+      {/* <FindSection /> */}
     </div>
   );
 };

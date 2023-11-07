@@ -88,16 +88,16 @@ const Category = () => {
   ];
 
   return (
-    <div className="bg-[#F5F8FE] w-full lg:w-[1440px] mx-auto">
+    <div className=" w-full lg:w-[1440px] mx-auto">
       <section className="container relative py-20">
         <div className="flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
-              <span className="block mb-2 text-lg font-semibold text-primary">
+              <span className="block mb-2 text-lg font-semibold text-[#455a64]">
                 Read trusted reviews from our customers
               </span>
               <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px]">
-                What Peoples Say
+                Popular Items
               </h2>
             </div>
           </div>
@@ -148,14 +148,6 @@ const Category = () => {
                     <p className="text-2xl mb-1 text-center font-bold text-primaryColor sm:text-3xl">
                       {review?.title}
                     </p>
-
-                    {/* <div className="flex justify-center mt-2 gap-0.5 ">
-                      {Array(review?.title)
-                        .fill(0)
-                        .map((index, i) => (
-                          <FaStar key={i} className="w-6 h-6 text-yellow-500" />
-                        ))}
-                    </div> */}
                   </blockquote>
                 </div>
               </SwiperSlide>

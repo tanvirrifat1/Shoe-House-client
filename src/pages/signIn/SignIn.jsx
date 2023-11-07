@@ -40,8 +40,25 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        const saveUser = {
+          name: user.displayName,
+          email: user.email,
+          image: user.photoURL,
+        };
 
-        navigate(from, { replcae: true });
+        fetch("http://localhost:5000/api/v1/user", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        })
+          .then((res) => res.json())
+          .then((user) => {
+            if (user) {
+              navigate(from, { replace: true });
+            }
+          });
       })
       .catch((err) => console.error(err));
   };
@@ -65,20 +82,37 @@ const SignUp = () => {
             console.log(loggedUser);
             updateUserProfile(data.name, imgData.data.display_url)
               .then(() => {
-                console.log("User profile updated");
-                reset();
-                toast("user created successfully", {
-                  position: "top-center",
-                  autoClose: 1000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "light",
-                });
-                navigate("/");
-                SetIsLoading(false);
+                const saveUser = {
+                  name: data.name,
+                  email: data.email,
+                  image: imgData.data.display_url,
+                };
+                fetch("http://localhost:5000/api/v1/user", {
+                  method: "POST",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify(saveUser),
+                })
+                  .then((res) => res.json())
+                  .then((data) => {
+                    if (data) {
+                      console.log("User profile updated");
+                      reset();
+                      toast("user created successfully", {
+                        position: "top-center",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                      });
+                      navigate("/");
+                      SetIsLoading(false);
+                    }
+                  });
               })
               .catch((err) => console.log(err));
           });

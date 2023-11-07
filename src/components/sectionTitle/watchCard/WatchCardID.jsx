@@ -1,7 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 import useCart from "../../../hooks/useCart";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { useQuery } from "@tanstack/react-query";
@@ -16,8 +16,8 @@ import Magnifier from "react-magnifier";
 
 const WatchCardID = () => {
   const { id } = useParams();
-
   const router = useNavigate();
+  const location = useLocation();
   const [cart, refetch] = useCart();
   const { user } = useContext(AuthContext);
 
@@ -31,17 +31,25 @@ const WatchCardID = () => {
 
   const handleAddToCart = () => {
     if (user && user?.email) {
-      const orderItem = { ...data?.data, email: user.email };
+      const saveData = {
+        category: data?.data.category,
+        details: data?.data.details,
+        email: user?.email,
+        image: data?.data.image,
+        name: data?.data.name,
+        price: data?.data.price,
+      };
+
       fetch("http://localhost:5000/api/v1/cart/create-cart", {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(orderItem),
+        body: JSON.stringify(saveData),
       })
         .then((res) => res.json())
         .then((data) => {
-          if (data.data) {
+          if (data) {
             Swal.fire("Booking successfully!");
             refetch();
           } else {

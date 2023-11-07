@@ -18,7 +18,7 @@ const Banner = () => {
         <div style={myStyle} className="hero text-white bg-blue-gray-900 ">
           <div className="hero-content text-center ">
             <div className="hero-content flex-col lg:flex-row-reverse">
-              {/* <img className="lg:h-[568px] " src={img6} alt="" /> */}
+              <img className="lg:h-[568px] lg:-mr-72" src={img6} alt="" />
               <div className="text-start">
                 <div className="text-start ">
                   <h1 className="text-5xl py-3 font-bold">Ready</h1>

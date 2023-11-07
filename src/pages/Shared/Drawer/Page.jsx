@@ -9,6 +9,11 @@ const Drawer = () => {
   const { user } = useContext(AuthContext);
   const router = useNavigate();
 
+  const total = cart?.data?.reduce(
+    (sum, item) => sum + parseFloat(item.price),
+    0
+  );
+
   const handleDelete = async (id) => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -128,6 +133,7 @@ const Drawer = () => {
               </div>
             ))}
           </div>
+          <h2 className="text-xl">Total Price : ${total}</h2>
         </ul>
       </div>
     </div>

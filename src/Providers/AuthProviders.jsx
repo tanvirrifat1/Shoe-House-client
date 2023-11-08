@@ -11,6 +11,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -50,7 +51,15 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubs = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log("current user", currentUser);
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/api/v1/auth/login", {
+            email: currentUser.email,
+          })
+          .then((data) => {
+            console.log(data?.data);
+          });
+      }
       setLoading(false);
     });
     return () => {

@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import LoadingButton from "../Shared/LodingButton";
 import SmallSpinner from "../Shared/SmallSpinner";
 import { BiArrowBack } from "react-icons/bi";
+import axios from "axios";
 
 const SignUp = () => {
   const {
@@ -35,11 +36,12 @@ const SignUp = () => {
 
   const from = location.state?.from?.pathname || "/";
 
+  const { user } = useContext(AuthContext);
+
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
-        console.log(user);
         const saveUser = {
           name: user.displayName,
           email: user.email,
@@ -55,9 +57,17 @@ const SignUp = () => {
         })
           .then((res) => res.json())
           .then((user) => {
+            console.log(user?.data?.email);
             if (user) {
-              navigate(from, { replace: true });
+              axios
+                .post("http://localhost:5000/api/v1/auth/login", {
+                  email: user?.data?.email,
+                })
+                .then((data) => {
+                  console.log(data?.data);
+                });
             }
+            // navigate(from, { replace: true });
           });
       })
       .catch((err) => console.error(err));
@@ -87,6 +97,7 @@ const SignUp = () => {
                     name: data.name,
                     email: data.email,
                     image: imgData.data.display_url,
+                    password: data.password,
                   };
                   fetch("http://localhost:5000/api/v1/user", {
                     method: "POST",
@@ -98,6 +109,7 @@ const SignUp = () => {
                     .then((res) => res.json())
                     .then((data) => {
                       if (data) {
+                        handleData(data);
                         console.log("User profile updated");
                         reset();
                         toast("user created successfully", {
@@ -110,7 +122,7 @@ const SignUp = () => {
                           progress: undefined,
                           theme: "light",
                         });
-                        navigate("/");
+                        // navigate("/");
                         SetIsLoading(false);
                       }
                     });
@@ -132,6 +144,16 @@ const SignUp = () => {
               });
             });
         }
+      });
+  };
+
+  const handleData = (data) => {
+    axios
+      .post("http://localhost:5000/api/v1/auth/login", {
+        email: data?.data?.email,
+      })
+      .then((data) => {
+        console.log(data?.data);
       });
   };
 

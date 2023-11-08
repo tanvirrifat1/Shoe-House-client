@@ -22,7 +22,9 @@ const Banner = () => {
               <div className="text-start">
                 <div className="text-start ">
                   <h1 className="text-5xl py-3 font-bold">Ready</h1>
-                  <h1 className="text-5xl py-3 font-bold">For Help</h1>
+                  <h1 className="text-5xl py-3 font-bold">
+                    For <span className="text-blue-gray-900">Help</span>
+                  </h1>
                   <h1 className="text-5xl py-3 font-bold">You</h1>
                 </div>
                 <p className="py-6 text-white">

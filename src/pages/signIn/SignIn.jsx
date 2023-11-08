@@ -87,7 +87,6 @@ const SignUp = () => {
                     name: data.name,
                     email: data.email,
                     image: imgData.data.display_url,
-                    password: data.password,
                   };
                   fetch("http://localhost:5000/api/v1/user", {
                     method: "POST",

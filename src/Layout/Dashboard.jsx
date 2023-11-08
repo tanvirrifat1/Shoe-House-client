@@ -1,11 +1,22 @@
-import { FaCalendarAlt, FaCartPlus, FaHome, FaWallet } from "react-icons/fa";
+import {
+  FaBook,
+  FaCalendarAlt,
+  FaCartPlus,
+  FaHome,
+  FaUser,
+  FaUsers,
+  FaWallet,
+} from "react-icons/fa";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BiSolidCategory } from "react-icons/bi";
+import { BsSmartwatch } from "react-icons/bs";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
 
 const Dashboard = () => {
   const [cart] = useCart();
+
+  const isAdmin = true;
 
   return (
     <div className="drawer lg:drawer-open">
@@ -27,33 +38,73 @@ const Dashboard = () => {
         ></label>
         <ul className="menu p-4 w-80 min-h-full bg-blue-gray-800 text-white ">
           {/* Sidebar content here */}
-          <li>
-            <NavLink to="/dashBoard/home">
-              <FaHome />
-              User Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashBoard/reservations">
-              <FaCalendarAlt />
-              Reservations
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashBoard/history">
-              <FaWallet />
-              Payment History
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashBoard/mycart">
-              <FaCartPlus />
-              cart
-              <span className="badge bg-secondary text-white">
-                {cart?.data?.length || 0}
-              </span>
-            </NavLink>
-          </li>
+
+          {isAdmin ? (
+            <>
+              {" "}
+              <li>
+                <NavLink to="/dashBoard/home">
+                  <FaHome />
+                  Admin Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashBoard/reservations">
+                  <BsSmartwatch />
+                  Add Watch
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashBoard/history">
+                  <FaWallet />
+                  Manage Watches
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashBoard/history">
+                  <FaBook />
+                  Manage Booking
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashBoard/allUsers">
+                  <FaUsers />
+                  All Users
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/dashBoard/home">
+                  <FaHome />
+                  User Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashBoard/reservations">
+                  <FaCalendarAlt />
+                  Reservations
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashBoard/history">
+                  <FaWallet />
+                  Payment History
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashBoard/mycart">
+                  <FaCartPlus />
+                  cart
+                  <span className="badge bg-secondary text-white">
+                    {cart?.data?.length || 0}
+                  </span>
+                </NavLink>
+              </li>
+            </>
+          )}
+
           <div className="divider"></div>
           <li>
             <NavLink to="/">

@@ -11,6 +11,7 @@ import MainContact from "../components/contact/MainContact";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../pages/DashBoard/MyCart/MyCart";
 import WatchCardID from "../components/sectionTitle/watchCard/WatchCardID";
+import AllUser from "../pages/DashBoard/AllUsers/AllUser";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
       {
         path: "mycart",
         element: <MyCart />,
+      },
+      {
+        path: "allUsers",
+        element: <AllUser />,
       },
     ],
   },

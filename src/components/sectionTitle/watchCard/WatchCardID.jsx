@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import useCart from "../../../hooks/useCart";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -72,6 +72,27 @@ const WatchCardID = () => {
     }
   };
 
+  const [checkbox1Checked, setCheckbox1Checked] = useState(true);
+  const [checkbox2Checked, setCheckbox2Checked] = useState(false);
+  const [checkbox3Checked, setCheckbox3Checked] = useState(false);
+
+  const handleCheckbox1Toggle = () => {
+    setCheckbox1Checked(true);
+    setCheckbox2Checked(false);
+    setCheckbox3Checked(false);
+  };
+
+  const handleCheckbox2Toggle = () => {
+    setCheckbox1Checked(false);
+    setCheckbox2Checked(true);
+    setCheckbox3Checked(false);
+  };
+
+  const handleCheckbox3Toggle = () => {
+    setCheckbox1Checked(false);
+    setCheckbox2Checked(false);
+    setCheckbox3Checked(true);
+  };
   return (
     <div className="flex justify-center my-4 hero min-h-[65vh]">
       <Card className="w-full max-w-[56rem] hero-content flex-row">
@@ -101,8 +122,26 @@ const WatchCardID = () => {
             Price: {data?.data?.price} $
           </Typography>
 
-          <div>
+          <div className="flex my-2 gap-2">
             <h1>Color:</h1>
+            <input
+              type="checkbox"
+              checked={checkbox1Checked}
+              onChange={handleCheckbox1Toggle}
+              className="checkbox"
+            />
+            <input
+              type="checkbox"
+              checked={checkbox2Checked}
+              onChange={handleCheckbox2Toggle}
+              className="checkbox checkbox-primary"
+            />
+            <input
+              type="checkbox"
+              checked={checkbox3Checked}
+              onChange={handleCheckbox3Toggle}
+              className="checkbox checkbox-success"
+            />
           </div>
 
           <div href="#" className="inline-block">

@@ -4,10 +4,13 @@ import { AuthContext } from "../../../Providers/AuthProviders";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { TOKEN } from "../token/token";
+import { useAuth } from "../../../hooks/useAuth";
 
 const Drawer = () => {
   const [cart, refetch] = useCart();
-  const { user } = useContext(AuthContext);
+
+  console.log(cart);
+  const { user } = useAuth();
   const router = useNavigate();
 
   const token = localStorage.getItem(TOKEN);
@@ -66,43 +69,10 @@ const Drawer = () => {
       });
   };
 
-  // const handleDelete = (id) => {
-  //   if (user && user?.email) {
-  //     fetch(`http://localhost:5000/api/v1/cart/${id}`, {
-  //       method: "DELETE",
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         if (data.data) {
-  //           Swal.fire("Deleted successfully");
-  //           refetch();
-  //         }
-  //       });
-  //   } else {
-  //     Swal.fire({
-  //       title: "Please Login First?",
-  //       icon: "warning",
-  //       showCancelButton: true,
-  //       confirmButtonColor: "#3085d6",
-  //       cancelButtonColor: "#d33",
-  //       confirmButtonText: "Yes, Login",
-  //     }).then((result) => {
-  //       if (result.isConfirmed) {
-  //         router("/login", { state: { from: location } });
-  //       }
-  //     });
-  //   }
-  // };
-
   return (
     <div className="drawer drawer-end">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content">
-        {/* Page content here */}
-        {/* <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">
-          Open drawer
-        </label> */}
-      </div>
+      <div className="drawer-content"></div>
       <div className="drawer-side">
         <label
           htmlFor="my-drawer-4"

@@ -76,7 +76,8 @@ const AllUser = () => {
   };
 
   const { role } = getUserInfo();
-
+  console.log(role);
+  console.log(data?.data);
   return (
     <div>
       <Helmet>
@@ -112,31 +113,31 @@ const AllUser = () => {
             </thead>
 
             <tbody className="divide-y divide-gray-200">
-              {data?.data?.map((service, index) => (
-                <tr key={service?.id}>
+              {data?.data?.map((user, index) => (
+                <tr key={user?.id}>
                   <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                     {index + 1}
                   </td>
                   <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                     <div className="avatar">
                       <div className="w-12 h-12 rounded">
-                        <img alt={service?.title} src={service?.image} />
+                        <img alt={user?.title} src={user?.image} />
                       </div>
                     </div>
                   </td>
                   <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    {service?.name}
+                    {user?.name}
                   </td>
                   <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    {service?.email}
+                    {user?.email}
                   </td>
                   <th>
-                    {service?.role === "admin" ? (
+                    {user?.role === "admin" ? (
                       "admin"
                     ) : (
                       <button className="whitespace-nowrap ml-2 btn py-2 bg-blue-gray-900 text-white">
                         <FaUserShield
-                          onClick={() => handleUpdate(service?.id)}
+                          onClick={() => handleUpdate(user?.id)}
                           className="text-3xl text-white hover:text-black "
                         />
                       </button>
@@ -144,24 +145,13 @@ const AllUser = () => {
                   </th>
 
                   <th>
-                    {role !== "admin" ? (
-                      <>
-                        <button className="whitespace-nowrap ml-2 btn py-2 bg-red-500 text-white">
-                          <AiFillDelete
-                            onClick={() => handleDelete(service?.id)}
-                            className="text-3xl text-white hover:text-black "
-                          />
-                        </button>
-                      </>
-                    ) : (
-                      <>
-                        <button className="whitespace-nowrap ml-2 btn py-2 bg-red-500 text-white">
-                          <AiFillDelete
-                            onClick={() => handleDelete(service?.id)}
-                            className="text-3xl text-white hover:text-black "
-                          />
-                        </button>
-                      </>
+                    {user.role !== "admin" && (
+                      <button className="whitespace-nowrap ml-2 btn py-2 bg-red-500 text-white">
+                        <AiFillDelete
+                          onClick={() => handleDelete(user?.id)}
+                          className="text-3xl text-white hover:text-black "
+                        />
+                      </button>
                     )}
                   </th>
                 </tr>

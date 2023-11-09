@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import { AuthContext } from "../Providers/AuthProviders";
 import { useQuery } from "@tanstack/react-query";
 import { TOKEN } from "../pages/Shared/token/token";
 import useAxiosSecure from "./useAxiosSecure";
+import { useAuth } from "./useAuth";
 
 const useCart = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const token = localStorage.getItem(TOKEN);
 
   const [axiosSecure] = useAxiosSecure();
@@ -29,9 +28,12 @@ const useCart = () => {
     //       authorization: token,
     //     },
     //   });
-    //   return res.json();
+    //   console.log(res?.data?.data);
+    //   const result = await res?.data?.data;
+    //   return result;
     // },
   });
+
   return [cart, refetch];
 };
 

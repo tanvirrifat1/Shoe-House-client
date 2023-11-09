@@ -106,6 +106,7 @@ const Drawer = () => {
               </div>
             ))}
           </div>
+          <div className="divider"></div>
           <h2 className="text-xl">Total Price : ${total}</h2>
         </ul>
       </div>

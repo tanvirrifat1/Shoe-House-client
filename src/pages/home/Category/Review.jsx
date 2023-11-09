@@ -9,7 +9,7 @@ import {
 } from "swiper/modules";
 import "swiper/css";
 
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import { AiFillStar, AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 import img1 from "../../../assets/assets/category/watch1.png";
 import img2 from "../../../assets/assets/category/watch16.png";
@@ -25,6 +25,7 @@ import {
   CardHeader,
   CardBody,
   Typography,
+  Avatar,
 } from "@material-tailwind/react";
 
 import { useQuery } from "@tanstack/react-query";
@@ -37,6 +38,8 @@ const Reviews = () => {
       return res.json();
     },
   });
+
+  console.log(data, "data");
 
   return (
     <div className=" w-full lg:w-[1440px] -mt-10 mx-auto">
@@ -85,14 +88,45 @@ const Reviews = () => {
           >
             {data?.data?.map((review, i) => (
               <SwiperSlide className="pt-3" key={i}>
-                <Card className="mt-6 w-96">
-                  <CardHeader color="blue-gray" className="relative h-56">
-                    <img src={review?.image} alt="card-image" />
+                <Card
+                  color="transparent"
+                  shadow={false}
+                  className="w-full max-w-[26rem]"
+                >
+                  <CardHeader
+                    color="transparent"
+                    floated={false}
+                    shadow={false}
+                    className="mx-0 flex items-center gap-4 pt-0 pb-8"
+                  >
+                    <Avatar
+                      size="lg"
+                      variant="circular"
+                      src={review?.image}
+                      alt="tania andrew"
+                    />
+                    <div className="flex w-full flex-col gap-0.5">
+                      <div className="flex items-center justify-between">
+                        <Typography variant="h5" color="blue-gray">
+                          {review?.name}
+                        </Typography>
+                        <div className="flex justify-center mt-2 gap-0.5 ">
+                          {Array(review?.rating)
+                            .fill(0)
+                            .map((index, i) => (
+                              <AiFillStar
+                                key={i}
+                                className="w-6 h-6 text-yellow-900"
+                              />
+                            ))}
+                        </div>
+                      </div>
+                      <Typography color="blue-gray">
+                        Frontend Lead @ Google
+                      </Typography>
+                    </div>
                   </CardHeader>
-                  <CardBody>
-                    <Typography variant="h5" color="blue-gray" className="mb-2">
-                      {review?.name}
-                    </Typography>
+                  <CardBody className="mb-6 p-0">
                     <Typography>{review?.details}</Typography>
                   </CardBody>
                 </Card>

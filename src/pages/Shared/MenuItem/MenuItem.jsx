@@ -1,10 +1,10 @@
 const MenuItem = ({ item }) => {
   const { image, price, name, details } = item;
   return (
-    <div className="flex space-x-4 hero-content flex-col lg:flex-row justify-center m-8 bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
+    <div className="flex space-x-4  flex-col lg:flex-row justify-center m-8 bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out transform hover:scale-105">
       <div>
         <img
-          className="w-full lg:w-72 lg:h-40 rounded-2xl"
+          className="w-full lg:w-80 lg:h-40 rounded-2xl"
           src={image}
           alt=""
         />

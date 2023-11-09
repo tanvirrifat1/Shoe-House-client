@@ -101,6 +101,10 @@ const WatchCardID = () => {
             Price: {data?.data?.price} $
           </Typography>
 
+          <div>
+            <h1>Color:</h1>
+          </div>
+
           <div href="#" className="inline-block">
             <Button
               variant="text"

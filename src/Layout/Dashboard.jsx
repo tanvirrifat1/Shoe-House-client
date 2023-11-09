@@ -11,9 +11,25 @@ import { BiSolidCategory } from "react-icons/bi";
 import { BsSmartwatch } from "react-icons/bs";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
+import { TOKEN } from "../pages/Shared/token/token";
+import { useQuery } from "@tanstack/react-query";
 
 const Dashboard = () => {
   const [cart] = useCart();
+
+  const token = localStorage.getItem(TOKEN);
+
+  const { data, refetch } = useQuery({
+    queryKey: [],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/api/v1/user", {
+        headers: {
+          authorization: token,
+        },
+      });
+      return res.json();
+    },
+  });
 
   const isAdmin = true;
 

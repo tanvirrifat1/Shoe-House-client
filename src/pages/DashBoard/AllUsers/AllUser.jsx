@@ -4,10 +4,10 @@ import { AiFillDelete } from "react-icons/ai";
 import { FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { TOKEN } from "../../Shared/token/token";
+import { useParams } from "react-router-dom";
 
 const AllUser = () => {
   const token = localStorage.getItem(TOKEN);
-
   const { data, refetch } = useQuery({
     queryKey: [],
     queryFn: async () => {
@@ -19,8 +19,6 @@ const AllUser = () => {
       return res.json();
     },
   });
-
-  console.log(data);
 
   const handleUpdate = (id) => {
     fetch(`http://localhost:5000/api/v1/user/${id}`, {
@@ -42,6 +40,38 @@ const AllUser = () => {
             timer: 1500,
           });
         }
+      });
+  };
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/api/v1/user/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: token,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            if (data?.data) {
+              refetch();
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          }
+        });
       });
   };
 
@@ -114,7 +144,7 @@ const AllUser = () => {
                   <th>
                     <button className="whitespace-nowrap ml-2 btn py-2 bg-red-500 text-white">
                       <AiFillDelete
-                        onClick={() => console.log(service?.id)}
+                        onClick={() => handleDelete(service?.id)}
                         className="text-3xl text-white hover:text-black "
                       />
                     </button>

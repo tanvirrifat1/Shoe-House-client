@@ -4,7 +4,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { TOKEN } from "../../Shared/token/token";
-import { useParams } from "react-router-dom";
+import { getUserInfo } from "../../Shared/auth/auth.service";
 
 const AllUser = () => {
   const token = localStorage.getItem(TOKEN);
@@ -75,6 +75,8 @@ const AllUser = () => {
       });
   };
 
+  const { role } = getUserInfo();
+
   return (
     <div>
       <Helmet>
@@ -142,12 +144,25 @@ const AllUser = () => {
                   </th>
 
                   <th>
-                    <button className="whitespace-nowrap ml-2 btn py-2 bg-red-500 text-white">
-                      <AiFillDelete
-                        onClick={() => handleDelete(service?.id)}
-                        className="text-3xl text-white hover:text-black "
-                      />
-                    </button>
+                    {role !== "admin" ? (
+                      <>
+                        <button className="whitespace-nowrap ml-2 btn py-2 bg-red-500 text-white">
+                          <AiFillDelete
+                            onClick={() => handleDelete(service?.id)}
+                            className="text-3xl text-white hover:text-black "
+                          />
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <button className="whitespace-nowrap ml-2 btn py-2 bg-red-500 text-white">
+                          <AiFillDelete
+                            onClick={() => handleDelete(service?.id)}
+                            className="text-3xl text-white hover:text-black "
+                          />
+                        </button>
+                      </>
+                    )}
                   </th>
                 </tr>
               ))}

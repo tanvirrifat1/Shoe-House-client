@@ -13,6 +13,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
 import { TOKEN } from "../pages/Shared/token/token";
 import { useQuery } from "@tanstack/react-query";
+import { getUserInfo } from "../pages/Shared/auth/auth.service";
 
 const Dashboard = () => {
   const [cart] = useCart();
@@ -31,7 +32,7 @@ const Dashboard = () => {
     },
   });
 
-  const isAdmin = true;
+  const { role } = getUserInfo();
 
   return (
     <div className="drawer lg:drawer-open">
@@ -54,7 +55,7 @@ const Dashboard = () => {
         <ul className="menu p-4 w-80 min-h-full bg-blue-gray-800 text-white hover:text-white">
           {/* Sidebar content here */}
 
-          {isAdmin ? (
+          {role === "admin" ? (
             <>
               {" "}
               <li>

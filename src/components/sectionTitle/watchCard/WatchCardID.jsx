@@ -29,6 +29,8 @@ const WatchCardID = () => {
     },
   });
 
+  console.log(data?.data);
+
   const handleAddToCart = () => {
     if (user && user?.email) {
       const saveData = {
@@ -93,6 +95,19 @@ const WatchCardID = () => {
     setCheckbox2Checked(false);
     setCheckbox3Checked(true);
   };
+
+  const [quantity, setQuantity] = useState(1);
+
+  const handleIncrement = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   return (
     <div className="flex justify-center my-4 hero min-h-[65vh]">
       <Card className="w-full max-w-[56rem] hero-content flex-row">
@@ -144,10 +159,37 @@ const WatchCardID = () => {
             />
           </div>
 
-          <div href="#" className="inline-block">
+          <div className="flex my-2 gap-2">
+            <h1>Quantity: </h1>
+            <div className="flex font-semibold">
+              <p className="btn text-xl" onClick={handleDecrement}>
+                -
+              </p>
+              <p className="text-xl mx-2 mt-2"> {quantity}</p>
+              <p className="btn text-xl" onClick={handleIncrement}>
+                +
+              </p>
+            </div>
+          </div>
+          <div className="flex my-2 gap-2">
+            {data?.data?.status === "out of stock" ? (
+              <>
+                {" "}
+                <h1 className="text-red-600 text-xl">{data?.data?.status}</h1>
+              </>
+            ) : (
+              <>
+                {" "}
+                <h1 className="text-primary text-xl">{data?.data?.status}</h1>
+              </>
+            )}
+          </div>
+
+          <div href="#" className="inline-block ">
             <Button
+              disabled={data?.data?.status === "out of stock"}
               variant="text"
-              className="flex items-center bg-blue-gray-900 text-white hover:text-black gap-2"
+              className="flex items-center  bg-blue-gray-900 text-white hover:text-black gap-2"
               onClick={handleAddToCart}
             >
               Order

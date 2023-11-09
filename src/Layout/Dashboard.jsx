@@ -3,7 +3,6 @@ import {
   FaCalendarAlt,
   FaCartPlus,
   FaHome,
-  FaUser,
   FaUsers,
   FaWallet,
 } from "react-icons/fa";
@@ -36,7 +35,7 @@ const Dashboard = () => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu p-4 w-80 min-h-full bg-blue-gray-800 text-white ">
+        <ul className="menu p-4 w-80 min-h-full bg-blue-gray-800 text-white hover:text-white">
           {/* Sidebar content here */}
 
           {isAdmin ? (

@@ -1,19 +1,26 @@
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
-import { Card, Typography } from "@material-tailwind/react";
 import { AiFillDelete } from "react-icons/ai";
-import { FiUsers } from "react-icons/fi";
 import { FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { TOKEN } from "../../Shared/token/token";
 
 const AllUser = () => {
+  const token = localStorage.getItem(TOKEN);
+
   const { data, refetch } = useQuery({
     queryKey: [],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/api/v1/user");
+      const res = await fetch("http://localhost:5000/api/v1/user", {
+        headers: {
+          authorization: token,
+        },
+      });
       return res.json();
     },
   });
+
+  console.log(data);
 
   const handleUpdate = (id) => {
     fetch(`http://localhost:5000/api/v1/user/${id}`, {

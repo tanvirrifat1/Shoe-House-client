@@ -3,11 +3,14 @@ import useCart from "../../../hooks/useCart";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { TOKEN } from "../token/token";
 
 const Drawer = () => {
   const [cart, refetch] = useCart();
   const { user } = useContext(AuthContext);
   const router = useNavigate();
+
+  const token = localStorage.getItem(TOKEN);
 
   const total = cart?.data?.reduce(
     (sum, item) => sum + parseFloat(item.price),

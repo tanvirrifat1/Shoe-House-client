@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import useCart from "../../../hooks/useCart";
-import { Link } from "react-router-dom";
-import { AiFillDelete, AiOutlineEdit, AiOutlineEye } from "react-icons/ai";
+import { AiFillDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
 
 const MyCart = () => {

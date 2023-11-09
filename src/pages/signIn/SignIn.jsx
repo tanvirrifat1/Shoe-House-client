@@ -67,7 +67,7 @@ const SignUp = () => {
                   console.log(data?.data);
                 });
             }
-            // navigate(from, { replace: true });
+            navigate(from, { replace: true });
           });
       })
       .catch((err) => console.error(err));
@@ -122,7 +122,7 @@ const SignUp = () => {
                           progress: undefined,
                           theme: "light",
                         });
-                        // navigate("/");
+                        navigate("/");
                         SetIsLoading(false);
                       }
                     });

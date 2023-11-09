@@ -12,6 +12,7 @@ import {
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import axios from "axios";
+import { TOKEN } from "../pages/Shared/token/token";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -57,8 +58,11 @@ const AuthProvider = ({ children }) => {
             email: currentUser.email,
           })
           .then((data) => {
-            console.log(data?.data);
+            console.log(data?.data?.data);
+            localStorage.setItem(TOKEN, data?.data?.data);
           });
+      } else {
+        localStorage.removeItem(TOKEN);
       }
       setLoading(false);
     });

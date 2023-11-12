@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 const ManageWatch = () => {
   const [menu, loading] = useMenu();
-  console.log(menu);
 
   if (loading) {
     <div className="flex justify-center items-center">
@@ -41,6 +40,15 @@ const ManageWatch = () => {
                         Name
                       </th>
                       <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        Price
+                      </th>
+                      <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        Category
+                      </th>
+                      <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                        Status
+                      </th>
+                      <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                         Details
                       </th>
 
@@ -67,6 +75,15 @@ const ManageWatch = () => {
                         </td>
                         <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                           {user?.name}
+                        </td>
+                        <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                          {user?.price}
+                        </td>
+                        <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                          {user?.category}
+                        </td>
+                        <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                          {user?.status}
                         </td>
                         <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                           {user?.details.slice(0, 50)}

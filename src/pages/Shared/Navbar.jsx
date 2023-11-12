@@ -20,8 +20,12 @@ const Navbar = () => {
     <>
       <ul className="lg:flex space-x-6 text-lg">
         <li>
-          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            <Link to="/">Home</Link>
+          <button
+            onClick={() => window.location.assign("/")}
+            href="#"
+            className="text-gray-300 lg:hover:text-slate-400"
+          >
+            Home
           </button>
         </li>
         <li>
@@ -123,13 +127,16 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="flex justify-center">
-          <Link className="w-12 h-12 " to="/">
+        <div
+          onClick={() => window.location.assign("/")}
+          className="flex justify-center"
+        >
+          <div className="w-12 h-12 ">
             {/* <button className="btn btn-ghost normal-case text-xl">
               Time-Square
             </button> */}
             <img className="rounded-full" src={logo} alt="" />
-          </Link>
+          </div>
         </div>
         <Drawer />
       </div>

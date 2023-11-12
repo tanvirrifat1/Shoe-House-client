@@ -49,7 +49,6 @@ const ManageSingleWatch = () => {
     if (updateResponse.ok) {
       const responseData = await updateResponse.json();
       console.log(responseData);
-      // Handle successful update
     } else {
       // Handle update error
       console.error("Error updating data:", updateResponse.status);

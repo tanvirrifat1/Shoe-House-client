@@ -13,7 +13,8 @@ import {
   Button,
 } from "@material-tailwind/react";
 import Magnifier from "react-magnifier";
-import { BiArrowBack } from "react-icons/bi";
+import { BiArrowBack, BiSolidMessage } from "react-icons/bi";
+import Feedback from "../../../pages/Shared/Drawer/Feedback";
 
 const WatchCardID = () => {
   const { id } = useParams();
@@ -196,31 +197,44 @@ const WatchCardID = () => {
               )}
             </div>
 
-            <div href="#" className="inline-block ">
-              <Button
-                disabled={data?.data?.status === "out of stock"}
-                variant="text"
-                className="flex items-center  bg-blue-gray-900 text-white hover:text-black gap-2"
-                onClick={handleAddToCart}
-              >
-                Order
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  className="h-4 w-4"
+            <div className="flex justify-between">
+              <div href="#" className="inline-block ">
+                <Button
+                  disabled={data?.data?.status === "out of stock"}
+                  variant="text"
+                  className="flex items-center  bg-blue-gray-900 text-white hover:text-black gap-2"
+                  onClick={handleAddToCart}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                  />
-                </svg>
-              </Button>
+                  Order
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    className="h-4 w-4"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                    />
+                  </svg>
+                </Button>
+              </div>
+
+              <label
+                className="flex items-center p-2 rounded-xl bg-green-900 text-white hover:text-black gap-2"
+                htmlFor="my_modal_6"
+              >
+                <div className="flex items-center  bg-green-900 text-white hover:text-black gap-2">
+                  FeedBAck
+                  <BiSolidMessage />
+                </div>
+              </label>
             </div>
           </CardBody>
+          <Feedback />
         </Card>
       </div>
     </div>

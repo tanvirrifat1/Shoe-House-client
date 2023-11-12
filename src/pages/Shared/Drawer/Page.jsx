@@ -9,7 +9,6 @@ import { useAuth } from "../../../hooks/useAuth";
 const Drawer = () => {
   const [cart, refetch] = useCart();
 
-  console.log(cart);
   const { user } = useAuth();
   const router = useNavigate();
 

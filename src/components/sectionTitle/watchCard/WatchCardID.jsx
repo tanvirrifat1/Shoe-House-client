@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import useCart from "../../../hooks/useCart";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
@@ -13,6 +13,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import Magnifier from "react-magnifier";
+import { BiArrowBack } from "react-icons/bi";
 
 const WatchCardID = () => {
   const { id } = useParams();
@@ -28,8 +29,6 @@ const WatchCardID = () => {
       return res.json();
     },
   });
-
-  console.log(data?.data);
 
   const handleAddToCart = () => {
     if (user && user?.email) {
@@ -108,109 +107,122 @@ const WatchCardID = () => {
     }
   };
 
+  const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="flex justify-center my-4 hero min-h-[65vh]">
-      <Card className="w-full max-w-[56rem] hero-content flex-row">
-        <CardHeader
-          shadow={false}
-          floated={false}
-          className="m-0 w-2/5 shrink-0 rounded-r-none"
-        >
-          {/* <img
+    <div>
+      <div className="lg:ml-52 lg:mt-20" onClick={() => navigate(-1)}>
+        <p className="text-black text-3xl  my-2">
+          <BiArrowBack />
+        </p>
+      </div>
+
+      <div className="flex justify-center my-4 hero min-h-[65vh]">
+        <Card className="w-full max-w-[56rem] hero-content flex-row">
+          <CardHeader
+            shadow={false}
+            floated={false}
+            className="m-0 w-2/5 shrink-0 rounded-r-none"
+          >
+            {/* <img
             src={data?.data?.image}
             alt="card-image"
             className="h-full w-full object-cover"
           /> */}
-          <Magnifier
-            src={data?.data?.image}
-            className="h-full w-full object-cover"
-          />
-        </CardHeader>
-        <CardBody className=" mt-14">
-          <Typography variant="h6" color="gray" className="mb-4 uppercase">
-            {data?.data?.name}
-          </Typography>
-          <Typography variant="h8" color="blue-gray" className="mb-2">
-            {data?.data?.details}
-          </Typography>
-          <Typography color="black" className="mb-8 font-normal">
-            Price: {data?.data?.price} $
-          </Typography>
+            <Magnifier
+              src={data?.data?.image}
+              className="h-full w-full object-cover"
+            />
+          </CardHeader>
+          <CardBody className=" mt-14">
+            <Typography variant="h6" color="gray" className="mb-4 uppercase">
+              {data?.data?.name}
+            </Typography>
+            <Typography variant="h8" color="blue-gray" className="mb-2">
+              {data?.data?.details}
+            </Typography>
+            <Typography color="black" className="mb-8 font-normal">
+              Price: {data?.data?.price} $
+            </Typography>
 
-          <div className="flex my-2 gap-2">
-            <h1>Color:</h1>
-            <input
-              type="checkbox"
-              checked={checkbox1Checked}
-              onChange={handleCheckbox1Toggle}
-              className="checkbox"
-            />
-            <input
-              type="checkbox"
-              checked={checkbox2Checked}
-              onChange={handleCheckbox2Toggle}
-              className="checkbox checkbox-primary"
-            />
-            <input
-              type="checkbox"
-              checked={checkbox3Checked}
-              onChange={handleCheckbox3Toggle}
-              className="checkbox checkbox-success"
-            />
-          </div>
-
-          <div className="flex my-2 gap-2">
-            <h1>Quantity: </h1>
-            <div className="flex font-semibold">
-              <p className="btn text-xl" onClick={handleDecrement}>
-                -
-              </p>
-              <p className="text-xl mx-2 mt-2"> {quantity}</p>
-              <p className="btn text-xl" onClick={handleIncrement}>
-                +
-              </p>
+            <div className="flex my-2 gap-2">
+              <h1>Color:</h1>
+              <input
+                type="checkbox"
+                checked={checkbox1Checked}
+                onChange={handleCheckbox1Toggle}
+                className="checkbox"
+              />
+              <input
+                type="checkbox"
+                checked={checkbox2Checked}
+                onChange={handleCheckbox2Toggle}
+                className="checkbox checkbox-primary"
+              />
+              <input
+                type="checkbox"
+                checked={checkbox3Checked}
+                onChange={handleCheckbox3Toggle}
+                className="checkbox checkbox-success"
+              />
             </div>
-          </div>
-          <div className="flex my-2 gap-2">
-            {data?.data?.status === "out of stock" ? (
-              <>
-                {" "}
-                <h1 className="text-red-600 text-xl">{data?.data?.status}</h1>
-              </>
-            ) : (
-              <>
-                {" "}
-                <h1 className="text-primary text-xl">{data?.data?.status}</h1>
-              </>
-            )}
-          </div>
 
-          <div href="#" className="inline-block ">
-            <Button
-              disabled={data?.data?.status === "out of stock"}
-              variant="text"
-              className="flex items-center  bg-blue-gray-900 text-white hover:text-black gap-2"
-              onClick={handleAddToCart}
-            >
-              Order
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-                className="h-4 w-4"
+            <div className="flex my-2 gap-2">
+              <h1>Quantity: </h1>
+              <div className="flex font-semibold">
+                <p className="btn text-xl" onClick={handleDecrement}>
+                  -
+                </p>
+                <p className="text-xl mx-2 mt-2"> {quantity}</p>
+                <p className="btn text-xl" onClick={handleIncrement}>
+                  +
+                </p>
+              </div>
+            </div>
+            <div className="flex my-2 gap-2">
+              {data?.data?.status === "out of stock" ? (
+                <>
+                  {" "}
+                  <h1 className="text-red-600 text-xl">{data?.data?.status}</h1>
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <h1 className="text-primary text-xl">{data?.data?.status}</h1>
+                </>
+              )}
+            </div>
+
+            <div href="#" className="inline-block ">
+              <Button
+                disabled={data?.data?.status === "out of stock"}
+                variant="text"
+                className="flex items-center  bg-blue-gray-900 text-white hover:text-black gap-2"
+                onClick={handleAddToCart}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                />
-              </svg>
-            </Button>
-          </div>
-        </CardBody>
-      </Card>
+                Order
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  className="h-4 w-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                  />
+                </svg>
+              </Button>
+            </div>
+          </CardBody>
+        </Card>
+      </div>
     </div>
   );
 };

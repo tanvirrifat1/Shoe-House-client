@@ -20,7 +20,7 @@ const WatchCard = ({ item }) => {
             to={`/detailsPage/${_id}`}
             className="btn w-full rounded-3xl text-black  border-black hover:border-gray-900 px-4 py-2 "
           >
-            add to cart
+            Read more ...
           </Link>
         </div>
       </div>

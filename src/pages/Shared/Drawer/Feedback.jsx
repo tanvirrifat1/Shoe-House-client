@@ -3,37 +3,63 @@ import FormInput from "../../../components/form/formInput";
 import { Helmet } from "react-helmet-async";
 import { useAuth } from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const Feedback = () => {
+const Feedback = ({ setOpenModal }) => {
   const { user } = useAuth();
-  console.log(user);
+  const router = useNavigate();
+  const location = useLocation();
+
   const onSubmit = async (data) => {
-    const image = user?.photoURL;
-    const name = user?.displayName;
-    if (image) {
-      data.image = image;
-    }
-    if (name) {
-      data.name = name;
-    }
-    const updateUrl = "http://localhost:5000/api/v1/reviews/create-reviews";
-    const updateResponse = await fetch(updateUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    if (updateResponse) {
-      Swal.fire({
-        title: "FeedBack Successfully!",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
+    try {
+      const image = user?.photoURL;
+      const name = user?.displayName;
+      if (image) {
+        data.image = image;
+      }
+      if (name) {
+        data.name = name;
+      }
+      const updateUrl = "http://localhost:5000/api/v1/reviews/create-reviews";
+      const updateResponse = await fetch(updateUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
+        body: JSON.stringify(data),
       });
+
+      if (updateResponse) {
+        if (updateResponse.ok) {
+          Swal.fire({
+            title: "FeedBack Successfully!",
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+          });
+        } else {
+          {
+            Swal.fire({
+              title: "Please Login First?",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Yes, Login",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                router("/login", { state: { from: location } });
+              }
+            });
+          }
+        }
+        setOpenModal(null);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -101,7 +127,20 @@ const Feedback = () => {
               </Form>
               <div className="modal-action">
                 <label htmlFor="my_modal_6" className="btn">
-                  Close!
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
                 </label>
               </div>
             </div>

@@ -6,8 +6,12 @@ import FindSection from "../Featured/FindSection/FindSection";
 import Reviews from "../Category/Review";
 
 const Home = () => {
+  const handleReload = async () => {
+    window.location.assign("/");
+  };
+
   return (
-    <div>
+    <div onClick={handleReload}>
       <Banner />
       <Category />
       <PopularShoes />

@@ -22,6 +22,11 @@ const WatchCardID = () => {
   const location = useLocation();
   const [cart, refetch] = useCart();
   const { user } = useContext(AuthContext);
+  const [openModal, setOpenModal] = useState(null);
+
+  const handleOpen = () => {
+    setOpenModal(true);
+  };
 
   const { data } = useQuery({
     queryKey: [],
@@ -224,6 +229,7 @@ const WatchCardID = () => {
               </div>
 
               <label
+                onClick={handleOpen}
                 className="flex items-center p-2 rounded-xl bg-green-900 text-white hover:text-black gap-2"
                 htmlFor="my_modal_6"
               >
@@ -234,7 +240,7 @@ const WatchCardID = () => {
               </label>
             </div>
           </CardBody>
-          <Feedback />
+          {openModal && <Feedback setOpenModal={setOpenModal} />}
         </Card>
       </div>
     </div>

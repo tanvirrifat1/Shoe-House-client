@@ -12,6 +12,8 @@ import Dashboard from "../Layout/Dashboard";
 import MyCart from "../pages/DashBoard/MyCart/MyCart";
 import WatchCardID from "../components/sectionTitle/watchCard/WatchCardID";
 import AllUser from "../pages/DashBoard/AllUsers/AllUser";
+import ManageWatch from "../pages/DashBoard/ManageWatch/ManageWatch";
+import ManageSingleWatch from "../pages/DashBoard/ManageWatch/ManageSingleWatch";
 
 export const router = createBrowserRouter([
   {
@@ -71,6 +73,14 @@ export const router = createBrowserRouter([
       {
         path: "allUsers",
         element: <AllUser />,
+      },
+      {
+        path: "manageWatch",
+        element: <ManageWatch />,
+      },
+      {
+        path: "singleWatch/:id",
+        element: <ManageSingleWatch />,
       },
     ],
   },

@@ -76,8 +76,7 @@ const AllUser = () => {
   };
 
   const { role } = getUserInfo();
-  console.log(role);
-  console.log(data?.data);
+
   return (
     <div>
       <Helmet>

@@ -28,7 +28,12 @@ const Menu = () => {
       {/* main cover */}
       <SectionTitle subHeading="Don't miss" heading="today's offer" />
       {/* offer */}
-      <MenuCategory items={Fitbit} />
+      <MenuCategory
+        items={Fitbit}
+        paragraph="Fitbit is a well-known brand in the fitness and health technology industry, specializing in wearable devices that track various aspects of your daily activity, exercise, sleep, and overall well-being. "
+        title="Fitbit"
+        img={BreitlingCover}
+      />
       {/* rolex */}
       <MenuCategory
         items={Rolex}

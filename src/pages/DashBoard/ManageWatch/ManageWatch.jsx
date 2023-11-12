@@ -19,7 +19,7 @@ const ManageWatch = () => {
   return (
     <div>
       <Helmet>
-        <title>All Users</title>
+        <title>Manage watches</title>
       </Helmet>
       {role === "admin" ? (
         <>

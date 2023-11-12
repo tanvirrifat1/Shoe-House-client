@@ -11,7 +11,7 @@ const Home = () => {
   };
 
   return (
-    <div onClick={handleReload}>
+    <div>
       <Banner />
       <Category />
       <PopularShoes />

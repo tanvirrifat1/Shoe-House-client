@@ -2,11 +2,14 @@ import {
   FaBook,
   FaCalendarAlt,
   FaCartPlus,
+  FaFedex,
   FaHome,
   FaUsers,
   FaWallet,
 } from "react-icons/fa";
 import { AiOutlineMenu } from "react-icons/ai";
+import { VscFeedback } from "react-icons/vsc";
+import { MdOutlineManageHistory } from "react-icons/md";
 import { BiSolidCategory } from "react-icons/bi";
 import { BsSmartwatch } from "react-icons/bs";
 import { NavLink, Outlet } from "react-router-dom";
@@ -72,8 +75,14 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink to="/dashBoard/manageWatch">
-                  <FaWallet />
+                  <MdOutlineManageHistory />
                   Manage Watches
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashBoard/feedback">
+                  <VscFeedback />
+                  FeedBack
                 </NavLink>
               </li>
               <li>

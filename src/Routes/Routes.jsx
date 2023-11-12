@@ -14,6 +14,7 @@ import WatchCardID from "../components/sectionTitle/watchCard/WatchCardID";
 import AllUser from "../pages/DashBoard/AllUsers/AllUser";
 import ManageWatch from "../pages/DashBoard/ManageWatch/ManageWatch";
 import ManageSingleWatch from "../pages/DashBoard/ManageWatch/ManageSingleWatch";
+import FeedBack from "../pages/DashBoard/FeedBack/FeedBack";
 
 export const router = createBrowserRouter([
   {
@@ -81,6 +82,10 @@ export const router = createBrowserRouter([
       {
         path: "singleWatch/:id",
         element: <ManageSingleWatch />,
+      },
+      {
+        path: "feedback",
+        element: <FeedBack />,
       },
     ],
   },

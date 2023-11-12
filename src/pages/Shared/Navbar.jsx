@@ -132,9 +132,6 @@ const Navbar = () => {
           className="flex justify-center"
         >
           <div className="w-12 h-12 ">
-            {/* <button className="btn btn-ghost normal-case text-xl">
-              Time-Square
-            </button> */}
             <img className="rounded-full" src={logo} alt="" />
           </div>
         </div>

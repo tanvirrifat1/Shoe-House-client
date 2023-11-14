@@ -48,11 +48,11 @@ const Dashboard = () => {
           {role === "admin" ? (
             <>
               {" "}
-              <li>
-                <NavLink to="/dashBoard/home">
+              <li onClick={() => window.location.assign("/")}>
+                <div>
                   <FaHome />
                   Admin Home
-                </NavLink>
+                </div>
               </li>
               <li>
                 <NavLink to="/dashBoard/addWatch">

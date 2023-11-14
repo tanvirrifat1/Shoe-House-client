@@ -25,6 +25,7 @@ const AllUser = () => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        authorization: token,
       },
       body: JSON.stringify({ role: "admin" }),
     })

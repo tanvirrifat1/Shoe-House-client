@@ -7,9 +7,11 @@ import { useMenu } from "../../../hooks/useMenu";
 import SelectFormField from "../../../components/form/seleteFormFiled";
 import { toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
+import { TOKEN } from "../../Shared/token/token";
 
 const ManageSingleWatch = () => {
   const { id } = useParams();
+  const token = localStorage.getItem(TOKEN);
   const [image, setImage] = useState(null);
 
   const router = useNavigate();
@@ -43,16 +45,11 @@ const ManageSingleWatch = () => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        authorization: token,
       },
       body: JSON.stringify(data),
     });
-    if (updateResponse.ok) {
-      const responseData = await updateResponse.json();
-      console.log(responseData);
-    } else {
-      // Handle update error
-      console.error("Error updating data:", updateResponse.status);
-    }
+
     if (updateResponse) {
       toast("watch manage successfully", {
         position: "top-center",

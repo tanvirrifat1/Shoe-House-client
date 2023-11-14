@@ -5,7 +5,6 @@ import { getUserInfo } from "../../Shared/auth/auth.service";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { TOKEN } from "../../Shared/token/token";
-import useCart from "../../../hooks/useCart";
 import { AiFillDelete } from "react-icons/ai";
 import { FaEdit } from "react-icons/fa";
 
@@ -109,9 +108,20 @@ const ManageWatch = () => {
                         <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                           {user?.category}
                         </td>
-                        <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                          {user?.status}
-                        </td>
+                        {user?.status === "in stock" ? (
+                          <>
+                            <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                              {user?.status}
+                            </td>
+                          </>
+                        ) : (
+                          <>
+                            {" "}
+                            <td className="whitespace-nowrap font-semibold px-4 py-2 text-red-700">
+                              {user?.status}
+                            </td>
+                          </>
+                        )}
                         <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                           {user?.details.slice(0, 50)}
                         </td>

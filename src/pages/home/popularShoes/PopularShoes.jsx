@@ -15,10 +15,15 @@ const PopularMenu = () => {
   return (
     <section className="mb-10">
       <SectionTitle
-        heading={"Our Popular watch"}
+        heading={"SPECIAL COLLECTIONS"}
         subHeading={"Popular Items"}
       />
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 container mx-auto gap-10">
+      <div
+        className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 container mx-auto gap-6"
+        data-aos-offset="600"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
         {popular?.map((item) => (
           <MenuItem key={item._id} item={item} />
         ))}

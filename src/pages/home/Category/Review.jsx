@@ -29,6 +29,7 @@ import {
 } from "@material-tailwind/react";
 
 import { useQuery } from "@tanstack/react-query";
+import SectionTitle from "../../../components/sectionTitle/SectionTitle";
 
 const Reviews = () => {
   const { data } = useQuery({
@@ -44,14 +45,10 @@ const Reviews = () => {
       <section className="container relative py-10">
         <div className="flex flex-wrap">
           <div className="w-full px-4">
-            <div className="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
-              <span className="block mb-2 text-lg font-semibold text-[#455a64]">
-                Read trusted reviews from our customers
-              </span>
-              <h2 className=" text-3xl font-bold text-dark sm:text-4xl md:text-[40px]">
-                What Peoples Say
-              </h2>
-            </div>
+            <SectionTitle
+              heading={"What Peoples Say"}
+              subHeading={"Read trusted reviews from our customers"}
+            />
           </div>
         </div>
 

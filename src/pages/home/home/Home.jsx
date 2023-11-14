@@ -4,6 +4,7 @@ import PopularShoes from "../popularShoes/PopularShoes";
 import Featured from "../Featured/Featured";
 import FindSection from "../Featured/FindSection/FindSection";
 import Reviews from "../Category/Review";
+import CategoryWatch from "../../../components/Category/CategoryWatch";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Banner />
       <Category />
       <PopularShoes />
+      <CategoryWatch />
       <Featured />
       <Reviews />
       {/* <FindSection /> */}

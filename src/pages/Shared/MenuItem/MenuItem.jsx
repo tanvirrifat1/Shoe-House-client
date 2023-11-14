@@ -4,59 +4,38 @@ import {
   CardBody,
   CardFooter,
   Typography,
-  Tooltip,
+  Button,
 } from "@material-tailwind/react";
+
 const MenuItem = ({ item }) => {
   const { image, price, name, details } = item;
   return (
     <div className="">
       <Card className="w-80">
-        <CardHeader floated={false} className="h-80">
-          <img className="h-[300px]" src={image} alt="profile-picture" />
+        <CardHeader shadow={false} floated={false} className="h-80">
+          <img
+            src={image}
+            alt="card-image"
+            className="h-full w-full object-cover"
+          />
         </CardHeader>
-        <CardBody className="text-center">
-          <Typography variant="h4" color="blue-gray" className="mb-2">
-            {name}
-          </Typography>
-          <Typography color="blue-gray" className="font-medium" textGradient>
-            {details.slice(0, 50)}...
+        <CardBody>
+          <div className="mb-2 flex items-center justify-between">
+            <Typography color="blue-gray" className="font-medium text-black">
+              {name}
+            </Typography>
+            <Typography color="blue-gray" className="font-medium text-black">
+              ${price}
+            </Typography>
+          </div>
+          <Typography
+            variant="small"
+            color="gray"
+            className="font-normal text-black opacity-75"
+          >
+            {details.slice(0, 75)}...
           </Typography>
         </CardBody>
-        <CardFooter className="flex justify-center gap-7 pt-2">
-          <Tooltip content="Like">
-            <Typography
-              as="a"
-              href="#facebook"
-              variant="lead"
-              color="blue"
-              textGradient
-            >
-              <i className="fab fa-facebook" />
-            </Typography>
-          </Tooltip>
-          <Tooltip content="Follow">
-            <Typography
-              as="a"
-              href="#twitter"
-              variant="lead"
-              color="light-blue"
-              textGradient
-            >
-              <i className="fab fa-twitter" />
-            </Typography>
-          </Tooltip>
-          <Tooltip content="Follow">
-            <Typography
-              as="a"
-              href="#instagram"
-              variant="lead"
-              color="purple"
-              textGradient
-            >
-              <i className="fab fa-instagram" />
-            </Typography>
-          </Tooltip>
-        </CardFooter>
       </Card>
     </div>
   );

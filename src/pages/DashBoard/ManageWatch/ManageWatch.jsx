@@ -3,18 +3,45 @@ import { useMenu } from "../../../hooks/useMenu";
 import { Helmet } from "react-helmet-async";
 import { getUserInfo } from "../../Shared/auth/auth.service";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { TOKEN } from "../../Shared/token/token";
+import useCart from "../../../hooks/useCart";
+import { AiFillDelete } from "react-icons/ai";
+import { FaEdit } from "react-icons/fa";
 
 const ManageWatch = () => {
-  const [menu, loading] = useMenu();
+  const [menu, isPending, refetch] = useMenu();
 
-  if (loading) {
-    <div className="flex justify-center items-center">
-      <span className="loading loading-spinner loading-lg"></span>;
-    </div>;
-  }
+  const token = localStorage.getItem(TOKEN);
+
+  const handleDelete = async (id) => {
+    const updateUrl = `http://localhost:5000/api/v1/menu/${id}`;
+    const updateResponse = await fetch(updateUrl, {
+      method: "DELETE",
+      headers: {
+        authorization: token,
+      },
+    });
+    if (updateResponse) {
+      refetch();
+      toast("watch delete successfully", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  };
 
   const { role } = getUserInfo();
 
+  if (isPending) {
+    return <p>Loading...</p>;
+  }
   return (
     <div>
       <Helmet>
@@ -61,7 +88,7 @@ const ManageWatch = () => {
                   </thead>
 
                   <tbody className="divide-y divide-gray-200">
-                    {menu.map((user, index) => (
+                    {menu?.map((user, index) => (
                       <tr key={user?.id}>
                         <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                           {index + 1}
@@ -88,16 +115,23 @@ const ManageWatch = () => {
                         <td className="whitespace-nowrap px-4 py-2 text-gray-700">
                           {user?.details.slice(0, 50)}
                         </td>
-                        <th>
-                          <div>
-                            <Link
-                              to={`/dashBoard/singleWatch/${user?._id}`}
-                              className="btn w-full rounded-3xl text-black  border-black hover:border-gray-900 px-4 py-2 "
-                            >
-                              Update
-                            </Link>
-                          </div>
-                        </th>
+                        <div className="mx-6 flex gap-4">
+                          <th>
+                            <div>
+                              <Link to={`/dashBoard/singleWatch/${user?._id}`}>
+                                <FaEdit className="text-3xl text-green-600 hover:text-black" />
+                              </Link>
+                            </div>
+                          </th>
+                          <th>
+                            <div>
+                              <AiFillDelete
+                                onClick={() => handleDelete(user?.id)}
+                                className="text-3xl text-red-600 hover:text-black "
+                              />
+                            </div>
+                          </th>
+                        </div>
                       </tr>
                     ))}
                   </tbody>

@@ -15,25 +15,12 @@ import { BsSmartwatch } from "react-icons/bs";
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../hooks/useCart";
 import { TOKEN } from "../pages/Shared/token/token";
-import { useQuery } from "@tanstack/react-query";
 import { getUserInfo } from "../pages/Shared/auth/auth.service";
 
 const Dashboard = () => {
   const [cart] = useCart();
 
   const token = localStorage.getItem(TOKEN);
-
-  const { data, refetch } = useQuery({
-    queryKey: [],
-    queryFn: async () => {
-      const res = await fetch("http://localhost:5000/api/v1/user", {
-        headers: {
-          authorization: token,
-        },
-      });
-      return res.json();
-    },
-  });
 
   const { role } = getUserInfo();
 
@@ -68,7 +55,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashBoard/reservations">
+                <NavLink to="/dashBoard/addWatch">
                   <BsSmartwatch />
                   Add Watch
                 </NavLink>

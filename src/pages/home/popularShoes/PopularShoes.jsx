@@ -3,10 +3,10 @@ import MenuItem from "../../Shared/MenuItem/MenuItem";
 import { useMenu } from "../../../hooks/useMenu";
 
 const PopularMenu = () => {
-  const [menu, loading] = useMenu();
-  const popular = menu.filter((item) => item.category === "popular");
+  const [menu, isPending] = useMenu();
+  const popular = menu?.filter((item) => item.category === "popular");
 
-  if (loading) {
+  if (isPending) {
     <div className="flex justify-center items-center h-screen">
       <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500"></div>
     </div>;

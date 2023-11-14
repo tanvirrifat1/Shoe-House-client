@@ -15,6 +15,7 @@ import AllUser from "../pages/DashBoard/AllUsers/AllUser";
 import ManageWatch from "../pages/DashBoard/ManageWatch/ManageWatch";
 import ManageSingleWatch from "../pages/DashBoard/ManageWatch/ManageSingleWatch";
 import FeedBack from "../pages/DashBoard/FeedBack/FeedBack";
+import AddWatch from "../pages/DashBoard/addWatch/AddWatch";
 
 export const router = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ export const router = createBrowserRouter([
       {
         path: "feedback",
         element: <FeedBack />,
+      },
+      {
+        path: "addWatch",
+        element: <AddWatch />,
       },
     ],
   },

@@ -11,7 +11,7 @@ const MenuItem = ({ item }) => {
   const { image, price, name, details } = item;
   return (
     <div className="">
-      <Card className="w-80">
+      <Card className="w-80" data-aos="fade-up-right" data-aos-duration="2000">
         <CardHeader shadow={false} floated={false} className="h-80">
           <img
             src={image}

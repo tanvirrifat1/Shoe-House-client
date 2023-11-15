@@ -48,7 +48,7 @@ const Dashboard = () => {
           {role === "admin" ? (
             <>
               {" "}
-              <li onClick={() => window.location.assign("/")}>
+              <li>
                 <div>
                   <FaHome />
                   Admin Home
@@ -118,7 +118,7 @@ const Dashboard = () => {
           )}
 
           <div className="divider"></div>
-          <li>
+          <li onClick={() => window.location.assign("/")}>
             <NavLink to="/">
               <FaHome />
               Home

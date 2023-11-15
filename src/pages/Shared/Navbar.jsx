@@ -99,6 +99,7 @@ const Navbar = () => {
       </ul>
     </>
   );
+
   return (
     <div className="navbar sticky top-0 z-50 bg-[#455a64] text-white">
       <div className="navbar-start">

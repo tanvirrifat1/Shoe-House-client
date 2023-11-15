@@ -14,13 +14,7 @@ const Banner = () => {
 
   return (
     <div>
-      <div
-        style={myStyle}
-        className="hero text-white bg-blue-gray-900 "
-        data-aos="fade-right"
-        data-aos-offset="600"
-        data-aos-easing="ease-in-sine"
-      >
+      <div style={myStyle} className="hero text-white bg-blue-gray-900 ">
         <div className="hero-content text-center ">
           <div className="hero-content flex-col lg:flex-row-reverse">
             {/* <img className="lg:h-[768px] lg:-mr-96" src={img6} alt="" /> */}

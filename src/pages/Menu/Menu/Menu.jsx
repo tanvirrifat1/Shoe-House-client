@@ -12,12 +12,12 @@ import MenuCategory from "../../MenuCategory/MenuCategory";
 
 const Menu = () => {
   const [menu] = useMenu();
-  const Rolex = menu.filter((item) => item.category === "Rolex");
-  const Omega = menu.filter((item) => item.category === "Omega");
-  const TAG_Heuer = menu.filter((item) => item.category === "TAG_Heuer");
-  const Fitbit = menu.filter((item) => item.category === "Fitbit");
-  const Garmin = menu.filter((item) => item.category === "Garmin");
-  const Breitling = menu.filter((item) => item.category === "Breitling");
+  const Rolex = menu?.filter((item) => item.category === "Rolex");
+  const Omega = menu?.filter((item) => item.category === "Omega");
+  const TAG_Heuer = menu?.filter((item) => item.category === "TAG_Heuer");
+  const Fitbit = menu?.filter((item) => item.category === "Fitbit");
+  const Garmin = menu?.filter((item) => item.category === "Garmin");
+  const Breitling = menu?.filter((item) => item.category === "Breitling");
 
   return (
     <div>

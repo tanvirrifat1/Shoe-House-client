@@ -40,6 +40,22 @@ const ManageSingleWatch = () => {
   };
 
   const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${
+      import.meta.env.VITE_IMG_key
+    }`;
+    const response = await fetch(url, {
+      method: "POST",
+      body: formData,
+    });
+    if (response.ok) {
+      const responseData = await response.json();
+      if (responseData.data) {
+        data.image = responseData.data.display_url;
+      }
+    }
+
     const updateUrl = `http://localhost:5000/api/v1/menu/${id}`;
     const updateResponse = await fetch(updateUrl, {
       method: "PATCH",
@@ -87,7 +103,7 @@ const ManageSingleWatch = () => {
               </h2>
 
               <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                {/* <div className="col-span-6">
+                <div className="col-span-6">
                   <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                     <input
                       defaultValue={data?.image}
@@ -96,9 +112,9 @@ const ManageSingleWatch = () => {
                       accept="image/*"
                       className="file-input file-input-bordered w-full"
                     />
-                    {image && <p>{data?.image}</p>}
+                    {image && <p>{image.name}</p>}
                   </div>
-                </div> */}
+                </div>
                 <div className="sm:col-span-3">
                   <div className="mt-2">
                     <SelectFormField

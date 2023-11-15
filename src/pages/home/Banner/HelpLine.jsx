@@ -3,7 +3,11 @@ import { AiFillCar, AiOutlineFieldTime } from "react-icons/ai";
 import { FaPencilRuler } from "react-icons/fa";
 const HelpLine = () => {
   return (
-    <section className="py-6 dark:bg-gray-800 -mt-36">
+    <section
+      className="py-6 dark:bg-gray-800 -mt-36"
+      data-aos="zoom-in"
+      data-aos-duration="2000"
+    >
       <div className="container flex flex-col justify-center p-4 mx-auto">
         <div className="grid mx-auto gap-32 grid-cols-1  lg:grid-cols-3 sm:grid-cols-2">
           <div className="card w-60 bg-white mt-6 h-60 flex justify-center items-center  rounded-full shadow-xl">

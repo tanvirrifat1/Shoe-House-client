@@ -1,9 +1,13 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { toast } from "react-toastify";
 
-const CheckOutForm = () => {
+import { useAuth } from "../../../hooks/useAuth";
+
+const CheckOutForm = ({ price }) => {
   const stripe = useStripe();
   const elements = useElements();
+
+  const { user } = useAuth();
 
   const handleSubmit = async (event) => {
     // Block native form submission.
@@ -25,7 +29,54 @@ const CheckOutForm = () => {
       card,
     });
 
+    if (paymentMethod) {
+      if (user && user?.email) {
+        const saveData = {
+          email: user?.email,
+
+          name: user.displayName,
+          price: price,
+          stripeCustomerId: paymentMethod.id,
+        };
+
+        fetch("http://localhost:5000/api/v1/payment", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data) {
+              toast("Payment Successfully", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              });
+            } else {
+              toast.error("Already Payment", {
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+              });
+            }
+          });
+      }
+    }
+
     if (error) {
+      console.log(error);
       toast.error(error.message, {
         position: "top-right",
         autoClose: 2500,
@@ -36,23 +87,26 @@ const CheckOutForm = () => {
         progress: undefined,
         theme: "light",
       });
-    } else {
-      toast(`${paymentMethod.object} successful`, {
-        position: "top-right",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
     }
+    // else {
+    //   console.log(paymentMethod);
+    //   toast(`${paymentMethod.object} successful`, {
+    //     position: "top-right",
+    //     autoClose: 1000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "light",
+    //   });
+    // }
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <h1 className="my-2">Price: {price}$</h1>
         <CardElement
           className="w-[600px] border"
           options={{
@@ -70,6 +124,7 @@ const CheckOutForm = () => {
             },
           }}
         />
+
         <button
           className="btn btn-primary btn-sm mt-4"
           type="submit"

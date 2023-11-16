@@ -17,6 +17,7 @@ import ManageSingleWatch from "../pages/DashBoard/ManageWatch/ManageSingleWatch"
 import FeedBack from "../pages/DashBoard/FeedBack/FeedBack";
 import AddWatch from "../pages/DashBoard/addWatch/AddWatch";
 import Payment from "../pages/DashBoard/Payment/Payment";
+import PaymentHistory from "../pages/DashBoard/Payment/PaymentHistory";
 
 export const router = createBrowserRouter([
   {
@@ -96,6 +97,10 @@ export const router = createBrowserRouter([
       {
         path: "addWatch",
         element: <AddWatch />,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory />,
       },
     ],
   },

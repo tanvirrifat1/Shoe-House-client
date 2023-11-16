@@ -1,6 +1,6 @@
 import React from "react";
 import img6 from "../../../assets/assets/cover/client.png";
-import img from "../../../assets/assets/watchCover4.png";
+import img from "../../../assets/assets/cover3.jpg";
 import "./Banner.css";
 import HelpLine from "./HelpLine";
 

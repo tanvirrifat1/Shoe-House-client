@@ -2,9 +2,13 @@ import { Helmet } from "react-helmet-async";
 import useCart from "../../../hooks/useCart";
 import { AiFillDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+import { getUserInfo } from "../../Shared/auth/auth.service";
 
 const MyCart = () => {
   const [cart, refetch] = useCart();
+
+  const { role } = getUserInfo();
 
   const total = cart?.data?.reduce(
     (sum, item) => sum + parseFloat(item.price),
@@ -69,7 +73,12 @@ const MyCart = () => {
         <div className="uppercase flex gap-14 font-semibold items-center h-[60px]">
           <h2 className="text-3xl">Total Items :{cart?.data?.length}</h2>
           <h2 className="text-3xl">Total Price : ${total}</h2>
-          <button className="btn btn-warning btn-sm">PAY</button>
+          <button
+            disabled={role === "admin"}
+            className="btn btn-warning btn-sm"
+          >
+            <Link to={"/dashBoard/payment"}>PAY</Link>
+          </button>
         </div>
       </div>
       <div className="pr-20 pl-5 py-10">

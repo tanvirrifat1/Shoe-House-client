@@ -72,12 +72,6 @@ const Menu = () => {
           img={TAG_HeuerCover}
           paragraph="TAG Heuer is a prestigious Swiss watchmaker known for its luxury timepieces that combine advanced technology, precision craftsmanship, and sporty aesthetics. Founded in 1860 by Edouard Heuer in St-Imier, Switzerland, the brand has a rich history of innovation and has established itself as a prominent player in the world of haute horlogerie."
         />
-        <MenuCategory
-          items={Popular}
-          title="TAG_Heuer"
-          img={TAG_HeuerCover}
-          paragraph="TAG Heuer is a prestigious Swiss watchmaker known for its luxury timepieces that combine advanced technology, precision craftsmanship, and sporty aesthetics. Founded in 1860 by Edouard Heuer in St-Imier, Switzerland, the brand has a rich history of innovation and has established itself as a prominent player in the world of haute horlogerie."
-        />
       </div>
     </div>
   );

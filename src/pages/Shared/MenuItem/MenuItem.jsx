@@ -6,9 +6,10 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const MenuItem = ({ item }) => {
-  const { image, price, name, details } = item;
+  const { image, price, name, details, title } = item;
   return (
     <div className="">
       <Card className="w-80" data-aos="fade-up-right" data-aos-duration="2000">

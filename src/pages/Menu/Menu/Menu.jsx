@@ -18,6 +18,7 @@ const Menu = () => {
   const Fitbit = menu?.filter((item) => item.category === "Fitbit");
   const Garmin = menu?.filter((item) => item.category === "Garmin");
   const Breitling = menu?.filter((item) => item.category === "Breitling");
+  const Popular = menu?.filter((item) => item.category === "popular");
 
   return (
     <div>
@@ -67,6 +68,12 @@ const Menu = () => {
         {/* TAG_Heuer */}
         <MenuCategory
           items={TAG_Heuer}
+          title="TAG_Heuer"
+          img={TAG_HeuerCover}
+          paragraph="TAG Heuer is a prestigious Swiss watchmaker known for its luxury timepieces that combine advanced technology, precision craftsmanship, and sporty aesthetics. Founded in 1860 by Edouard Heuer in St-Imier, Switzerland, the brand has a rich history of innovation and has established itself as a prominent player in the world of haute horlogerie."
+        />
+        <MenuCategory
+          items={Popular}
           title="TAG_Heuer"
           img={TAG_HeuerCover}
           paragraph="TAG Heuer is a prestigious Swiss watchmaker known for its luxury timepieces that combine advanced technology, precision craftsmanship, and sporty aesthetics. Founded in 1860 by Edouard Heuer in St-Imier, Switzerland, the brand has a rich history of innovation and has established itself as a prominent player in the world of haute horlogerie."

@@ -18,6 +18,7 @@ const Order = () => {
     "Fitbit",
     "Garmin",
     "Breitling",
+    "popular",
   ];
 
   const { category } = useParams();
@@ -26,12 +27,13 @@ const Order = () => {
 
   // fetch data
   const [menu] = useMenu();
-  const Rolex = menu.filter((item) => item.category === "Rolex");
-  const Omega = menu.filter((item) => item.category === "Omega");
-  const TAG_Heuer = menu.filter((item) => item.category === "TAG_Heuer");
-  const Fitbit = menu.filter((item) => item.category === "Fitbit");
-  const Garmin = menu.filter((item) => item.category === "Garmin");
-  const Breitling = menu.filter((item) => item.category === "Breitling");
+  const Rolex = menu?.filter((item) => item.category === "Rolex");
+  const Omega = menu?.filter((item) => item.category === "Omega");
+  const TAG_Heuer = menu?.filter((item) => item.category === "TAG_Heuer");
+  const Fitbit = menu?.filter((item) => item.category === "Fitbit");
+  const Garmin = menu?.filter((item) => item.category === "Garmin");
+  const Breitling = menu?.filter((item) => item.category === "Breitling");
+  const Popular = menu?.filter((item) => item.category === "popular");
 
   return (
     <div>
@@ -49,6 +51,7 @@ const Order = () => {
             <Tab>Fitbit</Tab>
             <Tab>Garmin</Tab>
             <Tab>Breitling</Tab>
+            <Tab>SPECIAL COLLECTIONS</Tab>
           </TabList>
           <TabPanel>
             <OrderTab items={Rolex} />
@@ -67,6 +70,9 @@ const Order = () => {
           </TabPanel>
           <TabPanel>
             <OrderTab items={Breitling} />
+          </TabPanel>
+          <TabPanel>
+            <OrderTab items={Popular} />
           </TabPanel>
         </Tabs>
       </div>

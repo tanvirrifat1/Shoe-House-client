@@ -1,6 +1,7 @@
 import SectionTitle from "../../../components/sectionTitle/SectionTitle";
 import MenuItem from "../../Shared/MenuItem/MenuItem";
 import { useMenu } from "../../../hooks/useMenu";
+import { Link } from "react-router-dom";
 
 const PopularMenu = () => {
   const [menu, isPending] = useMenu();
@@ -23,6 +24,11 @@ const PopularMenu = () => {
           <MenuItem key={item._id} item={item} />
         ))}
       </div>
+      <Link className="flex justify-center" to={`/order/popular`}>
+        <button className="btn  btn-outline border-0 border-b-4 text-black my-2 w-[280px]">
+          Order now
+        </button>
+      </Link>
     </section>
   );
 };

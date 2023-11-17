@@ -91,8 +91,8 @@ const AddWatch = () => {
       value: "Fitbit",
     },
     {
-      label: "TAG_Heuer",
-      value: "TAG_Heuer",
+      label: "TAGHeuer",
+      value: "TAGHeuer",
     },
     {
       label: "popular",

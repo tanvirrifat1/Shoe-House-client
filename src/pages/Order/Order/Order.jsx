@@ -14,7 +14,7 @@ const Order = () => {
   const categories = [
     "Rolex",
     "Omega",
-    "TAG_Heuer",
+    "TAGHeuer",
     "Fitbit",
     "Garmin",
     "Breitling",
@@ -29,7 +29,7 @@ const Order = () => {
   const [menu] = useMenu();
   const Rolex = menu?.filter((item) => item.category === "Rolex");
   const Omega = menu?.filter((item) => item.category === "Omega");
-  const TAG_Heuer = menu?.filter((item) => item.category === "TAG_Heuer");
+  const TAG_Heuer = menu?.filter((item) => item.category === "TAGHeuer");
   const Fitbit = menu?.filter((item) => item.category === "Fitbit");
   const Garmin = menu?.filter((item) => item.category === "Garmin");
   const Breitling = menu?.filter((item) => item.category === "Breitling");
@@ -47,7 +47,7 @@ const Order = () => {
           <TabList>
             <Tab>Rolex</Tab>
             <Tab>Omega</Tab>
-            <Tab>TAG_Heuer</Tab>
+            <Tab>TAGHeuer</Tab>
             <Tab>Fitbit</Tab>
             <Tab>Garmin</Tab>
             <Tab>Breitling</Tab>

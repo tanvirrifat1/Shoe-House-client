@@ -66,12 +66,12 @@ const Dashboard = () => {
                   FeedBack
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/dashBoard/history">
                   <FaBook />
                   Manage Booking
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink to="/dashBoard/allUsers">
                   <FaUsers />
@@ -88,7 +88,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashBoard/reservations">
+                <NavLink to="/dashBoard/reservation">
                   <FaCalendarAlt />
                   Reservations
                 </NavLink>
@@ -112,7 +112,7 @@ const Dashboard = () => {
           )}
 
           <div className="divider"></div>
-          <li onClick={() => window.location.assign("/")}>
+          <li>
             <NavLink to="/">
               <FaHome />
               Home
@@ -138,3 +138,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+// onClick={() => window.location.assign("/")}

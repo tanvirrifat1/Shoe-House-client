@@ -20,6 +20,7 @@ import Payment from "../pages/DashBoard/Payment/Payment";
 import PaymentHistory from "../pages/DashBoard/Payment/PaymentHistory";
 import AdminHome from "../pages/DashBoard/AdminHome/AdminHome";
 import UserHome from "../pages/DashBoard/UserHome/UserHome";
+import Reservation from "../pages/DashBoard/Reservation/Reservation";
 
 export const router = createBrowserRouter([
   {
@@ -111,6 +112,10 @@ export const router = createBrowserRouter([
       {
         path: "userHome",
         element: <UserHome />,
+      },
+      {
+        path: "reservation",
+        element: <Reservation />,
       },
     ],
   },

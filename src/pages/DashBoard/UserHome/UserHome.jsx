@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { FaPhoneAlt, FaShoppingBag } from "react-icons/fa";
 import { FiWatch } from "react-icons/fi";
 import { VscFeedback } from "react-icons/vsc";
@@ -11,7 +10,6 @@ import {
   CardHeader,
   CardBody,
   Typography,
-  Button,
 } from "@material-tailwind/react";
 import { MdOutlinePayment } from "react-icons/md";
 
@@ -27,19 +25,18 @@ const UserHome = () => {
       return res.json();
     },
   });
-  console.log(data?.data);
-  const totalOrderData = data?.data?.result.find(
+
+  const totalOrderData = data?.data?.result?.find(
     (item) => item._id === user?.email
   );
 
-  const totalReviewData = data?.data?.result3.find(
+  const totalReviewData = data?.data?.result3?.find(
     (item) => item._id === user?.email
   );
 
-  const totalPaymentData = data?.data?.result2.find(
+  const totalPaymentData = data?.data?.result2?.find(
     (item) => item._id === user?.email
   );
-  console.log(totalPaymentData);
 
   return (
     <div>
@@ -58,7 +55,7 @@ const UserHome = () => {
             <FaShoppingBag className="text-3xl mt-6" />
           </div>
           <div className="stat-title">Order</div>
-          <div className="stat-value">{totalOrderData?.quantity}</div>
+          <div className="stat-value">{totalOrderData?.quantity || 0}</div>
           {/* <div className="stat-desc">↗︎ 400 (22%)</div> */}
         </div>
 
@@ -104,7 +101,7 @@ const UserHome = () => {
               color="gray"
               className="mb-4 uppercase flex gap-3"
             >
-              <div className="stat-figure text-secondary">
+              <div className="stat-figure text-primary">
                 <div className="flex gap-2 mt-1">
                   <VscFeedback className="text-3xl " />
                   <p>Your Reviews</p>
@@ -117,7 +114,7 @@ const UserHome = () => {
               color="gray"
               className="mb-4 uppercase flex gap-3"
             >
-              <div className="stat-figure text-secondary">
+              <div className="stat-figure text-error">
                 <div className="flex gap-2 mt-1">
                   <MdOutlinePayment className="text-3xl " />
                   <p>Your Payments</p>

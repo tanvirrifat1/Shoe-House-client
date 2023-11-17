@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
@@ -21,7 +21,7 @@ const Navbar = () => {
   const navOption = (
     <>
       <ul className="lg:flex space-x-6 text-lg">
-        <li>
+        {/* <li>
           <button
             onClick={() => window.location.assign("/")}
             href="#"
@@ -29,22 +29,25 @@ const Navbar = () => {
           >
             Home
           </button>
-        </li>
-        <li>
-          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            <Link to="/menu">Watch Category </Link>
-          </button>
-        </li>
-        <li>
-          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            <Link to="/order/Rolex">Order Watch</Link>
-          </button>
+        </li> */}
+
+        <li
+          // onClick={() => window.location.assign("/")}
+          className="text-gray-300 lg:hover:text-slate-400"
+        >
+          <NavLink to={"/"}>Home</NavLink>
         </li>
 
-        <li>
-          <button href="#" className="text-gray-300 lg:hover:text-slate-400">
-            <Link to="/contact">Contact</Link>
-          </button>
+        <li className="text-gray-300 lg:hover:text-slate-400">
+          <NavLink to="/menu">Watch Category </NavLink>
+        </li>
+
+        <li className="text-gray-300 lg:hover:text-slate-400">
+          <NavLink to="/order/Rolex">Order Watch</NavLink>
+        </li>
+
+        <li className="text-gray-300 lg:hover:text-slate-400">
+          <NavLink to="/contact">Contact</NavLink>
         </li>
 
         {user ? (

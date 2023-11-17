@@ -32,13 +32,17 @@ import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../components/sectionTitle/SectionTitle";
 
 const Reviews = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: [],
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/api/v1/reviews`);
       return res.json();
     },
   });
+
+  if (isLoading) {
+    return <p>Loading....</p>;
+  }
 
   return (
     <div className=" w-full lg:w-[1440px] -mt-10 mx-auto">

@@ -14,8 +14,12 @@ const Feedback = ({ setOpenModal }) => {
     try {
       const image = user?.photoURL;
       const name = user?.displayName;
+      const email = user?.email;
       if (image) {
         data.image = image;
+      }
+      if (email) {
+        data.email = email;
       }
       if (name) {
         data.name = name;

@@ -8,7 +8,7 @@ import SectionTitle from "../../../components/sectionTitle/SectionTitle";
 const PaymentHistory = () => {
   const { user } = useAuth();
   const token = localStorage.getItem(TOKEN);
-  const { data, isLoading } = useQuery({
+  const { data: Payment, isLoading } = useQuery({
     queryKey: [],
     queryFn: async () => {
       const res = await fetch(
@@ -58,26 +58,27 @@ const PaymentHistory = () => {
             </thead>
 
             <tbody className="divide-y divide-gray-200">
-              {data?.data?.map((user, index) => (
-                <tr key={user?.id}>
-                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    {index + 1}
-                  </td>
+              {Payment?.data.length > 0 &&
+                Payment?.data?.map((user, index) => (
+                  <tr key={user?.id}>
+                    <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                      {index + 1}
+                    </td>
 
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    {user?.name}
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    {user?.email}
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                    {user?.price}
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 text-gray-700 font-semibold">
-                    successful
-                  </td>
-                </tr>
-              ))}
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      {user?.name}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      {user?.email}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
+                      {user?.price}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 font-semibold">
+                      successful
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

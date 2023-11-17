@@ -82,15 +82,6 @@ const MyCart = () => {
         </div>
       </div>
       <div className="pr-20 pl-5 py-10">
-        {/* <div className="flex justify-between border-b-2 pb-1">
-          <h1 className="text-4xl font-bold">Carts List</h1>
-          <Link
-            href="/dashBoard/blog/create"
-            className="btn btn-outline rounded-full hover:bg-white hover:text-black hover:shadow-lg"
-          >
-            Add Cart
-          </Link>
-        </div> */}
         <div className="overflow-x-auto mt-10  ">
           <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
             <thead className="text-left">

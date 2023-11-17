@@ -18,6 +18,8 @@ import FeedBack from "../pages/DashBoard/FeedBack/FeedBack";
 import AddWatch from "../pages/DashBoard/addWatch/AddWatch";
 import Payment from "../pages/DashBoard/Payment/Payment";
 import PaymentHistory from "../pages/DashBoard/Payment/PaymentHistory";
+import AdminHome from "../pages/DashBoard/AdminHome/AdminHome";
+import UserHome from "../pages/DashBoard/UserHome/UserHome";
 
 export const router = createBrowserRouter([
   {
@@ -101,6 +103,14 @@ export const router = createBrowserRouter([
       {
         path: "paymentHistory",
         element: <PaymentHistory />,
+      },
+      {
+        path: "adminHome",
+        element: <AdminHome />,
+      },
+      {
+        path: "userHome",
+        element: <UserHome />,
       },
     ],
   },

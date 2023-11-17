@@ -5,10 +5,12 @@ import { FaShoppingCart } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
 import Drawer from "./Drawer/Page";
 import logo from "../../assets/assets/watchMenu2.png";
+import { getUserInfo } from "./auth/auth.service";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [cart] = useCart();
+  const { role } = getUserInfo();
 
   const handleLogOut = () => {
     logOut()
@@ -48,12 +50,25 @@ const Navbar = () => {
         {user ? (
           <>
             <li>
-              <button
-                href="#"
-                className="text-gray-300 lg:hover:text-slate-400"
-              >
-                <Link to="/dashBoard/mycart">DashBoard</Link>
-              </button>
+              {role === "admin" ? (
+                <>
+                  <button
+                    href="#"
+                    className="text-gray-300 lg:hover:text-slate-400"
+                  >
+                    <Link to="/dashBoard/adminHome">DashBoard</Link>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    href="#"
+                    className="text-gray-300 lg:hover:text-slate-400"
+                  >
+                    <Link to="/dashBoard/userHome">DashBoard</Link>
+                  </button>
+                </>
+              )}
             </li>
           </>
         ) : (

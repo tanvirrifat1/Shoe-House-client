@@ -43,10 +43,10 @@ const Dashboard = () => {
             <>
               {" "}
               <li>
-                <div>
+                <NavLink to="/dashBoard/adminHome">
                   <FaHome />
                   Admin Home
-                </div>
+                </NavLink>
               </li>
               <li>
                 <NavLink to="/dashBoard/addWatch">
@@ -82,7 +82,7 @@ const Dashboard = () => {
           ) : (
             <>
               <li>
-                <NavLink to="/dashBoard/home">
+                <NavLink to="/dashBoard/userHome">
                   <FaHome />
                   User Home
                 </NavLink>

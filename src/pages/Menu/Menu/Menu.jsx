@@ -4,7 +4,7 @@ import menuImg from "../../../assets/assets/watchMenu2.png";
 import RolexCover from "../../../assets/assets/cover3.jpg";
 import OmegaCover from "../../../assets/assets/watchCover4.png";
 import TAG_HeuerCover from "../../../assets/assets/tag.png";
-import GarminCover from "../../../assets/assets/category/watch6.png";
+import GarminCover from "../../../assets/assets/watch7.png";
 import BreitlingCover from "../../../assets/assets/category/watch20.png";
 import { useMenu } from "../../../hooks/useMenu";
 import SectionTitle from "../../../components/sectionTitle/SectionTitle";

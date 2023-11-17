@@ -2,20 +2,18 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { toast } from "react-toastify";
 
 import { useAuth } from "../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const CheckOutForm = ({ price }) => {
   const stripe = useStripe();
   const elements = useElements();
 
   const { user } = useAuth();
-
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
-    // Block native form submission.
     event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
       return;
     }
     const card = elements.getElement(CardElement);
@@ -59,6 +57,7 @@ const CheckOutForm = ({ price }) => {
                 progress: undefined,
                 theme: "light",
               });
+              navigate("/dashBoard/paymentHistory");
             } else {
               toast.error("Already Payment", {
                 position: "top-right",
@@ -108,7 +107,7 @@ const CheckOutForm = ({ price }) => {
       <form onSubmit={handleSubmit}>
         <h1 className="my-2">Price: {price}$</h1>
         <CardElement
-          className="w-[600px] border"
+          className="w-[600px] border h-20 p-6 border-black"
           options={{
             style: {
               base: {
@@ -130,7 +129,7 @@ const CheckOutForm = ({ price }) => {
           type="submit"
           disabled={!stripe}
         >
-          Pay
+          Pay now
         </button>
       </form>
     </div>

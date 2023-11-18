@@ -31,7 +31,9 @@ const WatchCardID = () => {
   const { data } = useQuery({
     queryKey: [],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/api/v1/menu/${id}`);
+      const res = await fetch(
+        `https://watch-shop-mongoose.vercel.app/api/v1/menu/${id}`
+      );
       return res.json();
     },
   });
@@ -47,7 +49,7 @@ const WatchCardID = () => {
         price: data?.data.price,
       };
 
-      fetch("http://localhost:5000/api/v1/cart/create-cart", {
+      fetch("https://watch-shop-mongoose.vercel.app/api/v1/cart/create-cart", {
         method: "POST",
         headers: {
           "content-type": "application/json",

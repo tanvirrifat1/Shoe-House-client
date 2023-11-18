@@ -14,7 +14,7 @@ const ManageWatch = () => {
   const token = localStorage.getItem(TOKEN);
 
   const handleDelete = async (id) => {
-    const updateUrl = `http://localhost:5000/api/v1/menu/${id}`;
+    const updateUrl = `https://watch-shop-mongoose.vercel.app/api/v1/menu/${id}`;
     const updateResponse = await fetch(updateUrl, {
       method: "DELETE",
       headers: {

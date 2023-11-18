@@ -37,7 +37,7 @@ const AddWatch = () => {
         data.image = imgData.data.display_url;
 
         const menuResponse = await fetch(
-          "http://localhost:5000/api/v1/menu/create-menu",
+          "https://watch-shop-mongoose.vercel.app/api/v1/menu/create-menu",
           {
             method: "POST",
             headers: {

@@ -36,7 +36,7 @@ const MyCart = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`http://localhost:5000/api/v1/cart/${id}`, {
+          fetch(`https://watch-shop-mongoose.vercel.app/api/v1/cart/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())

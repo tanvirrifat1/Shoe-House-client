@@ -12,7 +12,7 @@ const PaymentHistory = () => {
     queryKey: [],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/api/v1/payment?email=${user?.email}`,
+        `https://watch-shop-mongoose.vercel.app/api/v1/payment?email=${user?.email}`,
         {
           headers: {
             authorization: token,

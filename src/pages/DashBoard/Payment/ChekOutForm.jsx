@@ -37,7 +37,7 @@ const CheckOutForm = ({ price }) => {
           stripeCustomerId: paymentMethod.id,
         };
 
-        fetch("http://localhost:5000/api/v1/payment", {
+        fetch("https://watch-shop-mongoose.vercel.app/api/v1/payment", {
           method: "POST",
           headers: {
             "content-type": "application/json",

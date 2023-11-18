@@ -24,7 +24,8 @@ const Feedback = ({ setOpenModal }) => {
       if (name) {
         data.name = name;
       }
-      const updateUrl = "http://localhost:5000/api/v1/reviews/create-reviews";
+      const updateUrl =
+        "https://watch-shop-mongoose.vercel.app/api/v1/reviews/create-reviews";
       const updateResponse = await fetch(updateUrl, {
         method: "POST",
         headers: {

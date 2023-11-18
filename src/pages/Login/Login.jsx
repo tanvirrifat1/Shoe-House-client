@@ -84,7 +84,7 @@ const Login = () => {
           image: user.photoURL,
         };
 
-        fetch("http://localhost:5000/api/v1/user", {
+        fetch("https://watch-shop-mongoose.vercel.app/api/v1/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",

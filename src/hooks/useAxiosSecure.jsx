@@ -5,7 +5,7 @@ import { TOKEN } from "../pages/Shared/token/token";
 import { useAuth } from "./useAuth";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: "https://watch-shop-mongoose.vercel.app/api/v1",
 });
 
 const useAxiosSecure = () => {

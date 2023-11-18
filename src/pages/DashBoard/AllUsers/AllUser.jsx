@@ -11,17 +11,20 @@ const AllUser = () => {
   const { data, refetch } = useQuery({
     queryKey: [],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/api/v1/user", {
-        headers: {
-          authorization: token,
-        },
-      });
+      const res = await fetch(
+        "https://watch-shop-mongoose.vercel.app/api/v1/user",
+        {
+          headers: {
+            authorization: token,
+          },
+        }
+      );
       return res.json();
     },
   });
 
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/api/v1/user/${id}`, {
+    fetch(`https://watch-shop-mongoose.vercel.app/api/v1/user/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +48,7 @@ const AllUser = () => {
   };
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/api/v1/user/${id}`, {
+    fetch(`https://watch-shop-mongoose.vercel.app/api/v1/user/${id}`, {
       method: "DELETE",
       headers: {
         authorization: token,

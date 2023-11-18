@@ -11,7 +11,9 @@ const FeedBack = () => {
   const { data, refetch, isLoading } = useQuery({
     queryKey: [],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/api/v1/reviews");
+      const res = await fetch(
+        "https://watch-shop-mongoose.vercel.app/api/v1/reviews"
+      );
       return res.json();
     },
   });
@@ -24,7 +26,7 @@ const FeedBack = () => {
 
   const handleDelete = (id) => {
     if (role === "admin") {
-      fetch(`http://localhost:5000/api/v1/reviews/${id}`, {
+      fetch(`https://watch-shop-mongoose.vercel.app/api/v1/reviews/${id}`, {
         method: "DELETE",
         headers: {
           authorization: token,

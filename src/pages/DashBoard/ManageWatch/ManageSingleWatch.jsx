@@ -19,7 +19,9 @@ const ManageSingleWatch = () => {
   const { data } = useQuery({
     queryKey: [],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/api/v1/menu/${id}`);
+      const res = await fetch(
+        `https://watch-shop-mongoose.vercel.app/api/v1/menu/${id}`
+      );
       return res.json();
     },
   });
@@ -56,7 +58,7 @@ const ManageSingleWatch = () => {
       }
     }
 
-    const updateUrl = `http://localhost:5000/api/v1/menu/${id}`;
+    const updateUrl = `https://watch-shop-mongoose.vercel.app/api/v1/menu/${id}`;
     const updateResponse = await fetch(updateUrl, {
       method: "PATCH",
       headers: {

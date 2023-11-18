@@ -86,7 +86,7 @@ const Navbar = () => {
                 href="#"
                 className="text-gray-300 lg:hover:text-slate-400"
               >
-                LoginOut
+                Logout
               </button>
             </li>
           </>

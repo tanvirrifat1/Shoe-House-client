@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet-async";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { toast } from "react-toastify";
-import Swal from "sweetalert2";
 import LoadingButton from "../Shared/LodingButton";
 import SmallSpinner from "../Shared/SmallSpinner";
 import { BiArrowBack } from "react-icons/bi";
@@ -48,7 +47,7 @@ const SignUp = () => {
           image: user.photoURL,
         };
 
-        fetch("http://localhost:5000/api/v1/user", {
+        fetch("https://watch-shop-mongoose.vercel.app/api/v1/user", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -60,9 +59,12 @@ const SignUp = () => {
             console.log(user?.data?.email);
             if (user) {
               axios
-                .post("http://localhost:5000/api/v1/auth/login", {
-                  email: user?.data?.email,
-                })
+                .post(
+                  "https://watch-shop-mongoose.vercel.app/api/v1/auth/login",
+                  {
+                    email: user?.data?.email,
+                  }
+                )
                 .then((data) => {
                   console.log(data?.data);
                 });
@@ -99,7 +101,7 @@ const SignUp = () => {
                     image: imgData.data.display_url,
                     password: data.password,
                   };
-                  fetch("http://localhost:5000/api/v1/user", {
+                  fetch("https://watch-shop-mongoose.vercel.app/api/v1/user", {
                     method: "POST",
                     headers: {
                       "content-type": "application/json",
@@ -149,7 +151,7 @@ const SignUp = () => {
 
   const handleData = (data) => {
     axios
-      .post("http://localhost:5000/api/v1/auth/login", {
+      .post("https://watch-shop-mongoose.vercel.app/api/v1/auth/login", {
         email: data?.data?.email,
       })
       .then((data) => {

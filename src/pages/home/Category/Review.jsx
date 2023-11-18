@@ -35,7 +35,9 @@ const Reviews = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["data"],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/api/v1/reviews`);
+      const res = await fetch(
+        `https://watch-shop-mongoose.vercel.app/api/v1/reviews`
+      );
       return res.json();
     },
   });

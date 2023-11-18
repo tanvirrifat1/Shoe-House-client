@@ -9,8 +9,8 @@ const CategoryWatch = () => {
       <div>
         <SectionTitle heading={"choose your option"} />
       </div>
-      <div className="flex justify-center gap-4 ">
-        <div className="flex flex-col group relative w p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
+      <div className="flex justify-center gap-4 hero-content flex-col lg:flex-row-reverse lg:ml-80">
+        <div className="flex flex-col group relative  p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100">
           <div>
             <img
               src={men}

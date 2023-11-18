@@ -40,9 +40,9 @@ const Featured = () => {
             Website URL or step into our store at Manikganj Sadar. Elevate your
             style with the watch of your dreams. See you there! 🛍️
           </p>
-          <button className="btn btn-outline border-0 border-b-4 text-white my-2">
+          {/* <button className="btn btn-outline border-0 border-b-4 text-white my-2">
             Order now
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

@@ -26,10 +26,10 @@ const Banner = () => {
                 </h1>
                 <h1 className="text-5xl py-3 font-bold">You</h1>
               </div>
-              <p className="py-6 text-white">
+              {/* <p className="py-6 text-white">
                 We are certified company. We provide best plumbing services for
                 you & your company .
-              </p>
+              </p> */}
               {/* <button className="btn bg-[#8c2a4e] text-white hover:text-black">
                   Book online
                 </button> */}

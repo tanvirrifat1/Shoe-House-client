@@ -85,6 +85,15 @@ const Category = () => {
         "Welcome to PACK & SHIFT Removal group, Professional House Shifting Service to anywhere in Bangladesh from Dhaka City. AlsoInternational movers and packers Any country of the world",
       image: img3,
     },
+    {
+      id: 8,
+      title: "Expert Plumbing Service You Can Trust.",
+      subTitle1: "We Provide World Class",
+      subTitle2: "House shifting services in Dhaka",
+      descripttion:
+        "Welcome to PACK & SHIFT Removal group, Professional House Shifting Service to anywhere in Bangladesh from Dhaka City. AlsoInternational movers and packers Any country of the world",
+      image: img4,
+    },
   ];
 
   return (

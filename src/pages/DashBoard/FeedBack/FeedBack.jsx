@@ -8,13 +8,17 @@ import { getUserInfo } from "../../Shared/auth/auth.service";
 
 const FeedBack = () => {
   const token = localStorage.getItem(TOKEN);
-  const { data, refetch } = useQuery({
+  const { data, refetch, isLoading } = useQuery({
     queryKey: [],
     queryFn: async () => {
       const res = await fetch("http://localhost:5000/api/v1/reviews");
       return res.json();
     },
   });
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   const { role } = getUserInfo();
 

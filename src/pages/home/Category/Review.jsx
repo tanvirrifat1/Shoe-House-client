@@ -33,7 +33,7 @@ import SectionTitle from "../../../components/sectionTitle/SectionTitle";
 
 const Reviews = () => {
   const { data, isLoading } = useQuery({
-    queryKey: [],
+    queryKey: ["data"],
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/api/v1/reviews`);
       return res.json();
@@ -120,9 +120,6 @@ const Reviews = () => {
                             ))}
                         </div>
                       </div>
-                      <Typography color="blue-gray">
-                        Frontend Lead @ Google
-                      </Typography>
                     </div>
                   </CardHeader>
                   <CardBody className="mb-6 p-0">

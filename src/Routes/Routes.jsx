@@ -21,6 +21,7 @@ import PaymentHistory from "../pages/DashBoard/Payment/PaymentHistory";
 import AdminHome from "../pages/DashBoard/AdminHome/AdminHome";
 import UserHome from "../pages/DashBoard/UserHome/UserHome";
 import Reservation from "../pages/DashBoard/Reservation/Reservation";
+import ErrorPage from "../components/Error/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
             <Secret />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ],
   },

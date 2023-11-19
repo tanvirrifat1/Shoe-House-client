@@ -112,7 +112,7 @@ const Dashboard = () => {
           )}
 
           <div className="divider"></div>
-          <li onClick={() => window.location.assign("/")}>
+          <li>
             <NavLink to="/">
               <FaHome />
               Home
@@ -138,3 +138,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+// onClick={() => window.location.assign("/")}

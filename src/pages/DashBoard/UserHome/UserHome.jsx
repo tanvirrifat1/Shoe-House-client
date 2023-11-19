@@ -4,6 +4,7 @@ import { FiWatch } from "react-icons/fi";
 import { VscFeedback } from "react-icons/vsc";
 import { FaCartArrowDown } from "react-icons/fa";
 import { useAuth } from "../../../hooks/useAuth";
+import { ResponsiveContainer, PieChart, Pie, Legend } from "recharts";
 
 import {
   Card,

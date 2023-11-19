@@ -8,7 +8,7 @@ import { getUserInfo } from "../../Shared/auth/auth.service";
 
 const AllUser = () => {
   const token = localStorage.getItem(TOKEN);
-  const { data, refetch } = useQuery({
+  const { data, refetch, isLoading } = useQuery({
     queryKey: [],
     queryFn: async () => {
       const res = await fetch(
@@ -22,6 +22,10 @@ const AllUser = () => {
       return res.json();
     },
   });
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   const handleUpdate = (id) => {
     fetch(`https://watch-shop-mongoose.vercel.app/api/v1/user/${id}`, {

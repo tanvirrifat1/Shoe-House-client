@@ -42,7 +42,7 @@ const Order = () => {
       </Helmet>
       <Cover title={"order here"} img={img} />
       {/* tab */}
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center py-4">
         <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <TabList>
             <Tab>Rolex</Tab>

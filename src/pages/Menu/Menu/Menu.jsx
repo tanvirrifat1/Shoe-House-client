@@ -2,10 +2,11 @@ import { Helmet } from "react-helmet-async";
 import Cover from "../../Shared/Cover/Cover";
 import menuImg from "../../../assets/assets/watchMenu2.png";
 import RolexCover from "../../../assets/assets/cover3.jpg";
-import OmegaCover from "../../../assets/assets/watchCover4.png";
+import OmegaCover from "../../../assets/assets/omega.png";
 import TAG_HeuerCover from "../../../assets/assets/tag.png";
-import GarminCover from "../../../assets/assets/watch7.png";
-import BreitlingCover from "../../../assets/assets/category/watch20.png";
+import GarminCover from "../../../assets/assets/garmin.png";
+import BreitlingCover from "../../../assets/assets/Breitling.png";
+import fitbitCover from "../../../assets/assets/fitbit.png";
 import { useMenu } from "../../../hooks/useMenu";
 import SectionTitle from "../../../components/sectionTitle/SectionTitle";
 import MenuCategory from "../../MenuCategory/MenuCategory";
@@ -35,7 +36,7 @@ const Menu = () => {
           items={Fitbit}
           paragraph="Fitbit is a well-known brand in the fitness and health technology industry, specializing in wearable devices that track various aspects of your daily activity, exercise, sleep, and overall well-being. "
           title="Fitbit"
-          img={BreitlingCover}
+          img={fitbitCover}
         />
         {/* rolex */}
         <MenuCategory

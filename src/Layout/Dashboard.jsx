@@ -60,7 +60,7 @@ const Dashboard = () => {
                   Manage Watches
                 </NavLink>
               </li>
-              <li>
+              <li onClick={() => window.location.assign("/dashBoard/feedback")}>
                 <NavLink to="/dashBoard/feedback">
                   <VscFeedback />
                   FeedBack
@@ -72,7 +72,7 @@ const Dashboard = () => {
                   Manage Booking
                 </NavLink>
               </li> */}
-              <li>
+              <li onClick={() => window.location.assign("/dashBoard/allUsers")}>
                 <NavLink to="/dashBoard/allUsers">
                   <FaUsers />
                   All Users

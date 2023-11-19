@@ -1,7 +1,7 @@
 import React from "react";
 import img6 from "../../../assets/assets/cover1.jpg";
 import img from "../../../assets/assets/cover3.jpg";
-import img1 from "../../../assets/assets/watchCover4.png";
+import img1 from "../../../assets/assets/cover/cover1.png";
 import "./Banner.css";
 import HelpLine from "./HelpLine";
 import { Carousel } from "@material-tailwind/react";

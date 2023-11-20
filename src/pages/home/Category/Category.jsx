@@ -155,7 +155,7 @@ const Category = () => {
                   </figure>
                   <blockquote className="blockquote bg-blue-100 flex h-full flex-col justify-center group rounded-2xl cursor-pointer transition-all duration-300  sm:pt-16 sm:p-8">
                     <p className="text-2xl mb-1 text-center font-bold text-primaryColor sm:text-3xl">
-                      {review?.title}
+                      {review?.title.slice(0, 40)}
                     </p>
                   </blockquote>
                 </div>

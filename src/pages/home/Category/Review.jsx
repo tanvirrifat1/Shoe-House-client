@@ -98,13 +98,14 @@ const Reviews = () => {
                     color="transparent"
                     floated={false}
                     shadow={false}
-                    className="mx-0 flex items-center gap-4 pt-0 pb-8"
+                    className="mx-0  flex items-center gap-4 pt-0 pb-8"
                   >
                     <Avatar
                       size="lg"
                       variant="circular"
                       src={review?.image}
                       alt="tania andrew"
+                      className="h-16 w-20"
                     />
                     <div className="flex w-full flex-col gap-0.5">
                       <div className="flex items-center justify-between">
@@ -125,7 +126,7 @@ const Reviews = () => {
                     </div>
                   </CardHeader>
                   <CardBody className="mb-6 p-0">
-                    <Typography>{review?.details}</Typography>
+                    <Typography>{review?.details.slice(0, 200)}...</Typography>
                   </CardBody>
                 </Card>
               </SwiperSlide>

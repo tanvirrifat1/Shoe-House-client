@@ -1,12 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import Cover from "../../Shared/Cover/Cover";
-import menuImg from "../../../assets/assets/watchMenu2.png";
+import menuImg from "../../../assets/assets/more2.jpg";
 import RolexCover from "../../../assets/assets/cover3.jpg";
-import OmegaCover from "../../../assets/assets/omega.png";
+import OmegaCover from "../../../assets/assets/omega.jpg";
 import TAG_HeuerCover from "../../../assets/assets/tag.png";
 import GarminCover from "../../../assets/assets/garmin.png";
 import BreitlingCover from "../../../assets/assets/Breitling.png";
-import fitbitCover from "../../../assets/assets/fitbit.png";
+import fitbitCover from "../../../assets/assets/fitbit.jpg";
 import { useMenu } from "../../../hooks/useMenu";
 import SectionTitle from "../../../components/sectionTitle/SectionTitle";
 import MenuCategory from "../../MenuCategory/MenuCategory";

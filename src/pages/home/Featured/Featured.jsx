@@ -16,7 +16,7 @@ const Featured = () => {
   return (
     <div className="featured-item bg-fixed text-white my-20 pt-2 rounded-xl">
       <SectionTitle subHeading="check it out" heading="from our shop" />
-      <div className="flex flex-col md:flex-row justify-center items-center pb-10 md:pb-20 px-6 md:px-10 lg:px-20">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-8 pb-10 md:pb-20 px-6 md:px-10 lg:px-20">
         <div className="mb-4 lg:mb-0 lg:mr-6 lg:w-1/2">
           <img className="rounded-2xl w-72 lg:ml-32 h-72" src={image} alt="" />
         </div>

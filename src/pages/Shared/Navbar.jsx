@@ -6,6 +6,7 @@ import useCart from "../../hooks/useCart";
 import Drawer from "./Drawer/Page";
 import logo from "../../assets/assets/watchMenu2.png";
 import { getUserInfo } from "./auth/auth.service";
+import { FaUserLarge } from "react-icons/fa6";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -21,16 +22,6 @@ const Navbar = () => {
   const navOption = (
     <>
       <ul className="lg:flex space-x-6 text-lg">
-        {/* <li>
-          <button
-            onClick={() => window.location.assign("/")}
-            href="#"
-            className="text-gray-300 lg:hover:text-slate-400"
-          >
-            Home
-          </button>
-        </li> */}
-
         <li
           // onClick={() => window.location.assign("/")}
           className="text-gray-300 lg:hover:text-slate-400"
@@ -64,12 +55,12 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                  <button
+                  {/* <button
                     href="#"
                     className="text-gray-300 lg:hover:text-slate-400"
                   >
                     <Link to="/dashBoard/userHome">DashBoard</Link>
-                  </button>
+                  </button> */}
                 </>
               )}
             </li>
@@ -80,7 +71,7 @@ const Navbar = () => {
 
         {user ? (
           <>
-            <li>
+            {/* <li>
               <button
                 onClick={handleLogOut}
                 href="#"
@@ -88,7 +79,7 @@ const Navbar = () => {
               >
                 Logout
               </button>
-            </li>
+            </li> */}
           </>
         ) : (
           <>
@@ -119,60 +110,113 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar sticky top-0 z-50 bg-[#455a64] text-white">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <div className=" sticky top-0 z-50 bg-[#455a64] text-white">
+      <div className=" container mx-auto navbar">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm bg-black dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-52"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm bg-black dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-52"
-          >
-            {navOption}
-          </ul>
-        </div>
-
-        <div
-          onClick={() => window.location.assign("/")}
-          className="flex justify-center"
-        >
-          <div className="w-12 h-12 ">
-            <img className="rounded-full" src={logo} alt="" />
+              {navOption}
+            </ul>
           </div>
+
+          <div
+            onClick={() => window.location.assign("/")}
+            className="flex justify-center "
+          >
+            <div className="w-12 h-12 ">
+              <img className="rounded-full" src={logo} alt="" />
+            </div>
+          </div>
+          <Drawer />
         </div>
-        <Drawer />
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navOption}</ul>
-      </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">{navOption}</ul>
+        </div>
 
-      <div className="navbar-end">
-        {user?.photoURL ? (
-          <img
-            className=" w-12 h-12 rounded-full dark:bg-gray-500"
-            src={user?.photoURL}
-            alt=""
-          ></img>
-        ) : (
-          <></>
-        )}
+        <div className="navbar-end ">
+          <div className="dropdown dropdown-end">
+            <div className="avatar mx-4" tabIndex={0}>
+              <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                {user?.photoURL ? (
+                  <>
+                    <img
+                      width={50}
+                      height={50}
+                      alt="avater"
+                      src={user?.photoURL}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <p className="text-black text-3xl flex justify-center">
+                      <FaUserLarge />
+                    </p>
+                  </>
+                )}
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content text-black z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 font-semibold"
+            >
+              <li>
+                {" "}
+                <p className="m-2 font-semibold text-primary">
+                  {user?.displayName}
+                </p>
+              </li>
+              {user ? (
+                <>
+                  <li className="">
+                    {role !== "user" ? (
+                      <>
+                        <Link
+                          to="/dashBoard/adminHome"
+                          className="text-black lg:hover:text-slate-400"
+                        >
+                          <p>DashBoard</p>
+                        </Link>
+                      </>
+                    ) : (
+                      <>
+                        <Link
+                          to="/dashBoard/userHome"
+                          className="text-black lg:hover:text-slate-400"
+                        >
+                          <p>Profile</p>
+                        </Link>
+                      </>
+                    )}
+                  </li>
+                </>
+              ) : (
+                <></>
+              )}
 
-        <div className="ml-2">
-          {user?.displayName ? <h1>{user?.displayName}</h1> : <></>}
+              <li>
+                <li onClick={logOut}>Logout</li>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

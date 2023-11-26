@@ -97,8 +97,8 @@ const Category = () => {
   ];
 
   return (
-    <div className=" w-full lg:w-[1440px] mx-auto">
-      <section className="container relative py-20">
+    <div className="w-full lg:w-[1440px] mx-auto">
+      <section className=" relative py-20">
         <div className="flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">

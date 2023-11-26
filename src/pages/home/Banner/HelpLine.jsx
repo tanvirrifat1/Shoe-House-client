@@ -9,29 +9,34 @@ const HelpLine = () => {
       data-aos-duration="2000"
     >
       <div className="container flex flex-col justify-center p-4 mx-auto">
-        <div className="grid mx-auto gap-32 grid-cols-1  lg:grid-cols-3 sm:grid-cols-2">
-          <div className="card w-60 bg-white mt-6 h-60 flex justify-center items-center  rounded-full shadow-xl">
-            <div className="flex-col px-2 flex justify-center items-center w">
-              <h2 className="text-8xl">
+        <div className="flex lg:gap-60 sm:gap-3 md:gap-28 gap-4">
+          <div className="card h-28 w-36 lg:w-60  lg:h-60 bg-white mt-6  flex justify-center items-center  rounded-full shadow-xl">
+            <div className="flex-col px-2 flex justify-center items-center ">
+              <h2 className="lg:text-8xl text-2xl">
                 <AiOutlineFieldTime className="text-[#455a64]" />
               </h2>
-              <p className="font-semibold">Book Online</p>
+              <p className="font-semibold text-sm lg:text-2xl">Book Online</p>
             </div>
           </div>
-          <div className="card w-60 -mt-12 bg-[#455a64] text-white h-60 flex justify-center items-center  rounded-full shadow-xl">
-            <div className="flex-col px-2 flex justify-center items-center w">
-              <h2 className="text-8xl">
+          {/*  */}
+          <div className="card h-28 w-36 lg:w-60  lg:h-60 -mt-12 bg-[#455a64] text-white flex justify-center items-center  rounded-full shadow-xl">
+            <div className="flex-col px-2 flex justify-center items-center ">
+              <h2 className="lg:text-8xl text-2xl">
                 <AiFillCar />
               </h2>
-              <p className="font-semibold">We Drive</p>
+              <p className="font-semibold text-sm lg:text-2xl">We Drive</p>
             </div>
           </div>
-          <div className="card mt-4 w-60 bg-white h-60 flex justify-center items-center  rounded-full shadow-xl">
-            <div className="flex-col px-2 flex justify-center items-center w">
-              <h2 className="text-7xl">
+          {/*  */}
+
+          <div className="card h-28 w-36 lg:w-60  lg:h-60 bg-white mt-6  flex justify-center items-center  rounded-full shadow-xl">
+            <div className="flex-col px-2 flex justify-center items-center ">
+              <h2 className="lg:text-8xl text-2xl">
                 <FaPencilRuler className="text-[#455a64]" />
               </h2>
-              <p className="font-semibold mt-1">Solve Problem</p>
+              <p className="font-semibold text-sm lg:text-2xl text-center">
+                Solve Problem
+              </p>
             </div>
           </div>
         </div>

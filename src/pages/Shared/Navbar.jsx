@@ -167,7 +167,7 @@ const Navbar = () => {
                   </>
                 ) : (
                   <>
-                    <p className="text-black text-3xl flex justify-center">
+                    <p className="text-white lg:mt-1 text-2xl flex justify-center">
                       <FaUserLarge />
                     </p>
                   </>

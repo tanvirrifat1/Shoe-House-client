@@ -232,12 +232,12 @@ const WatchCardID = () => {
 
               <label
                 onClick={handleOpen}
-                className="flex items-center p-2 rounded-xl bg-green-900 text-white hover:text-black gap-2"
+                className="flex items-center p-2  btn btn-outline gap-2 rounded-2xl"
                 htmlFor="my_modal_6"
               >
-                <div className="flex items-center  bg-green-900 text-white hover:text-black gap-2">
+                <div className="flex items-center gap-2">
                   FeedBAck
-                  <BiSolidMessage />
+                  <BiSolidMessage className="text-blue-gray-600" />
                 </div>
               </label>
             </div>

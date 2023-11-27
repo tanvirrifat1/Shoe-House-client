@@ -45,7 +45,6 @@ const Drawer = () => {
             .then((res) => res.json())
             .then((data) => {
               if (data.data) {
-                Swal.fire("Deleted successfully");
                 refetch();
               }
             });

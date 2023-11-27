@@ -23,7 +23,7 @@ const WatchCardID = () => {
   const [cart, refetch] = useCart();
   const { user } = useContext(AuthContext);
   const [openModal, setOpenModal] = useState(null);
-
+  console.log(user);
   const handleOpen = () => {
     setOpenModal(true);
   };
@@ -47,22 +47,28 @@ const WatchCardID = () => {
         image: data?.data.image,
         name: data?.data.name,
         price: data?.data.price,
+        productId: data?.data?._id,
       };
 
-      fetch("https://watch-shop-mongoose.vercel.app/api/v1/cart/create-cart", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(saveData),
-      })
+      fetch(
+        `https://watch-shop-mongoose.vercel.app/api/v1/cart/create-cart?email=${user?.email}`,
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveData),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
-          if (data) {
-            Swal.fire("Booking successfully!");
+          console.log(data?.statusCode);
+          if (data?.statusCode === 200) {
+            Swal.fire("Order successfully!");
             refetch();
           } else {
             Swal.fire("Already Booked");
+            refetch();
           }
         });
     } else {

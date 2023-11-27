@@ -212,9 +212,23 @@ const Navbar = () => {
                 <></>
               )}
 
-              <li>
-                <li onClick={logOut}>Logout</li>
-              </li>
+              {user ? (
+                <>
+                  <li>
+                    <button onClick={handleLogOut} className="text-black ">
+                      Logout
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <button className="text-black ">
+                      <Link to="/login">Login</Link>
+                    </button>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

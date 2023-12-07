@@ -223,9 +223,9 @@ const Navbar = () => {
               ) : (
                 <>
                   <li>
-                    <button className="text-black ">
-                      <Link to="/login">Login</Link>
-                    </button>
+                    <Link className="btn" to="/login">
+                      Login
+                    </Link>
                   </li>
                 </>
               )}

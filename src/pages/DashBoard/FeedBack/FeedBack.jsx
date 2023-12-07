@@ -5,9 +5,11 @@ import { AiFillDelete } from "react-icons/ai";
 import { TOKEN } from "../../Shared/token/token";
 import Swal from "sweetalert2";
 import { getUserInfo } from "../../Shared/auth/auth.service";
+import { useDeleteReviewsMutation } from "../../../Redux/api/reviewApi";
 
 const FeedBack = () => {
   const token = localStorage.getItem(TOKEN);
+  const [deleteReviews] = useDeleteReviewsMutation();
   const { data, refetch, isLoading } = useQuery({
     queryKey: [],
     queryFn: async () => {
@@ -18,22 +20,13 @@ const FeedBack = () => {
     },
   });
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-
   const { role } = getUserInfo();
 
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     if (role === "admin") {
-      fetch(`https://watch-shop-mongoose.vercel.app/api/v1/reviews/${id}`, {
-        method: "DELETE",
-        headers: {
-          authorization: token,
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
+      const res = await deleteReviews(id);
+      if (res) {
+        {
           Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -54,11 +47,53 @@ const FeedBack = () => {
               }
             }
           });
-        });
-    } else {
-      Swal.fire("you are not authorized!");
+        }
+      } else {
+        Swal.fire("you are not authorized!");
+      }
     }
   };
+
+  // const handleDelete = (id) => {
+  //   if (role === "admin") {
+  //     fetch(`https://watch-shop-mongoose.vercel.app/api/v1/reviews/${id}`, {
+  //       method: "DELETE",
+  //       headers: {
+  //         authorization: token,
+  //       },
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) =>
+  //       {
+  //         Swal.fire({
+  //           title: "Are you sure?",
+  //           text: "You won't be able to revert this!",
+  //           icon: "warning",
+  //           showCancelButton: true,
+  //           confirmButtonColor: "#3085d6",
+  //           cancelButtonColor: "#d33",
+  //           confirmButtonText: "Yes, delete it!",
+  //         }).then((result) => {
+  //           if (result.isConfirmed) {
+  //             if (data?.data) {
+  //               refetch();
+  //               Swal.fire({
+  //                 title: "Deleted!",
+  //                 text: "Your file has been deleted.",
+  //                 icon: "success",
+  //               });
+  //             }
+  //           }
+  //         });
+  //       });
+  //   } else {
+  //     Swal.fire("you are not authorized!");
+  //   }
+  // };
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div>

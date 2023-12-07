@@ -4,13 +4,17 @@ import { Helmet } from "react-helmet-async";
 import { useAuth } from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useCreateReviewsMutation } from "../../../Redux/api/reviewApi";
 
 const Feedback = ({ setOpenModal }) => {
   const { user } = useAuth();
   const router = useNavigate();
   const location = useLocation();
 
+  const [createReviews] = useCreateReviewsMutation();
+
   const onSubmit = async (data) => {
+    console.log(data);
     try {
       const image = user?.photoURL;
       const name = user?.displayName;
@@ -24,49 +28,73 @@ const Feedback = ({ setOpenModal }) => {
       if (name) {
         data.name = name;
       }
-      const updateUrl =
-        "https://watch-shop-mongoose.vercel.app/api/v1/reviews/create-reviews";
-      const updateResponse = await fetch(updateUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
 
-      if (updateResponse) {
-        if (updateResponse.ok) {
-          Swal.fire({
-            title: "FeedBack Successfully!",
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-          });
-        } else {
-          {
-            Swal.fire({
-              title: "Please Login First?",
-              icon: "warning",
-              showCancelButton: true,
-              confirmButtonColor: "#3085d6",
-              cancelButtonColor: "#d33",
-              confirmButtonText: "Yes, Login",
-            }).then((result) => {
-              if (result.isConfirmed) {
-                router("/login", { state: { from: location } });
-              }
-            });
-          }
-        }
-        setOpenModal(null);
-      }
+      const res = await createReviews(data);
+      console.log(res);
+      setOpenModal(null);
     } catch (error) {
       console.log(error);
     }
   };
+
+  //  const onSubmit = async (data) => {
+  //    try {
+  //      const image = user?.photoURL;
+  //      const name = user?.displayName;
+  //      const email = user?.email;
+  //      if (image) {
+  //        data.image = image;
+  //      }
+  //      if (email) {
+  //        data.email = email;
+  //      }
+  //      if (name) {
+  //        data.name = name;
+  //      }
+
+  //      const updateUrl =
+  //        "https://watch-shop-mongoose.vercel.app/api/v1/reviews/create-reviews";
+  //      const updateResponse = await fetch(updateUrl, {
+  //        method: "POST",
+  //        headers: {
+  //          "Content-Type": "application/json",
+  //        },
+  //        body: JSON.stringify(data),
+  //      });
+
+  //      if (updateResponse) {
+  //        if (updateResponse.ok) {
+  //          Swal.fire({
+  //            title: "FeedBack Successfully!",
+  //            showClass: {
+  //              popup: "animate__animated animate__fadeInDown",
+  //            },
+  //            hideClass: {
+  //              popup: "animate__animated animate__fadeOutUp",
+  //            },
+  //          });
+  //        } else {
+  //          {
+  //            Swal.fire({
+  //              title: "Please Login First?",
+  //              icon: "warning",
+  //              showCancelButton: true,
+  //              confirmButtonColor: "#3085d6",
+  //              cancelButtonColor: "#d33",
+  //              confirmButtonText: "Yes, Login",
+  //            }).then((result) => {
+  //              if (result.isConfirmed) {
+  //                router("/login", { state: { from: location } });
+  //              }
+  //            });
+  //          }
+  //        }
+  //        setOpenModal(null);
+  //      }
+  //    } catch (error) {
+  //      console.log(error);
+  //    }
+  //  };
 
   return (
     <div>

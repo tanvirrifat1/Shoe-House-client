@@ -15,6 +15,7 @@ import {
 import Magnifier from "react-magnifier";
 import { BiArrowBack, BiSolidMessage } from "react-icons/bi";
 import Feedback from "../../../pages/Shared/Drawer/Feedback";
+import { useGetSingleWatchQuery } from "../../../Redux/api/watchAPI";
 
 const WatchCardID = () => {
   const { id } = useParams();
@@ -23,20 +24,22 @@ const WatchCardID = () => {
   const [cart, refetch] = useCart();
   const { user } = useContext(AuthContext);
   const [openModal, setOpenModal] = useState(null);
-  console.log(user);
+
   const handleOpen = () => {
     setOpenModal(true);
   };
 
-  const { data } = useQuery({
-    queryKey: [],
-    queryFn: async () => {
-      const res = await fetch(
-        `https://watch-shop-mongoose.vercel.app/api/v1/menu/${id}`
-      );
-      return res.json();
-    },
-  });
+  const { data, isLoading } = useGetSingleWatchQuery(id);
+
+  // const { data } = useQuery({
+  //   queryKey: [],
+  //   queryFn: async () => {
+  //     const res = await fetch(
+  //       `https://watch-shop-mongoose.vercel.app/api/v1/menu/${id}`
+  //     );
+  //     return res.json();
+  //   },
+  // });
 
   const handleAddToCart = () => {
     if (user && user?.email) {
@@ -125,7 +128,9 @@ const WatchCardID = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
   return (
     <div>
       <div className="lg:ml-52 lg:mt-20" onClick={() => navigate(-1)}>

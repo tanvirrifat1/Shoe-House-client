@@ -128,9 +128,15 @@ const WatchCardID = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="mt-52">
+        <p className="text-5xl text-center min-h-[500px] ">Loading...</p>;
+      </div>
+    );
   }
+
   return (
     <div>
       <div className="lg:ml-52 lg:mt-20" onClick={() => navigate(-1)}>

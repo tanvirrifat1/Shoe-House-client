@@ -9,6 +9,15 @@ const reviewApi = baseApi.injectEndpoints({
       }),
     }),
 
+    getAllReviews: build.query({
+      query: () => {
+        return {
+          url: "reviews",
+          method: "GET",
+        };
+      },
+    }),
+
     createReviews: build.mutation({
       query: (body) => ({
         url: "/reviews/create-reviews",
@@ -19,4 +28,8 @@ const reviewApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useDeleteReviewsMutation, useCreateReviewsMutation } = reviewApi;
+export const {
+  useDeleteReviewsMutation,
+  useCreateReviewsMutation,
+  useGetAllReviewsQuery,
+} = reviewApi;

@@ -30,20 +30,27 @@ import {
 
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../components/sectionTitle/SectionTitle";
+import { useGetAllReviewsQuery } from "../../../Redux/api/reviewApi";
 
 const Reviews = () => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["data"],
-    queryFn: async () => {
-      const res = await fetch(
-        `https://watch-shop-mongoose.vercel.app/api/v1/reviews`
-      );
-      return res.json();
-    },
-  });
+  const { data, isLoading } = useGetAllReviewsQuery(undefined);
+
+  // const { data, isLoading } = useQuery({
+  //   queryKey: ["data"],
+  //   queryFn: async () => {
+  //     const res = await fetch(
+  //       `https://watch-shop-mongoose.vercel.app/api/v1/reviews`
+  //     );
+  //     return res.json();
+  //   },
+  // });
 
   if (isLoading) {
-    return <p>Loading....</p>;
+    return (
+      <div className="mt-52">
+        <p className="text-5xl text-center min-h-[500px] ">Loading...</p>;
+      </div>
+    );
   }
 
   return (

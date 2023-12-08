@@ -12,7 +12,7 @@ const reviewApi = baseApi.injectEndpoints({
     getAllReviews: build.query({
       query: () => {
         return {
-          url: "reviews",
+          url: "/reviews",
           method: "GET",
         };
       },

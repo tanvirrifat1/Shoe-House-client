@@ -10,7 +10,15 @@ const watchApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+
+    updateWatch: build.mutation({
+      query: ({ id, body }) => ({
+        url: `${MENU_API}/${id}`,
+        method: "PATCH",
+        body,
+      }),
+    }),
   }),
 });
 
-export const { useGetSingleWatchQuery } = watchApi;
+export const { useGetSingleWatchQuery, useUpdateWatchMutation } = watchApi;

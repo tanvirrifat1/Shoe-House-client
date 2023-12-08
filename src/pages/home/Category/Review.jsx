@@ -9,16 +9,7 @@ import {
 } from "swiper/modules";
 import "swiper/css";
 
-import { AiFillStar, AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-
-import img1 from "../../../assets/assets/category/watch1.png";
-import img2 from "../../../assets/assets/category/watch16.png";
-import img3 from "../../../assets/assets/category/watch19.png";
-import img4 from "../../../assets/assets/category/watch16.png";
-import img5 from "../../../assets/assets/category/watch14.png";
-import img6 from "../../../assets/assets/category/watch6.png";
-import img7 from "../../../assets/assets/category/watch10.png";
-import img8 from "../../../assets/assets/category/watch15.png";
+import { AiFillStar } from "react-icons/ai";
 
 import {
   Card,
@@ -28,7 +19,6 @@ import {
   Avatar,
 } from "@material-tailwind/react";
 
-import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../components/sectionTitle/SectionTitle";
 import { useGetAllReviewsQuery } from "../../../Redux/api/reviewApi";
 

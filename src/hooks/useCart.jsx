@@ -22,16 +22,6 @@ const useCart = () => {
       );
       return res.json();
     },
-    // queryFn: async () => {
-    //   const res = await axiosSecure(`/cart?email=${user?.email}`, {
-    //     headers: {
-    //       authorization: token,
-    //     },
-    //   });
-    //   console.log(res?.data?.data);
-    //   const result = await res?.data?.data;
-    //   return result;
-    // },
   });
 
   return [cart, refetch];

@@ -25,16 +25,6 @@ import { useGetAllReviewsQuery } from "../../../Redux/api/reviewApi";
 const Reviews = () => {
   const { data, isLoading } = useGetAllReviewsQuery(undefined);
 
-  // const { data, isLoading } = useQuery({
-  //   queryKey: ["data"],
-  //   queryFn: async () => {
-  //     const res = await fetch(
-  //       `https://watch-shop-mongoose.vercel.app/api/v1/reviews`
-  //     );
-  //     return res.json();
-  //   },
-  // });
-
   if (isLoading) {
     return (
       <div className="mt-52">
@@ -130,14 +120,6 @@ const Reviews = () => {
             ))}
           </Swiper>
         </div>
-        {/* <div className="absolute right-20 bottom-10 hidden md:flex gap-5">
-          <button className="prev z-10 w-10 h-10 rounded-full bg-blue-500 shadow-xl flex items-center hover:-translate-x-1 transition-all duration-300 justify-center group">
-            <AiOutlineLeft className="w-6 h-6 text-white" />
-          </button>
-          <button className="next z-10 w-10 h-10 rounded-full bg-blue-500 shadow-xl flex items-center hover:translate-x-1 transition-all duration-300 justify-center group">
-            <AiOutlineRight className="w-6 h-6 text-white" />
-          </button>
-        </div> */}
       </section>
     </div>
   );

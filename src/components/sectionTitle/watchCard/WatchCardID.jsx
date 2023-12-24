@@ -31,16 +31,6 @@ const WatchCardID = () => {
 
   const { data, isLoading } = useGetSingleWatchQuery(id);
 
-  // const { data } = useQuery({
-  //   queryKey: [],
-  //   queryFn: async () => {
-  //     const res = await fetch(
-  //       `https://watch-shop-mongoose.vercel.app/api/v1/menu/${id}`
-  //     );
-  //     return res.json();
-  //   },
-  // });
-
   const handleAddToCart = () => {
     if (user && user?.email) {
       const saveData = {
@@ -152,11 +142,6 @@ const WatchCardID = () => {
             floated={false}
             className="m-0 w-2/5 shrink-0 rounded-r-none"
           >
-            {/* <img
-            src={data?.data?.image}
-            alt="card-image"
-            className="h-full w-full object-cover"
-          /> */}
             <Magnifier
               src={data?.data?.image}
               className="h-full w-full object-cover"

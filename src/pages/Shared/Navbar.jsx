@@ -54,14 +54,7 @@ const Navbar = () => {
                   </button>
                 </>
               ) : (
-                <>
-                  {/* <button
-                    href="#"
-                    className="text-gray-300 lg:hover:text-slate-400"
-                  >
-                    <Link to="/dashBoard/userHome">DashBoard</Link>
-                  </button> */}
-                </>
+                <></>
               )}
             </li>
           </>
@@ -70,17 +63,7 @@ const Navbar = () => {
         )}
 
         {user ? (
-          <>
-            {/* <li>
-              <button
-                onClick={handleLogOut}
-                href="#"
-                className="text-gray-300 lg:hover:text-slate-400"
-              >
-                Logout
-              </button>
-            </li> */}
-          </>
+          <></>
         ) : (
           <>
             <li>

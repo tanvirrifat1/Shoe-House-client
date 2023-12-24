@@ -66,12 +66,6 @@ const Dashboard = () => {
                   FeedBack
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink to="/dashBoard/history">
-                  <FaBook />
-                  Manage Booking
-                </NavLink>
-              </li> */}
               <li onClick={() => window.location.assign("/dashBoard/allUsers")}>
                 <NavLink to="/dashBoard/allUsers">
                   <FaUsers />

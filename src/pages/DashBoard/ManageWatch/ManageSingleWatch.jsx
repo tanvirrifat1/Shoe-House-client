@@ -43,8 +43,6 @@ const ManageSingleWatch = () => {
     name: data?.data?.name,
     price: data?.data?.price,
   };
-  // const res = await updatedWatch({ id, body: data });
-  //     console.log(res);
 
   const onSubmit = async (data) => {
     const formData = new FormData();
@@ -79,49 +77,6 @@ const ManageSingleWatch = () => {
       router("/dashBoard/manageWatch");
     }
   };
-  // const onSubmit = async (data) => {
-  //   const formData = new FormData();
-  //   formData.append("image", image);
-  //   const url = `https://api.imgbb.com/1/upload?key=${
-  //     import.meta.env.VITE_IMG_key
-  //   }`;
-  //   const response = await fetch(url, {
-  //     method: "POST",
-  //     body: formData,
-  //   });
-  //   if (response.ok) {
-  //     const responseData = await response.json();
-  //     if (responseData.data) {
-  //       data.image = responseData.data.display_url;
-  //     }
-  //   }
-
-  //   const updateUrl = `https://watch-shop-mongoose.vercel.app/api/v1/menu/${id}`;
-  //   const updateResponse = await fetch(updateUrl, {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       authorization: token,
-  //     },
-  //     body: JSON.stringify(data),
-  //   });
-  //   console.log(updateUrl, "hello");
-  //   console.log(data, "data");
-
-  //   if (updateResponse) {
-  //     toast("watch manage successfully", {
-  //       position: "top-center",
-  //       autoClose: 5000,
-  //       hideProgressBar: false,
-  //       closeOnClick: true,
-  //       pauseOnHover: true,
-  //       draggable: true,
-  //       progress: undefined,
-  //       theme: "light",
-  //     });
-  //     // router("/dashBoard/manageWatch");
-  //   }
-  // };
 
   const roles = [
     {

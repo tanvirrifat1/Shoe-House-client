@@ -1,9 +1,5 @@
 import "./carousel.css";
 
-import img2 from "../../../assets/assets/watch5.png";
-import img3 from "../../../assets/assets/watch7.png";
-import img5 from "../../../assets/assets/watch3.png";
-import img6 from "../../../assets/assets/watch2.png";
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 

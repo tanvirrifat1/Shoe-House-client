@@ -14,14 +14,20 @@ const Featured = () => {
   });
 
   return (
-    <div className="featured-item bg-fixed text-white my-20 pt-2 rounded-xl">
-      <SectionTitle subHeading="check it out" heading="from our shop" />
-      <div className="flex flex-col md:flex-row justify-center items-center gap-8 pb-10 md:pb-20 px-6 md:px-10 lg:px-20">
-        <div className="mb-4 lg:mb-0 lg:mr-6 lg:w-1/2">
-          <img className="rounded-2xl w-72 lg:ml-32 h-72" src={image} alt="" />
+    <div className="featured-item bg-fixed text-white my-10 md:my-20 pt-2 rounded-xl">
+      <SectionTitle subHeading="Check it out" heading="From Our Shop" />
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 pb-6 md:pb-12 px-4 md:px-8 lg:px-16">
+        <div className="mb-4 md:mb-0 lg:mb-0 lg:-mr-12 md:w-[350px] lg:w-1/2">
+          <img
+            className="rounded-2xl w-full md:w-72 lg:w-[880px] h-72"
+            src={image}
+            alt=""
+          />
         </div>
-        <div className="md:ml-10">
-          <p className="font-semibold">{formattedDate}</p>
+        <div className="md:ml-0 md:mr-0 lg:ml-10">
+          <p className="font-semibold text-center md:text-left">
+            {formattedDate}
+          </p>
           <p>
             <p>🎉 Exclusive Timepiece Extravaganza! 🕒</p>
             Unveiling our Spectacular Summer Sale at Time Square 🌞 Indulge in
@@ -40,9 +46,6 @@ const Featured = () => {
             Website URL or step into our store at Manikganj Sadar. Elevate your
             style with the watch of your dreams. See you there! 🛍️
           </p>
-          {/* <button className="btn btn-outline border-0 border-b-4 text-white my-2">
-            Order now
-          </button> */}
         </div>
       </div>
     </div>

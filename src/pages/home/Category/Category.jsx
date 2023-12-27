@@ -97,11 +97,11 @@ const Category = () => {
   ];
 
   return (
-    <div className="w-full lg:w-[1440px] mx-auto">
+    <div className="w-full container mx-auto">
       <section className=" relative py-20">
         <div className="flex flex-wrap">
           <div className="w-full px-4">
-            <div className="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
+            <div className="mx-auto mb-12 lg:max-w-[510px] text-center lg:mb-20">
               <span className="block mb-2 text-lg font-semibold text-[#455a64]">
                 Read trusted reviews from our customers
               </span>

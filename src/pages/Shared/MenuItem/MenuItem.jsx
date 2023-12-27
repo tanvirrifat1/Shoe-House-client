@@ -11,9 +11,13 @@ import { Link } from "react-router-dom";
 const MenuItem = ({ item }) => {
   const { image, price, name, details, title } = item;
   return (
-    <div className="">
-      <Card className="w-80" data-aos="fade-up-right" data-aos-duration="2000">
-        <CardHeader shadow={false} floated={false} className="h-80">
+    <div className="container mx-auto">
+      <Card
+        className="lg:w-80 "
+        data-aos="fade-up-right"
+        data-aos-duration="2000"
+      >
+        <CardHeader shadow={false} floated={false} className="lg:h-80 md:h-60">
           <img
             src={image}
             alt="card-image"

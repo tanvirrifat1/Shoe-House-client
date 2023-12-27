@@ -114,7 +114,7 @@ const SignUp = () => {
                         handleData(data);
                         console.log("User profile updated");
                         reset();
-                        toast("user created successfully", {
+                        toast("User created successfully", {
                           position: "top-center",
                           autoClose: 1000,
                           hideProgressBar: false,

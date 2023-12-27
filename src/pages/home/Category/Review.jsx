@@ -113,7 +113,7 @@ const Reviews = () => {
                     </div>
                   </CardHeader>
                   <CardBody className="mb-6 p-0">
-                    <Typography>{review?.details.slice(0, 200)}...</Typography>
+                    <Typography>{review?.details.slice(0, 150)}...</Typography>
                   </CardBody>
                 </Card>
               </SwiperSlide>

@@ -162,9 +162,9 @@ const Navbar = () => {
               className="dropdown-content text-black z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 font-semibold"
             >
               <li>
-                {" "}
-                <p className="m-2 font-semibold text-primary">
-                  {user?.displayName}
+                <p className="m-2 font-semibold ">
+                  <span>Welcome</span>
+                  <span className="text-primary">{user?.displayName}</span>
                 </p>
               </li>
               {user ? (

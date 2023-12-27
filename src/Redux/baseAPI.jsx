@@ -4,7 +4,7 @@ import { getBaseUrl } from "../hooks/BaseURL";
 export const baseApi = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/v1",
+    baseUrl: "https://watch-shop-mongoose.vercel.app/api/v1",
   }),
   endpoints: (builder) => ({}),
 });

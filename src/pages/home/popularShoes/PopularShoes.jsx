@@ -19,10 +19,12 @@ const PopularMenu = () => {
         heading={"SPECIAL COLLECTIONS"}
         subHeading={"Popular Items"}
       />
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 container mx-auto gap-6 py-4">
-        {popular?.map((item) => (
-          <MenuItem key={item._id} item={item} />
-        ))}
+      <div className="container mx-auto">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1  gap-6 py-4">
+          {popular?.map((item) => (
+            <MenuItem key={item._id} item={item} />
+          ))}
+        </div>
       </div>
       <Link className="flex justify-center" to={`/order/popular`}>
         <button className="btn  btn-outline border-0 border-b-4 text-black my-2 w-[280px]">

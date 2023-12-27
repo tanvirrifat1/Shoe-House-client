@@ -5,6 +5,7 @@ import { useAuth } from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useCreateReviewsMutation } from "../../../Redux/api/reviewApi";
+import { toast } from "react-toastify";
 
 const Feedback = ({ setOpenModal }) => {
   const { user } = useAuth();
@@ -30,7 +31,18 @@ const Feedback = ({ setOpenModal }) => {
       }
 
       const res = await createReviews(data);
-      console.log(res);
+      if (res) {
+        toast("Feedback successfully", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
       setOpenModal(null);
     } catch (error) {
       console.log(error);

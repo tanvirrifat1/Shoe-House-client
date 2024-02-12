@@ -46,7 +46,7 @@ const Login = () => {
             popup: "animate__animated animate__fadeOutUp",
           },
         });
-        navigate(from, { replcae: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorCode = error.code;
